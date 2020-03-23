@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 
 /**
  * https://github.com/1072431407/graduation_server.git
+ * git remote add origin {url}
+ * git pull origin master
  */
 public class ApplicationTools {
     private static String SERVER_IP =  "192.168.3.36";
