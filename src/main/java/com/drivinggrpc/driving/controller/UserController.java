@@ -195,6 +195,6 @@ public class UserController {
         logger.info("/loginOut:[removeAttribute(\"userInfo\")]");
         request.getSession().removeAttribute("userInfo");
     }
-
+//https://github.com/1072431407/graduation_server.git
 
 }
