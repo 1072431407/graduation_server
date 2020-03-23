@@ -4,6 +4,9 @@ import com.drivinggrpc.driving.DrivingApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * https://github.com/1072431407/graduation_server.git
+ */
 public class ApplicationTools {
     private static String SERVER_IP =  "192.168.3.36";
     public static Logger logger = LoggerFactory.getLogger(DrivingApplication.class);
