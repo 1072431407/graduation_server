@@ -1,0 +1,48 @@
+syntax = "proto3";
+package com.drivinggrpc.driving.rpc.proto.module;
+option  java_package = "com.drivinggrpc.driving.rpc.proto.module";
+option  java_outer_classname = "ModuleProto";
+option  java_multiple_files = true;
+
+service ModuleRpcServer{
+    rpc apply(ApplyRequest) returns(ApplyResponse){}
+    rpc getApplyState(ApplyStateRequest) returns(ApplyStateResponse){}
+    rpc getStatisticsData(StatisticsDataRequest) returns(StatisticsDataResponse){}
+}
+
+message StatisticsDataRequest{
+    enum REQUEST_TYPE {//枚举消息类型
+        SUBJECT_1 = 0; //proto3版本中，首成员必须为0，成员不应有相同的值
+        SUBJECT_4 = 1;
+    }
+    int32 user_id = 1;
+    REQUEST_TYPE request_type = 2;//
+}
+message StatisticsDataResponse{
+    string num_questions = 1;
+    string accuracy = 2;
+    string aver_score = 3;
+    string degree = 4;
+}
+message ApplyStateRequest{
+    int32 user_id = 1;
+}
+message ApplyStateResponse{
+    string state = 1;
+}
+message ApplyRequest {
+    int32 user_id = 1;
+    bytes picture = 2;
+    string date = 3;//报名日期
+    string name = 4;
+    string sex = 5;
+    string age = 6;
+    string address = 7;
+    string phone = 8;
+    string code = 9;
+    string old_type = 10;
+    string type = 11;
+}
+message ApplyResponse {
+    string state = 1;
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.drivinggrpc.driving.dao.UserMessageDao">
+<!--    <select id="loginByUserName" parameterType="String" resultType="com.drivinggrpc.driving.po.User">-->
+<!--        select id,username,password,power from user where username = #{username}-->
+<!--    </select>-->
+
+<!--    <select id="selectById" resultMap="BaseResultMap">-->
+<!--     SELECT id,name,age,born_date,head_img FROM t_user WHERE id = #{id}-->
+<!--    </select>-->
+
+<!--    <insert id="insert" useGeneratedKeys="true" keyProperty="id">-->
+<!--     INSERT INTO t_user(name,age,born_date,head_img)-->
+<!--     VALUES(#{name},#{age},#{bornDate},#{headImg})-->
+<!--    </insert>-->
+
+    <update id="modifyUserMessageByUserId">
+     UPDATE user_message SET
+        user_id = #{user_id}
+        <if test="head_image != null and head_image != '' ">
+            ,head_image = #{head_image}
+        </if>
+        <if test="nick_name != null and nick_name != '' ">
+            ,nick_name = #{nick_name}
+        </if>
+        <if test="signature != null and signature != '' ">
+            ,signature = #{signature}
+        </if>
+        <if test="minute != null and minute != 0 ">
+            ,minute = #{minute}
+        </if>
+        <if test="date != null and date != '' ">
+            ,date = #{date}
+        </if>
+        <if test="name != null and name != '' ">
+            ,name = #{name}
+        </if>
+        <if test="phone != null and phone != '' ">
+            ,phone = #{phone}
+        </if>
+        <if test="sex != null and sex != '' ">
+            ,sex = #{sex}
+        </if>
+        <if test="age != null and age != '0' ">
+            ,age = #{age}
+        </if>
+        <if test="job != null and job != '' ">
+            ,job = #{job}
+        </if>
+        <if test="qq_code != null and qq_code != '' ">
+            ,qq_code = #{qq_code}
+        </if>
+        <if test="we_chat != null and we_chat != '' ">
+            ,we_chat = #{we_chat}
+        </if>
+        <if test="e_mail != null and e_mail != '' ">
+            ,e_mail = #{e_mail}
+        </if>
+     WHERE user_id = #{user_id}
+    </update>
+
+<!--    <delete id="deleteById">-->
+<!--     DELETE FROM t_user WHERE id = #{id}-->
+<!--    </delete>-->
+</mapper>

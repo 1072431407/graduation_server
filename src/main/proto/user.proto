@@ -1,0 +1,81 @@
+syntax = "proto3";
+package com.drivinggrpc.driving.rpc.proto.user;
+option  java_package = "com.drivinggrpc.driving.rpc.proto.user";
+option  java_outer_classname = "UserProto";
+option  java_multiple_files = true;
+
+service UserRpcServer{
+    rpc login(loginRequest) returns(loginResponse){}
+    rpc register(registerRequest) returns(registerResponse){}
+    rpc upPassword(upPasswordRequest) returns(upPasswordResponse){}
+    rpc getUserMessageByUserName(getUserMessageRequest) returns(getUserMessageResponse){}
+    rpc setUserMessage(setUserMessageRequest) returns(setUserMessageResponse){}
+}
+
+message setUserMessageRequest {
+    int32 user_id = 1;
+    bytes head_image = 2;
+    string nick_name = 3;
+    string signature = 4;//签名
+    int32 minute = 5;
+    string date = 6;//报名日期
+    string name = 7;
+    string phone = 8;
+    string sex = 9;
+    string age = 10;
+    string job = 11;
+    string qq_code = 12;
+    string we_chat = 13;
+    string e_mail = 14;
+    string new_head_image = 15;
+    string old_head_image = 16;
+}
+message setUserMessageResponse {
+    string state = 1;
+}
+
+message loginRequest {
+    string username = 1;
+    string password = 2;
+    int32 power = 3;
+}
+message loginResponse {
+    string state = 1;
+}
+
+message registerRequest {
+    string username = 1;
+    string password = 2;
+    int32 power = 3;
+}
+message registerResponse {
+    string state = 1;
+}
+
+message upPasswordRequest {
+    string username = 1;
+    string password = 2;
+}
+message upPasswordResponse {
+    string state = 1;
+}
+
+message getUserMessageRequest {
+    string user_name = 1;
+}
+message getUserMessageResponse {
+    int32 user_id = 1;
+    string head_image = 2;
+    string nick_name = 3;
+    string signature = 4;//签名
+    int32 minute = 5;
+    string date = 6;//报名日期
+    string name = 7;
+    string phone = 8;
+    string sex = 9;
+    string age = 10;
+    string job = 11;
+    string qq_code = 12;
+    string we_chat = 13;
+    string e_mail = 14;
+}
