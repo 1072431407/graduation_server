@@ -65,24 +65,26 @@ public class ModuleRpcServer extends ModuleRpcServerGrpc.ModuleRpcServerImplBase
      */
     @Override
     public void getStatisticsData(StatisticsDataRequest request, StreamObserver<StatisticsDataResponse> responseObserver) {
-        if (StatisticsDataRequest.REQUEST_TYPE.SUBJECT_1 == request.getRequestType()){
-            StatisticsDataResponse response = StatisticsDataResponse.newBuilder()
-                    .setNumQuestions("100")
-                    .setAccuracy("正确率:50%")
-                    .setAverScore("25")
-                    .setDegree("累计考试次数:5次")
-                    .build();
-            responseObserver.onNext(response);
-            responseObserver.onCompleted();
-        }else{
-            StatisticsDataResponse response = StatisticsDataResponse.newBuilder()
-                    .setNumQuestions("1001")
-                    .setAccuracy("正确率:80%")
-                    .setAverScore("50")
-                    .setDegree("累计考试次数:15次")
-                    .build();
-            responseObserver.onNext(response);
-            responseObserver.onCompleted();
-        }
+        StatisticsDataResponse response = moduleController.getStatisticsData(request);
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+//        if (StatisticsDataRequest.REQUEST_TYPE.SUBJECT_1 == request.getRequestType()){
+//            StatisticsDataResponse response = StatisticsDataResponse.newBuilder()
+//                    .setNumQuestions("100")
+//                    .setAccuracy("正确率:50%")
+//                    .setAverScore("25")
+//                    .setDegree("累计考试次数:5次")
+//                    .build();
+//
+//        }else{
+//            StatisticsDataResponse response = StatisticsDataResponse.newBuilder()
+//                    .setNumQuestions("1001")
+//                    .setAccuracy("正确率:80%")
+//                    .setAverScore("50")
+//                    .setDegree("累计考试次数:15次")
+//                    .build();
+//            responseObserver.onNext(response);
+//            responseObserver.onCompleted();
+//        }
     }
 }

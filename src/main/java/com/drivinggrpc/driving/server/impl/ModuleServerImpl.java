@@ -4,7 +4,6 @@ import com.drivinggrpc.driving.dao.UserApplyDao;
 import com.drivinggrpc.driving.dao.UserStatisticsDao;
 import com.drivinggrpc.driving.po.UserApply;
 import com.drivinggrpc.driving.po.UserStatistics;
-import com.drivinggrpc.driving.rpc.proto.module.ApplyStateResponse;
 import com.drivinggrpc.driving.server.ModuleServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,7 @@ public class ModuleServerImpl implements ModuleServer {
             UserStatistics statistics = new UserStatistics();
             statistics.setUser_id(userApply.getUser_id());
             statistics.setDate(date);
-            int userStatisticsKey = statisticsDao.updateByUserId(statistics);
+            int userStatisticsKey = statisticsDao.updateToDateByUserId(statistics);
             if (userStatisticsKey == 1){
                 applyDao.updateApplyStateByUserId(userApply.getUser_id(),"科目一");
                 return "报名成功";
@@ -39,5 +38,11 @@ public class ModuleServerImpl implements ModuleServer {
     public String getApplyStateByUserId(int userId) {
         String state = applyDao.selectApplyStateByUserId(userId);
         return state;
+    }
+
+    @Override
+    public UserStatistics getStatisticsData(int userId) {
+        UserStatistics statistics = statisticsDao.selectUserStatisticsAllByUserId(userId);
+        return statistics;
     }
 }

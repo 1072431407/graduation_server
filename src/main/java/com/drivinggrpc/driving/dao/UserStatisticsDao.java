@@ -13,6 +13,9 @@ public interface UserStatisticsDao {
     UserStatistics selectUserStatisticsByUserId(int user_id);
 
     @Update("update user_statistics set date=#{date} where user_id=#{user_id}")
-    int updateByUserId(UserStatistics statistics);
+    int updateToDateByUserId(UserStatistics statistics);
+
+    @Select("select * from user_statistics where user_id = #{user_id}")
+    UserStatistics selectUserStatisticsAllByUserId(int user_id);
 
 }
