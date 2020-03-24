@@ -19,7 +19,6 @@ private static final long serialVersionUID = 0L;
     headImage_ = com.google.protobuf.ByteString.EMPTY;
     nickName_ = "";
     signature_ = "";
-    date_ = "";
     name_ = "";
     phone_ = "";
     sex_ = "";
@@ -84,72 +83,61 @@ private static final long serialVersionUID = 0L;
             signature_ = s;
             break;
           }
-          case 40: {
-
-            minute_ = input.readInt32();
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            date_ = s;
-            break;
-          }
-          case 58: {
+          case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
             name_ = s;
             break;
           }
-          case 66: {
+          case 50: {
             java.lang.String s = input.readStringRequireUtf8();
 
             phone_ = s;
             break;
           }
-          case 74: {
+          case 58: {
             java.lang.String s = input.readStringRequireUtf8();
 
             sex_ = s;
             break;
           }
-          case 82: {
+          case 66: {
             java.lang.String s = input.readStringRequireUtf8();
 
             age_ = s;
             break;
           }
-          case 90: {
+          case 74: {
             java.lang.String s = input.readStringRequireUtf8();
 
             job_ = s;
             break;
           }
-          case 98: {
+          case 82: {
             java.lang.String s = input.readStringRequireUtf8();
 
             qqCode_ = s;
             break;
           }
-          case 106: {
+          case 90: {
             java.lang.String s = input.readStringRequireUtf8();
 
             weChat_ = s;
             break;
           }
-          case 114: {
+          case 98: {
             java.lang.String s = input.readStringRequireUtf8();
 
             eMail_ = s;
             break;
           }
-          case 122: {
+          case 106: {
             java.lang.String s = input.readStringRequireUtf8();
 
             newHeadImage_ = s;
             break;
           }
-          case 130: {
+          case 114: {
             java.lang.String s = input.readStringRequireUtf8();
 
             oldHeadImage_ = s;
@@ -287,64 +275,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int MINUTE_FIELD_NUMBER = 5;
-  private int minute_;
-  /**
-   * <code>int32 minute = 5;</code>
-   * @return The minute.
-   */
-  public int getMinute() {
-    return minute_;
-  }
-
-  public static final int DATE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object date_;
-  /**
-   * <pre>
-   *报名日期
-   * </pre>
-   *
-   * <code>string date = 6;</code>
-   * @return The date.
-   */
-  public java.lang.String getDate() {
-    java.lang.Object ref = date_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      date_ = s;
-      return s;
-    }
-  }
-  /**
-   * <pre>
-   *报名日期
-   * </pre>
-   *
-   * <code>string date = 6;</code>
-   * @return The bytes for date.
-   */
-  public com.google.protobuf.ByteString
-      getDateBytes() {
-    java.lang.Object ref = date_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      date_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int NAME_FIELD_NUMBER = 7;
+  public static final int NAME_FIELD_NUMBER = 5;
   private volatile java.lang.Object name_;
   /**
-   * <code>string name = 7;</code>
+   * <code>string name = 5;</code>
    * @return The name.
    */
   public java.lang.String getName() {
@@ -360,7 +294,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string name = 7;</code>
+   * <code>string name = 5;</code>
    * @return The bytes for name.
    */
   public com.google.protobuf.ByteString
@@ -377,10 +311,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int PHONE_FIELD_NUMBER = 8;
+  public static final int PHONE_FIELD_NUMBER = 6;
   private volatile java.lang.Object phone_;
   /**
-   * <code>string phone = 8;</code>
+   * <code>string phone = 6;</code>
    * @return The phone.
    */
   public java.lang.String getPhone() {
@@ -396,7 +330,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string phone = 8;</code>
+   * <code>string phone = 6;</code>
    * @return The bytes for phone.
    */
   public com.google.protobuf.ByteString
@@ -413,10 +347,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int SEX_FIELD_NUMBER = 9;
+  public static final int SEX_FIELD_NUMBER = 7;
   private volatile java.lang.Object sex_;
   /**
-   * <code>string sex = 9;</code>
+   * <code>string sex = 7;</code>
    * @return The sex.
    */
   public java.lang.String getSex() {
@@ -432,7 +366,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string sex = 9;</code>
+   * <code>string sex = 7;</code>
    * @return The bytes for sex.
    */
   public com.google.protobuf.ByteString
@@ -449,10 +383,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int AGE_FIELD_NUMBER = 10;
+  public static final int AGE_FIELD_NUMBER = 8;
   private volatile java.lang.Object age_;
   /**
-   * <code>string age = 10;</code>
+   * <code>string age = 8;</code>
    * @return The age.
    */
   public java.lang.String getAge() {
@@ -468,7 +402,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string age = 10;</code>
+   * <code>string age = 8;</code>
    * @return The bytes for age.
    */
   public com.google.protobuf.ByteString
@@ -485,10 +419,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int JOB_FIELD_NUMBER = 11;
+  public static final int JOB_FIELD_NUMBER = 9;
   private volatile java.lang.Object job_;
   /**
-   * <code>string job = 11;</code>
+   * <code>string job = 9;</code>
    * @return The job.
    */
   public java.lang.String getJob() {
@@ -504,7 +438,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string job = 11;</code>
+   * <code>string job = 9;</code>
    * @return The bytes for job.
    */
   public com.google.protobuf.ByteString
@@ -521,10 +455,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int QQ_CODE_FIELD_NUMBER = 12;
+  public static final int QQ_CODE_FIELD_NUMBER = 10;
   private volatile java.lang.Object qqCode_;
   /**
-   * <code>string qq_code = 12;</code>
+   * <code>string qq_code = 10;</code>
    * @return The qqCode.
    */
   public java.lang.String getQqCode() {
@@ -540,7 +474,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string qq_code = 12;</code>
+   * <code>string qq_code = 10;</code>
    * @return The bytes for qqCode.
    */
   public com.google.protobuf.ByteString
@@ -557,10 +491,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int WE_CHAT_FIELD_NUMBER = 13;
+  public static final int WE_CHAT_FIELD_NUMBER = 11;
   private volatile java.lang.Object weChat_;
   /**
-   * <code>string we_chat = 13;</code>
+   * <code>string we_chat = 11;</code>
    * @return The weChat.
    */
   public java.lang.String getWeChat() {
@@ -576,7 +510,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string we_chat = 13;</code>
+   * <code>string we_chat = 11;</code>
    * @return The bytes for weChat.
    */
   public com.google.protobuf.ByteString
@@ -593,10 +527,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int E_MAIL_FIELD_NUMBER = 14;
+  public static final int E_MAIL_FIELD_NUMBER = 12;
   private volatile java.lang.Object eMail_;
   /**
-   * <code>string e_mail = 14;</code>
+   * <code>string e_mail = 12;</code>
    * @return The eMail.
    */
   public java.lang.String getEMail() {
@@ -612,7 +546,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string e_mail = 14;</code>
+   * <code>string e_mail = 12;</code>
    * @return The bytes for eMail.
    */
   public com.google.protobuf.ByteString
@@ -629,10 +563,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int NEW_HEAD_IMAGE_FIELD_NUMBER = 15;
+  public static final int NEW_HEAD_IMAGE_FIELD_NUMBER = 13;
   private volatile java.lang.Object newHeadImage_;
   /**
-   * <code>string new_head_image = 15;</code>
+   * <code>string new_head_image = 13;</code>
    * @return The newHeadImage.
    */
   public java.lang.String getNewHeadImage() {
@@ -648,7 +582,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string new_head_image = 15;</code>
+   * <code>string new_head_image = 13;</code>
    * @return The bytes for newHeadImage.
    */
   public com.google.protobuf.ByteString
@@ -665,10 +599,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int OLD_HEAD_IMAGE_FIELD_NUMBER = 16;
+  public static final int OLD_HEAD_IMAGE_FIELD_NUMBER = 14;
   private volatile java.lang.Object oldHeadImage_;
   /**
-   * <code>string old_head_image = 16;</code>
+   * <code>string old_head_image = 14;</code>
    * @return The oldHeadImage.
    */
   public java.lang.String getOldHeadImage() {
@@ -684,7 +618,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string old_head_image = 16;</code>
+   * <code>string old_head_image = 14;</code>
    * @return The bytes for oldHeadImage.
    */
   public com.google.protobuf.ByteString
@@ -727,41 +661,35 @@ private static final long serialVersionUID = 0L;
     if (!getSignatureBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, signature_);
     }
-    if (minute_ != 0) {
-      output.writeInt32(5, minute_);
-    }
-    if (!getDateBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, date_);
-    }
     if (!getNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, name_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, name_);
     }
     if (!getPhoneBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, phone_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, phone_);
     }
     if (!getSexBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, sex_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, sex_);
     }
     if (!getAgeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, age_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, age_);
     }
     if (!getJobBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, job_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, job_);
     }
     if (!getQqCodeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, qqCode_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, qqCode_);
     }
     if (!getWeChatBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, weChat_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 11, weChat_);
     }
     if (!getEMailBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 14, eMail_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, eMail_);
     }
     if (!getNewHeadImageBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 15, newHeadImage_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, newHeadImage_);
     }
     if (!getOldHeadImageBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 16, oldHeadImage_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 14, oldHeadImage_);
     }
     unknownFields.writeTo(output);
   }
@@ -786,42 +714,35 @@ private static final long serialVersionUID = 0L;
     if (!getSignatureBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, signature_);
     }
-    if (minute_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(5, minute_);
-    }
-    if (!getDateBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, date_);
-    }
     if (!getNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, name_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, name_);
     }
     if (!getPhoneBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, phone_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, phone_);
     }
     if (!getSexBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, sex_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, sex_);
     }
     if (!getAgeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, age_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, age_);
     }
     if (!getJobBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, job_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, job_);
     }
     if (!getQqCodeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, qqCode_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, qqCode_);
     }
     if (!getWeChatBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, weChat_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, weChat_);
     }
     if (!getEMailBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, eMail_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, eMail_);
     }
     if (!getNewHeadImageBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, newHeadImage_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, newHeadImage_);
     }
     if (!getOldHeadImageBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, oldHeadImage_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, oldHeadImage_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -846,10 +767,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getNickName())) return false;
     if (!getSignature()
         .equals(other.getSignature())) return false;
-    if (getMinute()
-        != other.getMinute()) return false;
-    if (!getDate()
-        .equals(other.getDate())) return false;
     if (!getName()
         .equals(other.getName())) return false;
     if (!getPhone()
@@ -889,10 +806,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getNickName().hashCode();
     hash = (37 * hash) + SIGNATURE_FIELD_NUMBER;
     hash = (53 * hash) + getSignature().hashCode();
-    hash = (37 * hash) + MINUTE_FIELD_NUMBER;
-    hash = (53 * hash) + getMinute();
-    hash = (37 * hash) + DATE_FIELD_NUMBER;
-    hash = (53 * hash) + getDate().hashCode();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + PHONE_FIELD_NUMBER;
@@ -1054,10 +967,6 @@ private static final long serialVersionUID = 0L;
 
       signature_ = "";
 
-      minute_ = 0;
-
-      date_ = "";
-
       name_ = "";
 
       phone_ = "";
@@ -1108,8 +1017,6 @@ private static final long serialVersionUID = 0L;
       result.headImage_ = headImage_;
       result.nickName_ = nickName_;
       result.signature_ = signature_;
-      result.minute_ = minute_;
-      result.date_ = date_;
       result.name_ = name_;
       result.phone_ = phone_;
       result.sex_ = sex_;
@@ -1180,13 +1087,6 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSignature().isEmpty()) {
         signature_ = other.signature_;
-        onChanged();
-      }
-      if (other.getMinute() != 0) {
-        setMinute(other.getMinute());
-      }
-      if (!other.getDate().isEmpty()) {
-        date_ = other.date_;
         onChanged();
       }
       if (!other.getName().isEmpty()) {
@@ -1493,135 +1393,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int minute_ ;
-    /**
-     * <code>int32 minute = 5;</code>
-     * @return The minute.
-     */
-    public int getMinute() {
-      return minute_;
-    }
-    /**
-     * <code>int32 minute = 5;</code>
-     * @param value The minute to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMinute(int value) {
-      
-      minute_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 minute = 5;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearMinute() {
-      
-      minute_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object date_ = "";
-    /**
-     * <pre>
-     *报名日期
-     * </pre>
-     *
-     * <code>string date = 6;</code>
-     * @return The date.
-     */
-    public java.lang.String getDate() {
-      java.lang.Object ref = date_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        date_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     *报名日期
-     * </pre>
-     *
-     * <code>string date = 6;</code>
-     * @return The bytes for date.
-     */
-    public com.google.protobuf.ByteString
-        getDateBytes() {
-      java.lang.Object ref = date_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        date_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     *报名日期
-     * </pre>
-     *
-     * <code>string date = 6;</code>
-     * @param value The date to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDate(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      date_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *报名日期
-     * </pre>
-     *
-     * <code>string date = 6;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDate() {
-      
-      date_ = getDefaultInstance().getDate();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     *报名日期
-     * </pre>
-     *
-     * <code>string date = 6;</code>
-     * @param value The bytes for date to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDateBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      date_ = value;
-      onChanged();
-      return this;
-    }
-
     private java.lang.Object name_ = "";
     /**
-     * <code>string name = 7;</code>
+     * <code>string name = 5;</code>
      * @return The name.
      */
     public java.lang.String getName() {
@@ -1637,7 +1411,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 7;</code>
+     * <code>string name = 5;</code>
      * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
@@ -1654,7 +1428,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 7;</code>
+     * <code>string name = 5;</code>
      * @param value The name to set.
      * @return This builder for chaining.
      */
@@ -1669,7 +1443,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 7;</code>
+     * <code>string name = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
@@ -1679,7 +1453,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 7;</code>
+     * <code>string name = 5;</code>
      * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
@@ -1697,7 +1471,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object phone_ = "";
     /**
-     * <code>string phone = 8;</code>
+     * <code>string phone = 6;</code>
      * @return The phone.
      */
     public java.lang.String getPhone() {
@@ -1713,7 +1487,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string phone = 8;</code>
+     * <code>string phone = 6;</code>
      * @return The bytes for phone.
      */
     public com.google.protobuf.ByteString
@@ -1730,7 +1504,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string phone = 8;</code>
+     * <code>string phone = 6;</code>
      * @param value The phone to set.
      * @return This builder for chaining.
      */
@@ -1745,7 +1519,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string phone = 8;</code>
+     * <code>string phone = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearPhone() {
@@ -1755,7 +1529,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string phone = 8;</code>
+     * <code>string phone = 6;</code>
      * @param value The bytes for phone to set.
      * @return This builder for chaining.
      */
@@ -1773,7 +1547,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object sex_ = "";
     /**
-     * <code>string sex = 9;</code>
+     * <code>string sex = 7;</code>
      * @return The sex.
      */
     public java.lang.String getSex() {
@@ -1789,7 +1563,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string sex = 9;</code>
+     * <code>string sex = 7;</code>
      * @return The bytes for sex.
      */
     public com.google.protobuf.ByteString
@@ -1806,7 +1580,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string sex = 9;</code>
+     * <code>string sex = 7;</code>
      * @param value The sex to set.
      * @return This builder for chaining.
      */
@@ -1821,7 +1595,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string sex = 9;</code>
+     * <code>string sex = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearSex() {
@@ -1831,7 +1605,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string sex = 9;</code>
+     * <code>string sex = 7;</code>
      * @param value The bytes for sex to set.
      * @return This builder for chaining.
      */
@@ -1849,7 +1623,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object age_ = "";
     /**
-     * <code>string age = 10;</code>
+     * <code>string age = 8;</code>
      * @return The age.
      */
     public java.lang.String getAge() {
@@ -1865,7 +1639,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string age = 10;</code>
+     * <code>string age = 8;</code>
      * @return The bytes for age.
      */
     public com.google.protobuf.ByteString
@@ -1882,7 +1656,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string age = 10;</code>
+     * <code>string age = 8;</code>
      * @param value The age to set.
      * @return This builder for chaining.
      */
@@ -1897,7 +1671,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string age = 10;</code>
+     * <code>string age = 8;</code>
      * @return This builder for chaining.
      */
     public Builder clearAge() {
@@ -1907,7 +1681,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string age = 10;</code>
+     * <code>string age = 8;</code>
      * @param value The bytes for age to set.
      * @return This builder for chaining.
      */
@@ -1925,7 +1699,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object job_ = "";
     /**
-     * <code>string job = 11;</code>
+     * <code>string job = 9;</code>
      * @return The job.
      */
     public java.lang.String getJob() {
@@ -1941,7 +1715,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string job = 11;</code>
+     * <code>string job = 9;</code>
      * @return The bytes for job.
      */
     public com.google.protobuf.ByteString
@@ -1958,7 +1732,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string job = 11;</code>
+     * <code>string job = 9;</code>
      * @param value The job to set.
      * @return This builder for chaining.
      */
@@ -1973,7 +1747,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string job = 11;</code>
+     * <code>string job = 9;</code>
      * @return This builder for chaining.
      */
     public Builder clearJob() {
@@ -1983,7 +1757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string job = 11;</code>
+     * <code>string job = 9;</code>
      * @param value The bytes for job to set.
      * @return This builder for chaining.
      */
@@ -2001,7 +1775,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object qqCode_ = "";
     /**
-     * <code>string qq_code = 12;</code>
+     * <code>string qq_code = 10;</code>
      * @return The qqCode.
      */
     public java.lang.String getQqCode() {
@@ -2017,7 +1791,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string qq_code = 12;</code>
+     * <code>string qq_code = 10;</code>
      * @return The bytes for qqCode.
      */
     public com.google.protobuf.ByteString
@@ -2034,7 +1808,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string qq_code = 12;</code>
+     * <code>string qq_code = 10;</code>
      * @param value The qqCode to set.
      * @return This builder for chaining.
      */
@@ -2049,7 +1823,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string qq_code = 12;</code>
+     * <code>string qq_code = 10;</code>
      * @return This builder for chaining.
      */
     public Builder clearQqCode() {
@@ -2059,7 +1833,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string qq_code = 12;</code>
+     * <code>string qq_code = 10;</code>
      * @param value The bytes for qqCode to set.
      * @return This builder for chaining.
      */
@@ -2077,7 +1851,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object weChat_ = "";
     /**
-     * <code>string we_chat = 13;</code>
+     * <code>string we_chat = 11;</code>
      * @return The weChat.
      */
     public java.lang.String getWeChat() {
@@ -2093,7 +1867,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string we_chat = 13;</code>
+     * <code>string we_chat = 11;</code>
      * @return The bytes for weChat.
      */
     public com.google.protobuf.ByteString
@@ -2110,7 +1884,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string we_chat = 13;</code>
+     * <code>string we_chat = 11;</code>
      * @param value The weChat to set.
      * @return This builder for chaining.
      */
@@ -2125,7 +1899,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string we_chat = 13;</code>
+     * <code>string we_chat = 11;</code>
      * @return This builder for chaining.
      */
     public Builder clearWeChat() {
@@ -2135,7 +1909,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string we_chat = 13;</code>
+     * <code>string we_chat = 11;</code>
      * @param value The bytes for weChat to set.
      * @return This builder for chaining.
      */
@@ -2153,7 +1927,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object eMail_ = "";
     /**
-     * <code>string e_mail = 14;</code>
+     * <code>string e_mail = 12;</code>
      * @return The eMail.
      */
     public java.lang.String getEMail() {
@@ -2169,7 +1943,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string e_mail = 14;</code>
+     * <code>string e_mail = 12;</code>
      * @return The bytes for eMail.
      */
     public com.google.protobuf.ByteString
@@ -2186,7 +1960,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string e_mail = 14;</code>
+     * <code>string e_mail = 12;</code>
      * @param value The eMail to set.
      * @return This builder for chaining.
      */
@@ -2201,7 +1975,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string e_mail = 14;</code>
+     * <code>string e_mail = 12;</code>
      * @return This builder for chaining.
      */
     public Builder clearEMail() {
@@ -2211,7 +1985,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string e_mail = 14;</code>
+     * <code>string e_mail = 12;</code>
      * @param value The bytes for eMail to set.
      * @return This builder for chaining.
      */
@@ -2229,7 +2003,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object newHeadImage_ = "";
     /**
-     * <code>string new_head_image = 15;</code>
+     * <code>string new_head_image = 13;</code>
      * @return The newHeadImage.
      */
     public java.lang.String getNewHeadImage() {
@@ -2245,7 +2019,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string new_head_image = 15;</code>
+     * <code>string new_head_image = 13;</code>
      * @return The bytes for newHeadImage.
      */
     public com.google.protobuf.ByteString
@@ -2262,7 +2036,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string new_head_image = 15;</code>
+     * <code>string new_head_image = 13;</code>
      * @param value The newHeadImage to set.
      * @return This builder for chaining.
      */
@@ -2277,7 +2051,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string new_head_image = 15;</code>
+     * <code>string new_head_image = 13;</code>
      * @return This builder for chaining.
      */
     public Builder clearNewHeadImage() {
@@ -2287,7 +2061,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string new_head_image = 15;</code>
+     * <code>string new_head_image = 13;</code>
      * @param value The bytes for newHeadImage to set.
      * @return This builder for chaining.
      */
@@ -2305,7 +2079,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object oldHeadImage_ = "";
     /**
-     * <code>string old_head_image = 16;</code>
+     * <code>string old_head_image = 14;</code>
      * @return The oldHeadImage.
      */
     public java.lang.String getOldHeadImage() {
@@ -2321,7 +2095,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string old_head_image = 16;</code>
+     * <code>string old_head_image = 14;</code>
      * @return The bytes for oldHeadImage.
      */
     public com.google.protobuf.ByteString
@@ -2338,7 +2112,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string old_head_image = 16;</code>
+     * <code>string old_head_image = 14;</code>
      * @param value The oldHeadImage to set.
      * @return This builder for chaining.
      */
@@ -2353,7 +2127,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string old_head_image = 16;</code>
+     * <code>string old_head_image = 14;</code>
      * @return This builder for chaining.
      */
     public Builder clearOldHeadImage() {
@@ -2363,7 +2137,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string old_head_image = 16;</code>
+     * <code>string old_head_image = 14;</code>
      * @param value The bytes for oldHeadImage to set.
      * @return This builder for chaining.
      */

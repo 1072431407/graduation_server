@@ -17,18 +17,16 @@ message setUserMessageRequest {
     bytes head_image = 2;
     string nick_name = 3;
     string signature = 4;//签名
-    int32 minute = 5;
-    string date = 6;//报名日期
-    string name = 7;
-    string phone = 8;
-    string sex = 9;
-    string age = 10;
-    string job = 11;
-    string qq_code = 12;
-    string we_chat = 13;
-    string e_mail = 14;
-    string new_head_image = 15;
-    string old_head_image = 16;
+    string name = 5;
+    string phone = 6;
+    string sex = 7;
+    string age = 8;
+    string job = 9;
+    string qq_code = 10;
+    string we_chat = 11;
+    string e_mail = 12;
+    string new_head_image = 13;
+    string old_head_image = 14;
 }
 message setUserMessageResponse {
     string state = 1;

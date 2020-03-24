@@ -123,8 +123,6 @@ public class UserController {
         userMessage.setHead_image(headImage);
         userMessage.setNick_name(request.getNickName());
         userMessage.setSignature(request.getSignature());
-        userMessage.setMinute(request.getMinute());
-        userMessage.setDate(request.getDate());
         userMessage.setName(request.getName());
         userMessage.setPhone(request.getPhone());
         userMessage.setSex(request.getSex());

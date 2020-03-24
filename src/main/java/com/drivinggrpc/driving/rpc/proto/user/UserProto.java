@@ -74,49 +74,49 @@ public final class UserProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\nuser.proto\022&com.drivinggrpc.driving.rp" +
-      "c.proto.user\"\246\002\n\025setUserMessageRequest\022\017" +
+      "c.proto.user\"\210\002\n\025setUserMessageRequest\022\017" +
       "\n\007user_id\030\001 \001(\005\022\022\n\nhead_image\030\002 \001(\014\022\021\n\tn" +
-      "ick_name\030\003 \001(\t\022\021\n\tsignature\030\004 \001(\t\022\016\n\006min" +
-      "ute\030\005 \001(\005\022\014\n\004date\030\006 \001(\t\022\014\n\004name\030\007 \001(\t\022\r\n" +
-      "\005phone\030\010 \001(\t\022\013\n\003sex\030\t \001(\t\022\013\n\003age\030\n \001(\t\022\013" +
-      "\n\003job\030\013 \001(\t\022\017\n\007qq_code\030\014 \001(\t\022\017\n\007we_chat\030" +
-      "\r \001(\t\022\016\n\006e_mail\030\016 \001(\t\022\026\n\016new_head_image\030" +
-      "\017 \001(\t\022\026\n\016old_head_image\030\020 \001(\t\"\'\n\026setUser" +
-      "MessageResponse\022\r\n\005state\030\001 \001(\t\"A\n\014loginR" +
-      "equest\022\020\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001" +
-      "(\t\022\r\n\005power\030\003 \001(\005\"\036\n\rloginResponse\022\r\n\005st" +
-      "ate\030\001 \001(\t\"D\n\017registerRequest\022\020\n\010username" +
-      "\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\022\r\n\005power\030\003 \001(\005\"" +
-      "!\n\020registerResponse\022\r\n\005state\030\001 \001(\t\"7\n\021up" +
-      "PasswordRequest\022\020\n\010username\030\001 \001(\t\022\020\n\010pas" +
-      "sword\030\002 \001(\t\"#\n\022upPasswordResponse\022\r\n\005sta" +
-      "te\030\001 \001(\t\"*\n\025getUserMessageRequest\022\021\n\tuse" +
-      "r_name\030\001 \001(\t\"\367\001\n\026getUserMessageResponse\022" +
-      "\017\n\007user_id\030\001 \001(\005\022\022\n\nhead_image\030\002 \001(\t\022\021\n\t" +
-      "nick_name\030\003 \001(\t\022\021\n\tsignature\030\004 \001(\t\022\016\n\006mi" +
-      "nute\030\005 \001(\005\022\014\n\004date\030\006 \001(\t\022\014\n\004name\030\007 \001(\t\022\r" +
-      "\n\005phone\030\010 \001(\t\022\013\n\003sex\030\t \001(\t\022\013\n\003age\030\n \001(\t\022" +
-      "\013\n\003job\030\013 \001(\t\022\017\n\007qq_code\030\014 \001(\t\022\017\n\007we_chat" +
-      "\030\r \001(\t\022\016\n\006e_mail\030\016 \001(\t2\302\005\n\rUserRpcServer" +
-      "\022v\n\005login\0224.com.drivinggrpc.driving.rpc." +
-      "proto.user.loginRequest\0325.com.drivinggrp" +
-      "c.driving.rpc.proto.user.loginResponse\"\000" +
-      "\022\177\n\010register\0227.com.drivinggrpc.driving.r" +
-      "pc.proto.user.registerRequest\0328.com.driv" +
-      "inggrpc.driving.rpc.proto.user.registerR" +
-      "esponse\"\000\022\205\001\n\nupPassword\0229.com.drivinggr" +
-      "pc.driving.rpc.proto.user.upPasswordRequ" +
-      "est\032:.com.drivinggrpc.driving.rpc.proto." +
-      "user.upPasswordResponse\"\000\022\233\001\n\030getUserMes" +
-      "sageByUserName\022=.com.drivinggrpc.driving" +
-      ".rpc.proto.user.getUserMessageRequest\032>." +
-      "com.drivinggrpc.driving.rpc.proto.user.g" +
-      "etUserMessageResponse\"\000\022\221\001\n\016setUserMessa" +
-      "ge\022=.com.drivinggrpc.driving.rpc.proto.u" +
-      "ser.setUserMessageRequest\032>.com.drivingg" +
-      "rpc.driving.rpc.proto.user.setUserMessag" +
-      "eResponse\"\000B5\n&com.drivinggrpc.driving.r" +
-      "pc.proto.userB\tUserProtoP\001b\006proto3"
+      "ick_name\030\003 \001(\t\022\021\n\tsignature\030\004 \001(\t\022\014\n\004nam" +
+      "e\030\005 \001(\t\022\r\n\005phone\030\006 \001(\t\022\013\n\003sex\030\007 \001(\t\022\013\n\003a" +
+      "ge\030\010 \001(\t\022\013\n\003job\030\t \001(\t\022\017\n\007qq_code\030\n \001(\t\022\017" +
+      "\n\007we_chat\030\013 \001(\t\022\016\n\006e_mail\030\014 \001(\t\022\026\n\016new_h" +
+      "ead_image\030\r \001(\t\022\026\n\016old_head_image\030\016 \001(\t\"" +
+      "\'\n\026setUserMessageResponse\022\r\n\005state\030\001 \001(\t" +
+      "\"A\n\014loginRequest\022\020\n\010username\030\001 \001(\t\022\020\n\010pa" +
+      "ssword\030\002 \001(\t\022\r\n\005power\030\003 \001(\005\"\036\n\rloginResp" +
+      "onse\022\r\n\005state\030\001 \001(\t\"D\n\017registerRequest\022\020" +
+      "\n\010username\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\022\r\n\005po" +
+      "wer\030\003 \001(\005\"!\n\020registerResponse\022\r\n\005state\030\001" +
+      " \001(\t\"7\n\021upPasswordRequest\022\020\n\010username\030\001 " +
+      "\001(\t\022\020\n\010password\030\002 \001(\t\"#\n\022upPasswordRespo" +
+      "nse\022\r\n\005state\030\001 \001(\t\"*\n\025getUserMessageRequ" +
+      "est\022\021\n\tuser_name\030\001 \001(\t\"\367\001\n\026getUserMessag" +
+      "eResponse\022\017\n\007user_id\030\001 \001(\005\022\022\n\nhead_image" +
+      "\030\002 \001(\t\022\021\n\tnick_name\030\003 \001(\t\022\021\n\tsignature\030\004" +
+      " \001(\t\022\016\n\006minute\030\005 \001(\005\022\014\n\004date\030\006 \001(\t\022\014\n\004na" +
+      "me\030\007 \001(\t\022\r\n\005phone\030\010 \001(\t\022\013\n\003sex\030\t \001(\t\022\013\n\003" +
+      "age\030\n \001(\t\022\013\n\003job\030\013 \001(\t\022\017\n\007qq_code\030\014 \001(\t\022" +
+      "\017\n\007we_chat\030\r \001(\t\022\016\n\006e_mail\030\016 \001(\t2\302\005\n\rUse" +
+      "rRpcServer\022v\n\005login\0224.com.drivinggrpc.dr" +
+      "iving.rpc.proto.user.loginRequest\0325.com." +
+      "drivinggrpc.driving.rpc.proto.user.login" +
+      "Response\"\000\022\177\n\010register\0227.com.drivinggrpc" +
+      ".driving.rpc.proto.user.registerRequest\032" +
+      "8.com.drivinggrpc.driving.rpc.proto.user" +
+      ".registerResponse\"\000\022\205\001\n\nupPassword\0229.com" +
+      ".drivinggrpc.driving.rpc.proto.user.upPa" +
+      "sswordRequest\032:.com.drivinggrpc.driving." +
+      "rpc.proto.user.upPasswordResponse\"\000\022\233\001\n\030" +
+      "getUserMessageByUserName\022=.com.drivinggr" +
+      "pc.driving.rpc.proto.user.getUserMessage" +
+      "Request\032>.com.drivinggrpc.driving.rpc.pr" +
+      "oto.user.getUserMessageResponse\"\000\022\221\001\n\016se" +
+      "tUserMessage\022=.com.drivinggrpc.driving.r" +
+      "pc.proto.user.setUserMessageRequest\032>.co" +
+      "m.drivinggrpc.driving.rpc.proto.user.set" +
+      "UserMessageResponse\"\000B5\n&com.drivinggrpc" +
+      ".driving.rpc.proto.userB\tUserProtoP\001b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -127,7 +127,7 @@ public final class UserProto {
     internal_static_com_drivinggrpc_driving_rpc_proto_user_setUserMessageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_drivinggrpc_driving_rpc_proto_user_setUserMessageRequest_descriptor,
-        new java.lang.String[] { "UserId", "HeadImage", "NickName", "Signature", "Minute", "Date", "Name", "Phone", "Sex", "Age", "Job", "QqCode", "WeChat", "EMail", "NewHeadImage", "OldHeadImage", });
+        new java.lang.String[] { "UserId", "HeadImage", "NickName", "Signature", "Name", "Phone", "Sex", "Age", "Job", "QqCode", "WeChat", "EMail", "NewHeadImage", "OldHeadImage", });
     internal_static_com_drivinggrpc_driving_rpc_proto_user_setUserMessageResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_drivinggrpc_driving_rpc_proto_user_setUserMessageResponse_fieldAccessorTable = new

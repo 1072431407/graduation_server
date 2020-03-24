@@ -52,146 +52,120 @@ public interface setUserMessageRequestOrBuilder extends
       getSignatureBytes();
 
   /**
-   * <code>int32 minute = 5;</code>
-   * @return The minute.
-   */
-  int getMinute();
-
-  /**
-   * <pre>
-   *报名日期
-   * </pre>
-   *
-   * <code>string date = 6;</code>
-   * @return The date.
-   */
-  java.lang.String getDate();
-  /**
-   * <pre>
-   *报名日期
-   * </pre>
-   *
-   * <code>string date = 6;</code>
-   * @return The bytes for date.
-   */
-  com.google.protobuf.ByteString
-      getDateBytes();
-
-  /**
-   * <code>string name = 7;</code>
+   * <code>string name = 5;</code>
    * @return The name.
    */
   java.lang.String getName();
   /**
-   * <code>string name = 7;</code>
+   * <code>string name = 5;</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
-   * <code>string phone = 8;</code>
+   * <code>string phone = 6;</code>
    * @return The phone.
    */
   java.lang.String getPhone();
   /**
-   * <code>string phone = 8;</code>
+   * <code>string phone = 6;</code>
    * @return The bytes for phone.
    */
   com.google.protobuf.ByteString
       getPhoneBytes();
 
   /**
-   * <code>string sex = 9;</code>
+   * <code>string sex = 7;</code>
    * @return The sex.
    */
   java.lang.String getSex();
   /**
-   * <code>string sex = 9;</code>
+   * <code>string sex = 7;</code>
    * @return The bytes for sex.
    */
   com.google.protobuf.ByteString
       getSexBytes();
 
   /**
-   * <code>string age = 10;</code>
+   * <code>string age = 8;</code>
    * @return The age.
    */
   java.lang.String getAge();
   /**
-   * <code>string age = 10;</code>
+   * <code>string age = 8;</code>
    * @return The bytes for age.
    */
   com.google.protobuf.ByteString
       getAgeBytes();
 
   /**
-   * <code>string job = 11;</code>
+   * <code>string job = 9;</code>
    * @return The job.
    */
   java.lang.String getJob();
   /**
-   * <code>string job = 11;</code>
+   * <code>string job = 9;</code>
    * @return The bytes for job.
    */
   com.google.protobuf.ByteString
       getJobBytes();
 
   /**
-   * <code>string qq_code = 12;</code>
+   * <code>string qq_code = 10;</code>
    * @return The qqCode.
    */
   java.lang.String getQqCode();
   /**
-   * <code>string qq_code = 12;</code>
+   * <code>string qq_code = 10;</code>
    * @return The bytes for qqCode.
    */
   com.google.protobuf.ByteString
       getQqCodeBytes();
 
   /**
-   * <code>string we_chat = 13;</code>
+   * <code>string we_chat = 11;</code>
    * @return The weChat.
    */
   java.lang.String getWeChat();
   /**
-   * <code>string we_chat = 13;</code>
+   * <code>string we_chat = 11;</code>
    * @return The bytes for weChat.
    */
   com.google.protobuf.ByteString
       getWeChatBytes();
 
   /**
-   * <code>string e_mail = 14;</code>
+   * <code>string e_mail = 12;</code>
    * @return The eMail.
    */
   java.lang.String getEMail();
   /**
-   * <code>string e_mail = 14;</code>
+   * <code>string e_mail = 12;</code>
    * @return The bytes for eMail.
    */
   com.google.protobuf.ByteString
       getEMailBytes();
 
   /**
-   * <code>string new_head_image = 15;</code>
+   * <code>string new_head_image = 13;</code>
    * @return The newHeadImage.
    */
   java.lang.String getNewHeadImage();
   /**
-   * <code>string new_head_image = 15;</code>
+   * <code>string new_head_image = 13;</code>
    * @return The bytes for newHeadImage.
    */
   com.google.protobuf.ByteString
       getNewHeadImageBytes();
 
   /**
-   * <code>string old_head_image = 16;</code>
+   * <code>string old_head_image = 14;</code>
    * @return The oldHeadImage.
    */
   java.lang.String getOldHeadImage();
   /**
-   * <code>string old_head_image = 16;</code>
+   * <code>string old_head_image = 14;</code>
    * @return The bytes for oldHeadImage.
    */
   com.google.protobuf.ByteString

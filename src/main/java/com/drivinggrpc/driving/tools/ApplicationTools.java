@@ -13,7 +13,8 @@ public class ApplicationTools {
     private static String SERVER_IP =  "192.168.3.36";
     public static Logger logger = LoggerFactory.getLogger(DrivingApplication.class);
 
-    public static String HEAD_IMAGE = "src/main/resources/static/androidImage/";
+    public static final String HEAD_IMAGE = "src/main/resources/static/androidImage/";
+    public static final String PICTURE_IMAGE = "src/main/resources/static/images/pictures/";
 //    public static String HEAD_IMAGE = "C:\\Work\\Idea_Work\\driving-springboot\\src\\main\\resources\\static\\androidImage/head";
 
 //    public static String http://192.168.3.36:8080/androidImage/head_image.png

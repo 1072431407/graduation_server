@@ -27,12 +27,6 @@
         <if test="signature != null and signature != '' ">
             ,signature = #{signature}
         </if>
-        <if test="minute != null and minute != 0 ">
-            ,minute = #{minute}
-        </if>
-        <if test="date != null and date != '' ">
-            ,date = #{date}
-        </if>
         <if test="name != null and name != '' ">
             ,name = #{name}
         </if>

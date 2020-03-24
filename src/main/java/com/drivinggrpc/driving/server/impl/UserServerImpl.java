@@ -4,8 +4,10 @@ package com.drivinggrpc.driving.server.impl;
 
 import com.drivinggrpc.driving.dao.UserDao;
 import com.drivinggrpc.driving.dao.UserMessageDao;
+import com.drivinggrpc.driving.dao.UserStatisticsDao;
 import com.drivinggrpc.driving.po.User;
 import com.drivinggrpc.driving.po.UserMessage;
+import com.drivinggrpc.driving.po.UserStatistics;
 import com.drivinggrpc.driving.server.UserServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ public class UserServerImpl implements UserServer {
     @Autowired
     private UserMessageDao userMessageDao;
 
+    @Autowired
+    private UserStatisticsDao statisticsDao;
     @Override
     public String login(String username, String password, int power) {
         User user = userDao.selectUserByUserName(username);
@@ -71,6 +75,9 @@ public class UserServerImpl implements UserServer {
     public UserMessage getUserMessageByUserName(String userName) {
         User user = userDao.selectUserByUserName(userName);
         UserMessage userMessage = userMessageDao.selectMessageByUserId(user.getId());
+        UserStatistics userStatistics = statisticsDao.selectUserStatisticsByUserId(user.getId());
+        userMessage.setDate(userStatistics.getDate());
+        userMessage.setMinute(userStatistics.getMinute());
         return userMessage;
     }
     /*
