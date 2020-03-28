@@ -4,6 +4,7 @@ import com.drivinggrpc.driving.dao.AbsenteeDao;
 import com.drivinggrpc.driving.dao.NewsDao;
 import com.drivinggrpc.driving.dao.UserApplyDao;
 import com.drivinggrpc.driving.dao.UserStatisticsDao;
+import com.drivinggrpc.driving.po.Absentee;
 import com.drivinggrpc.driving.po.News;
 import com.drivinggrpc.driving.po.UserApply;
 import com.drivinggrpc.driving.po.UserStatistics;
@@ -95,8 +96,21 @@ public class ModuleServerImpl implements ModuleServer {
     }
 
     @Override
-    public List<UserApply> getUserAbsentee() {
+    public List<UserApply> getUserAbsenteeAll() {
         List<UserApply> absentees = absenteeDao.selectAbsenteeAll();
         return absentees;
+    }
+
+    @Override
+    public UserApply getUserApplyMessage(int user_id) {
+        return applyDao.selectApplyByUserId(user_id);
+    }
+
+    @Override
+    public Absentee getUserAbsentee(int user_id) {
+        Absentee absentee = absenteeDao.selectAbsenteeByUserId(user_id);
+        absentee.setState(applyDao.selectApplyStateByUserId(user_id));
+        absentee.setDate(statisticsDao.selectUserApplyDateByUserId(user_id));
+        return absentee;
     }
 }

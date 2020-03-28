@@ -1,5 +1,6 @@
 package com.drivinggrpc.driving.controller;
 
+import com.drivinggrpc.driving.po.Absentee;
 import com.drivinggrpc.driving.po.UserApply;
 import com.drivinggrpc.driving.po.UserStatistics;
 import com.drivinggrpc.driving.rpc.proto.module.*;
@@ -39,6 +40,7 @@ public class ModuleController {
         apply.setPhone(request.getPhone());
         apply.setOld_type(request.getOldType());
         apply.setType(request.getType());
+        apply.setCode(request.getCode());
         String state = moduleServer.userApply(apply,request.getDate());
         ApplyResponse response = ApplyResponse.newBuilder()
                 .setState(state)
@@ -86,42 +88,83 @@ public class ModuleController {
         return response;
     }
 
+    /**
+     * 初始化报名审批
+     * @param model
+     * @return
+     */
     @GetMapping("/applyExamine")
     public String applyExamine(Model model){
         List<UserApply> userApplys = moduleServer.getUserApplys();
         model.addAttribute("userApplys",userApplys);
+        logger.info("/applyExamine");
         return "list1_1";
     }
 
+    /**
+     * 同意报名
+     * @param user_id
+     * @param model
+     * @return
+     */
     @GetMapping("/applyExamine/consentApply")
     public String consentApply(@RequestParam(value = "user_id")int user_id,Model model){
         moduleServer.consentApply(user_id);
-        logger.info("consentApply:userId="+user_id+",state=科目一");
+        logger.info("/applyExamine/consentApply:userId="+user_id);
         List<UserApply> userApplys = moduleServer.getUserApplys();
         model.addAttribute("userApplys",userApplys);
         return "list1_1::apply_list";
     }
 
+    /**
+     * 拒绝报名
+     * @param user_id
+     * @param model
+     * @return
+     */
     @GetMapping("/applyExamine/refuseApply")
     public String refuseApply(@RequestParam(value = "user_id")int user_id,Model model){
         moduleServer.refuseApply(user_id);
-        logger.info("refuseApply:userId="+user_id+",state=科目一");
+        logger.info("/applyExamine/refuseApply:userId="+user_id);
         List<UserApply> userApplys = moduleServer.getUserApplys();
         model.addAttribute("userApplys",userApplys);
         return "list1_1::apply_list";
     }
+
+    /**
+     * 查看信息
+     * @param user_id
+     * @return
+     */
+    @ResponseBody
     @GetMapping("/applyExamine/examineApply")
-    public String examineApply(@RequestParam(value = "user_id")int user_id,Model model){
-
-        List<UserApply> userApplys = moduleServer.getUserApplys();
-        model.addAttribute("userApplys",userApplys);
-        return "list1_1::apply_list";
+    public UserApply examineApply(@RequestParam(value = "user_id")int user_id){
+        UserApply apply = moduleServer.getUserApplyMessage(user_id);
+        logger.info("/applyExamine/examineApply:userId="+user_id);
+        return apply;
     }
 
+    /**
+     * 初始化在籍学员
+     * @param model
+     * @return
+     */
     @GetMapping("/absentee")
     public String absentee(Model model){
-        List<UserApply> absentees = moduleServer.getUserAbsentee();
+        List<UserApply> absentees = moduleServer.getUserAbsenteeAll();
         model.addAttribute("absentees",absentees);
         return "list1_2";
+    }
+
+    /**
+     * 查看信息
+     * @param user_id
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/absentee/examine")
+    public Absentee absenteeExamine(@RequestParam(value = "user_id")int user_id){
+        Absentee absentee = moduleServer.getUserAbsentee(user_id);
+        return absentee;
     }
 }

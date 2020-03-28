@@ -226,7 +226,6 @@
     function consent(user_id) {
         //th:href="@{/consentApply(user_id=${apply.user_id})}"
         //th:onclick="'javascript:consent('+${apply.user_id}+');'"
-        alert(user_id);
         $.ajax({
             type:"get",
             url:"/consentApply",
@@ -244,7 +243,6 @@
         })
     }
     function refuse(user_id) {
-        alert(user_id);
         $.ajax({
             type:"get",
             url:"/refuseApply",
@@ -262,7 +260,6 @@
         })
     }
     function examine(user_id) {
-        alert(user_id);
         $.ajax({
             type:"get",
             url:"/examineApply",

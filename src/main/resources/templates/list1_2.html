@@ -135,6 +135,38 @@
     </header>
 
     <div class="content">
+        <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="smallmodalLabel">用户资料</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                        <div><img id="picture" alt="Logo"></div>
+                        <div><a>姓名: </a><a id="name"></a></div>
+                        <div><a>年龄: </a><a id="age"></a></div>
+                        <div><a>性别: </a><a id="sex"></a></div>
+                        <div><a>报名日期: </a><a id="date"></a></div>
+                        <div><a>当前进度: </a><a id="state"></a></div>
+                        <div><a>报考类型: </a><a id="type"></a></div>
+                        <div><a>有无驾驶证: </a><a id="old_type"></a></div>
+                        <div><a>住址: </a><a id="address"></a></div>
+                        <div><a>电话: </a><a id="phone"></a></div>
+                        <div><a>身份证号: </a><a id="code"></a></div>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="animated fadeIn">
             <div class="row">
 
@@ -163,7 +195,9 @@
                                     <td th:text="${absentee.phone}"></td>
                                     <td th:text="${absentee.type}"></td>
                                     <td>
-                                        <button type="button" class="btn btn-warning" th:onclick="'javascript:examine('+${absentee.user_id}+');'">查看信息</button>
+                                        <button type="button" class="btn btn-warning btn-primary mb-1" data-toggle="modal" data-target="#smallmodal" th:onclick="'javascript:examine('+${absentee.user_id}+');'">
+                                            查看信息
+                                        </button>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -222,20 +256,28 @@
         $('#bootstrap-data-table-export').DataTable();
     } );
     function examine(user_id) {
-        alert(user_id);
         $.ajax({
             type:"get",
-            url:"/examineApply",
-            dataType:"text",
+            url:"/absentee/examine",
+            dataType:"json",
             data:{"user_id":user_id},
             cache: false,
             async: true,
             success:function (data) {
-                $('.card-body').html(data);
-                $('#bootstrap-data-table-export').DataTable();
-                $('.table').DataTable();
-                $('.table-striped').DataTable();
-                $('.table-bordered').DataTable();
+                console.log(data);
+                if (data!=null){
+                    $("#picture").attr("src","images/pictures/"+data['picture']);
+                    $("#name").html(data['name']);
+                    $("#age").html(data['age']);
+                    $("#sex").html(data['sex']);
+                    $("#type").html(data['type']);
+                    $("#old_type").html(data['old_type']);
+                    $("#address").html(data['address']);
+                    $("#phone").html(data['phone']);
+                    $("#code").html(data['code']);
+                    $("#state").html(data['state']);
+                    $("#date").html(data['date']);
+                }
             }
         })
     }

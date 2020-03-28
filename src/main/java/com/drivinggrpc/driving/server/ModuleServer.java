@@ -1,5 +1,6 @@
 package com.drivinggrpc.driving.server;
 
+import com.drivinggrpc.driving.po.Absentee;
 import com.drivinggrpc.driving.po.UserApply;
 import com.drivinggrpc.driving.po.UserStatistics;
 import com.drivinggrpc.driving.rpc.proto.module.ApplyStateResponse;
@@ -20,5 +21,9 @@ public interface ModuleServer {
 
     void refuseApply(int user_id);
 
-    List<UserApply> getUserAbsentee();
+    List<UserApply> getUserAbsenteeAll();
+
+    UserApply getUserApplyMessage(int user_id);
+
+    Absentee getUserAbsentee(int user_id);
 }

@@ -10,6 +10,15 @@ public class UserApply {
     private String phone;
     private String old_type;
     private String type;
+    private String code;
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getCode() {
+        return code;
+    }
 
     public void setUser_id(int user_id) {
         this.user_id = user_id;

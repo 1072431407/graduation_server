@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface UserApplyDao {
 
-    @Insert("insert into user_apply(user_id,picture,name,sex,age,address,phone,old_type,type) values (#{user_id},#{picture},#{name},#{sex},#{age},#{address},#{phone},#{old_type},#{type})")
+    @Insert("insert into user_apply(user_id,picture,name,sex,age,address,phone,old_type,type,code) values (#{user_id},#{picture},#{name},#{sex},#{age},#{address},#{phone},#{old_type},#{type},#{code})")
     int insertUserApply(UserApply apply);
 
     @Delete("delete from user_apply where user_id=#{user_id}")
