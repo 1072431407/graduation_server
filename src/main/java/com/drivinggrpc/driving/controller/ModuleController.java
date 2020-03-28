@@ -8,6 +8,12 @@ import com.drivinggrpc.driving.tools.ApplicationTools;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 
 @Controller
@@ -78,5 +84,44 @@ public class ModuleController {
         }
         logger.info("StatisticsDataResponse:userId="+request.getUserId()+",REQUEST_TYPE="+request.getRequestType());
         return response;
+    }
+
+    @GetMapping("/applyExamine")
+    public String applyExamine(Model model){
+        List<UserApply> userApplys = moduleServer.getUserApplys();
+        model.addAttribute("userApplys",userApplys);
+        return "list1_1";
+    }
+
+    @GetMapping("/applyExamine/consentApply")
+    public String consentApply(@RequestParam(value = "user_id")int user_id,Model model){
+        moduleServer.consentApply(user_id);
+        logger.info("consentApply:userId="+user_id+",state=科目一");
+        List<UserApply> userApplys = moduleServer.getUserApplys();
+        model.addAttribute("userApplys",userApplys);
+        return "list1_1::apply_list";
+    }
+
+    @GetMapping("/applyExamine/refuseApply")
+    public String refuseApply(@RequestParam(value = "user_id")int user_id,Model model){
+        moduleServer.refuseApply(user_id);
+        logger.info("refuseApply:userId="+user_id+",state=科目一");
+        List<UserApply> userApplys = moduleServer.getUserApplys();
+        model.addAttribute("userApplys",userApplys);
+        return "list1_1::apply_list";
+    }
+    @GetMapping("/applyExamine/examineApply")
+    public String examineApply(@RequestParam(value = "user_id")int user_id,Model model){
+
+        List<UserApply> userApplys = moduleServer.getUserApplys();
+        model.addAttribute("userApplys",userApplys);
+        return "list1_1::apply_list";
+    }
+
+    @GetMapping("/absentee")
+    public String absentee(Model model){
+        List<UserApply> absentees = moduleServer.getUserAbsentee();
+        model.addAttribute("absentees",absentees);
+        return "list1_2";
     }
 }

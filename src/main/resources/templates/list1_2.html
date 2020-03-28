@@ -151,21 +151,19 @@
                                     <th>性别</th>
                                     <th>年龄</th>
                                     <th>电话</th>
-                                    <th>报考类型</th>
-                                    <th style="width: 250px;">审批</th>
+                                    <th>证件类型</th>
+                                    <th style="width: 150px;">审批</th>
                                 </tr>
                                 </thead>
                                 <tbody >
-                                <tr th:each="apply:${userApplys}">
-                                    <td th:text="${apply.name}"></td>
-                                    <td th:text="${apply.sex}"></td>
-                                    <td th:text="${apply.age}"></td>
-                                    <td th:text="${apply.phone}"></td>
-                                    <td th:text="${apply.type}"></td>
+                                <tr th:each="absentee:${absentees}">
+                                    <td th:text="${absentee.name}"></td>
+                                    <td th:text="${absentee.sex}"></td>
+                                    <td th:text="${absentee.age}"></td>
+                                    <td th:text="${absentee.phone}"></td>
+                                    <td th:text="${absentee.type}"></td>
                                     <td>
-                                        <button type="button" class="btn btn-success" th:onclick="'javascript:consent('+${apply.user_id}+');'">同意</button>
-                                        <button type="button" class="btn btn-danger" th:onclick="'javascript:refuse('+${apply.user_id}+');'">拒绝</button>
-                                        <button type="button" class="btn btn-warning" th:onclick="'javascript:examine('+${apply.user_id}+');'">查看信息</button>
+                                        <button type="button" class="btn btn-warning" th:onclick="'javascript:examine('+${absentee.user_id}+');'">查看信息</button>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -223,49 +221,11 @@
     $(document).ready(function() {
         $('#bootstrap-data-table-export').DataTable();
     } );
-    function consent(user_id) {
-        //th:href="@{/consentApply(user_id=${apply.user_id})}"
-        //th:onclick="'javascript:consent('+${apply.user_id}+');'"
-        alert(user_id);
-        $.ajax({
-            type:"get",
-            url:"/applyExamine/consentApply",
-            dataType:"text",
-            data:{"user_id":user_id},
-            cache: false,
-            async: true,
-            success:function (data) {
-                $('.card-body').html(data);
-                $('#bootstrap-data-table-export').DataTable();
-                $('.table').DataTable();
-                $('.table-striped').DataTable();
-                $('.table-bordered').DataTable();
-            }
-        })
-    }
-    function refuse(user_id) {
-        alert(user_id);
-        $.ajax({
-            type:"get",
-            url:"/applyExamine/refuseApply",
-            dataType:"text",
-            data:{"user_id":user_id},
-            cache: false,
-            async: true,
-            success:function (data) {
-                $('.card-body').html(data);
-                $('#bootstrap-data-table-export').DataTable();
-                $('.table').DataTable();
-                $('.table-striped').DataTable();
-                $('.table-bordered').DataTable();
-            }
-        })
-    }
     function examine(user_id) {
         alert(user_id);
         $.ajax({
             type:"get",
-            url:"/applyExamine/examineApply",
+            url:"/examineApply",
             dataType:"text",
             data:{"user_id":user_id},
             cache: false,

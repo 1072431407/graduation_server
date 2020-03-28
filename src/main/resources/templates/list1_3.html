@@ -229,7 +229,7 @@
         alert(user_id);
         $.ajax({
             type:"get",
-            url:"/applyExamine/consentApply",
+            url:"/consentApply",
             dataType:"text",
             data:{"user_id":user_id},
             cache: false,
@@ -247,7 +247,7 @@
         alert(user_id);
         $.ajax({
             type:"get",
-            url:"/applyExamine/refuseApply",
+            url:"/refuseApply",
             dataType:"text",
             data:{"user_id":user_id},
             cache: false,
@@ -265,7 +265,7 @@
         alert(user_id);
         $.ajax({
             type:"get",
-            url:"/applyExamine/examineApply",
+            url:"/examineApply",
             dataType:"text",
             data:{"user_id":user_id},
             cache: false,

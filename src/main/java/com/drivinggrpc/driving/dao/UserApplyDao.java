@@ -4,6 +4,8 @@ import com.drivinggrpc.driving.po.UserApply;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @Mapper
 public interface UserApplyDao {
@@ -19,4 +21,10 @@ public interface UserApplyDao {
 
     @Update("update apply_state set state=#{state} where user_id=#{user_id}")
     int updateApplyStateByUserId(int user_id,String state);
+
+    @Select("select * from user_apply")
+    List<UserApply> selectApplyAll();
+
+    @Select("select * from user_apply where user_id=#{user_id}")
+    UserApply selectApplyByUserId(int user_id);
 }

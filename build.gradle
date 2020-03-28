@@ -63,7 +63,8 @@ dependencies {
     }
     implementation 'mysql:mysql-connector-java:5.1.48'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'
-
+//    implementation 'org.springframework.boot:spring-boot-devtools:2.2.5.RELEASE'
+    
     implementation 'io.grpc:grpc-netty-shaded:1.27.0'
     implementation 'io.grpc:grpc-protobuf:1.27.0'
     implementation 'io.grpc:grpc-stub:1.27.0'

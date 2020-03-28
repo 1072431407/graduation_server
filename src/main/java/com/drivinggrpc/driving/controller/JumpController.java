@@ -17,8 +17,4 @@ public class JumpController {
     public String main(){
         return "main";
     }
-    @GetMapping("/list1_1")
-    public String list1_1(){
-        return "list1_1";
-    }
 }
