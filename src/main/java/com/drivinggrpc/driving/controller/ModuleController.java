@@ -10,9 +10,8 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -166,5 +165,45 @@ public class ModuleController {
     public Absentee absenteeExamine(@RequestParam(value = "user_id")int user_id){
         Absentee absentee = moduleServer.getUserAbsentee(user_id);
         return absentee;
+    }
+    /*
+                "name":name,
+            "age":age,
+            "phone":phone,
+            "code":code,
+            "address":address,
+            "sex":sex,
+            "old_type_radio":old_type_radio,
+            "old_type":old_type,
+            "type":type,
+            "file":formData,
+     */
+
+    @ResponseBody
+    @RequestMapping(value = "/userApply", method = RequestMethod.POST, consumes = "multipart/form-data")
+    public String webApply(@RequestParam(value = "name",required = false) String name,
+//                           @RequestParam(value = "age")String age,
+//                           @RequestParam(value = "phone")String phone,
+//                           @RequestParam(value = "code")String code,
+//                           @RequestParam(value = "address")String address,
+//                           @RequestParam(value = "sex")String sex,
+//                           @RequestParam(value = "old_type_radio")String old_type_radio,
+//                           @RequestParam(value = "old_type")String old_type,
+//                           @RequestParam(value = "type")String type,
+                           @RequestParam(value = "file")MultipartFile picture){
+        System.out.println(name);
+//        System.out.println(age);
+//        System.out.println(phone);
+//        System.out.println(code);
+//        System.out.println(address);
+//        System.out.println(sex);
+//        System.out.println(old_type_radio);
+//        System.out.println(old_type);
+//        System.out.println(type);
+        System.out.println(picture.getName());
+        System.out.println(picture.getSize());
+        System.out.println(picture.getOriginalFilename());
+
+        return "succeed";
     }
 }
