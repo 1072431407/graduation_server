@@ -50,7 +50,7 @@
                         <li><i class="fa fa-line-chart"></i><a href="ui-tabs.html">收入统计</a></li>
                     </ul>
                 </li>
-                <li class="menu-item-has-children active dropdown">
+                <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="menu-icon fa fa-table"></i>学员管理</a>
                     <ul class="sub-menu children dropdown-menu">
@@ -60,7 +60,7 @@
                         <li><i class="fa fa-table"></i><a href="/blacklist">黑名单</a></li>
                     </ul>
                 </li>
-                <li class="menu-item-has-children dropdown">
+                <li class="menu-item-has-children active dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="menu-icon fa fa-th"></i>考试管理</a>
                     <ul class="sub-menu children dropdown-menu">
@@ -131,6 +131,37 @@
     </header>
 
     <div class="content">
+        <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="smallmodalLabel">用户资料</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                        <div><img id="picture" alt="Logo"></div>
+                        <div><a>姓名: </a><a id="name"></a></div>
+                        <div><a>年龄: </a><a id="age"></a></div>
+                        <div><a>性别: </a><a id="sex"></a></div>
+                        <div><a>报名日期: </a><a id="date"></a></div>
+                        <div><a>当前进度: </a><a id="state"></a></div>
+                        <div><a>报考类型: </a><a id="type"></a></div>
+                        <div><a>有无驾驶证: </a><a id="old_type"></a></div>
+                        <div><a>住址: </a><a id="address"></a></div>
+                        <div><a>电话: </a><a id="phone"></a></div>
+                        <div><a>身份证号: </a><a id="code"></a></div>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="animated fadeIn">
             <div class="row">
@@ -149,21 +180,19 @@
                                     <th>年龄</th>
                                     <th>电话</th>
                                     <th>证件类型</th>
-                                    <th>身份证号</th>
                                     <th style="width: 150px;">审批</th>
                                 </tr>
                                 </thead>
                                 <tbody >
-                                <tr th:each="graduate:${graduates}">
-                                    <td th:text="${graduate.name}"></td>
-                                    <td th:text="${graduate.sex}"></td>
-                                    <td th:text="${graduate.age}"></td>
-                                    <td th:text="${graduate.phone}"></td>
-                                    <td th:text="${graduate.type}"></td>
-                                    <td th:text="${graduate.code}"></td>
+                                <tr th:each="absentee:${absentees}">
+                                    <td th:text="${absentee.name}"></td>
+                                    <td th:text="${absentee.sex}"></td>
+                                    <td th:text="${absentee.age}"></td>
+                                    <td th:text="${absentee.phone}"></td>
+                                    <td th:text="${absentee.type}"></td>
                                     <td>
-                                        <button type="button" class="btn btn-warning btn-primary mb-1" th:onclick="'javascript:remove('+${graduate.user_id}+');'">
-                                            删除
+                                        <button type="button" class="btn btn-warning btn-primary mb-1" data-toggle="modal" data-target="#smallmodal" th:onclick="'javascript:examine('+${absentee.user_id}+');'">
+                                            查看信息
                                         </button>
                                     </td>
                                 </tr>
@@ -222,21 +251,29 @@
     $(document).ready(function() {
         $('#bootstrap-data-table-export').DataTable();
     } );
-    function remove(user_id) {
+    function examine(user_id) {
         $.ajax({
             type:"get",
-            url:"/graduate/remove",
-            dataType:"text",
+            url:"/absentee/examine",
+            dataType:"json",
             data:{"user_id":user_id},
+            cache: false,
+            async: true,
             success:function (data) {
-                $('.card-body').html(data);
-                $('#bootstrap-data-table-export').DataTable();
-                $('.table').DataTable();
-                $('.table-striped').DataTable();
-                $('.table-bordered').DataTable();
-            },
-            error:function () {
-                alert("删除失败!");
+                console.log(data);
+                if (data!=null){
+                    $("#picture").attr("src","images/pictures/"+data['picture']);
+                    $("#name").html(data['name']);
+                    $("#age").html(data['age']);
+                    $("#sex").html(data['sex']);
+                    $("#type").html(data['type']);
+                    $("#old_type").html(data['old_type']);
+                    $("#address").html(data['address']);
+                    $("#phone").html(data['phone']);
+                    $("#code").html(data['code']);
+                    $("#state").html(data['state']);
+                    $("#date").html(data['date']);
+                }
             }
         })
     }

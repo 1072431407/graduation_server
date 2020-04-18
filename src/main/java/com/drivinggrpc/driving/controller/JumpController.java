@@ -17,5 +17,17 @@ public class JumpController {
     public String main(){
         return "main";
     }
+    @GetMapping("/addExam")
+    public String addExam(){
+        return "list2/list2_0";
+    }
+    @GetMapping("/loggingData")
+    public String loggingData(){
+        return "list2/list2_2";
+    }
+    @GetMapping("/addExercise")
+    public String addExercise(){
+        return "list2/list2_3";
+    }
 
 }

@@ -50,7 +50,7 @@
                         <li><i class="fa fa-line-chart"></i><a href="ui-tabs.html">收入统计</a></li>
                     </ul>
                 </li>
-                <li class="menu-item-has-children active dropdown">
+                <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="menu-icon fa fa-table"></i>学员管理</a>
                     <ul class="sub-menu children dropdown-menu">
@@ -60,7 +60,7 @@
                         <li><i class="fa fa-table"></i><a href="/blacklist">黑名单</a></li>
                     </ul>
                 </li>
-                <li class="menu-item-has-children dropdown">
+                <li class="menu-item-has-children active dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="menu-icon fa fa-th"></i>考试管理</a>
                     <ul class="sub-menu children dropdown-menu">
@@ -131,52 +131,72 @@
     </header>
 
     <div class="content">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Basic Form</strong> Elements
+                </div>
+                <div class="card-body card-block">
+                    <div class="form-horizontal">
 
-        <div class="animated fadeIn">
-            <div class="row">
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">Static</label></div>
+                            <div class="col-12 col-md-9">
+                                <p class="form-control-static">Username</p>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="type" class=" form-control-label">考试类型</label></div>
+                            <div class="col-12 col-md-9">
+                                <select name="selectSm" id="type" class="form-control-sm form-control">
+                                    <option value="0">科目一</option>
+                                    <option value="1">科目四</option>
+                                </select>
+                            </div>
+                        </div>
 
-                <div class="col-md-12">
-                    <div class="card" >
-                        <div class="card-header">
-                            <strong class="card-title">Data Table</strong>
+
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">考试日期</label></div>
+                            <div class="col-12 col-md-9">
+                                <select id="year" class="sel_year" name="YYYY">
+                                    <option value="">请选择</option>
+                                </select>
+                                <font>年</font>
+                                <select id="month" class="sel_month" name="MM">
+                                    <option value="">请选择</option>
+                                </select>
+                                <font>月</font>
+                                <select id="day" class="sel_day" name="DD">
+                                    <option value="">请选择</option>
+                                </select>
+                                <font>日</font>
+                            </div>
                         </div>
-                        <div class="card-body" >
-                            <table id="bootstrap-data-table" class="table table-striped table-bordered" th:fragment="list">
-                                <thead >
-                                <tr>
-                                    <th>姓名</th>
-                                    <th>性别</th>
-                                    <th>年龄</th>
-                                    <th>电话</th>
-                                    <th>证件类型</th>
-                                    <th>身份证号</th>
-                                    <th style="width: 150px;">审批</th>
-                                </tr>
-                                </thead>
-                                <tbody >
-                                <tr th:each="graduate:${graduates}">
-                                    <td th:text="${graduate.name}"></td>
-                                    <td th:text="${graduate.sex}"></td>
-                                    <td th:text="${graduate.age}"></td>
-                                    <td th:text="${graduate.phone}"></td>
-                                    <td th:text="${graduate.type}"></td>
-                                    <td th:text="${graduate.code}"></td>
-                                    <td>
-                                        <button type="button" class="btn btn-warning btn-primary mb-1" th:onclick="'javascript:remove('+${graduate.user_id}+');'">
-                                            删除
-                                        </button>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="max" class=" form-control-label">最大人数</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="max" name="text-input" placeholder="40" class="form-control"><small class="form-text text-muted">The largest number of people</small></div>
                         </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="address" class=" form-control-label">考试地址</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="address" name="text-input" placeholder="吉林省吉林市龙潭区xx驾校xx楼xx室" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="remark" class=" form-control-label">备注</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="remark" name="text-input" placeholder="" class="form-control"></div>
+                        </div>
+
                     </div>
                 </div>
-
-
+                <div class="card-footer">
+                    <button type="button" class="btn btn-success" onclick="addExam()">提交安排</button>
+                </div>
             </div>
-        </div><!-- .animated -->
-    </div><!-- .content -->
+
+        </div>
+        <!-- Animated -->
+        <!-- .animated -->
+    </div>
 
 
     <div class="clearfix"></div>
@@ -217,29 +237,67 @@
 <script src="assets/js/lib/data-table/buttons.colVis.min.js"></script>
 <script src="assets/js/init/datatables-init.js"></script>
 
+<script src="assets/js/jquery.time.js"></script>
+<script src="assets/js/birthday.js"></script>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('#bootstrap-data-table-export').DataTable();
-    } );
-    function remove(user_id) {
+    function addExam() {
+        var exam_type = $("#type option:selected").text();//选中的文本
+        var year = $("#year option:selected").text();//选中的文本
+        var month = $("#month option:selected").text();//选中的文本
+        var day = $("#day option:selected").text();//选中的文本
+        var max = document.getElementById("max").value;
+        var address = document.getElementById("address").value;
+        var remark = document.getElementById("remark").value;
+        if (year == "--"){
+            alert("请选择日期年份");
+            return;
+        }
+        if (month == "--"){
+            alert("请选择日期月份");
+            return;
+        }
+        if (day == "--"){
+            alert("请选择日期");
+            return;
+        }
+        if (max == ""){
+            alert("请输入最大人员数量");
+            return;
+        }else {
+            if(isNaN(max)) {
+                alert("最大人员数量为数字");
+                return;
+            }
+        }
+        if (address == ""){
+            alert("请输入地址");
+            return;
+        }
+        if (remark == null)
+            remark = "";
         $.ajax({
             type:"get",
-            url:"/graduate/remove",
+            url:"/addExam/add",
             dataType:"text",
-            data:{"user_id":user_id},
-            success:function (data) {
-                $('.card-body').html(data);
-                $('#bootstrap-data-table-export').DataTable();
-                $('.table').DataTable();
-                $('.table-striped').DataTable();
-                $('.table-bordered').DataTable();
+            data:{
+                "exam_type":exam_type,
+                "year":year,
+                "month":month,
+                "day":day,
+                "max":max,
+                "address":address,
+                "remark":remark
             },
-            error:function () {
-                alert("删除失败!");
+            success:function (data) {
+                if (data == "succeed")
+                    alert("添加成功!");
+                else
+                    alert(data);
             }
-        })
+        });
     }
+
     function loginOut() {
         $.ajax({
             type:"POST",
