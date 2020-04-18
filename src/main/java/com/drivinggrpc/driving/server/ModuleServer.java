@@ -15,15 +15,5 @@ public interface ModuleServer {
 
     UserStatistics getStatisticsData(int userId);
 
-    List<UserApply> getUserApplys();
 
-    void consentApply(int user_id);
-
-    void refuseApply(int user_id);
-
-    List<UserApply> getUserAbsenteeAll();
-
-    UserApply getUserApplyMessage(int user_id);
-
-    Absentee getUserAbsentee(int user_id);
 }

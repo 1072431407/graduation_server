@@ -23,10 +23,6 @@ public class ModuleServerImpl implements ModuleServer {
     @Autowired
     private UserStatisticsDao statisticsDao;
 
-    @Autowired
-    private AbsenteeDao absenteeDao;
-    @Autowired
-    private NewsDao newsDao;
     @Override
     public String userApply(UserApply userApply,String date) {
         int userApplyKey = applyDao.insertUserApply(userApply);
@@ -59,58 +55,4 @@ public class ModuleServerImpl implements ModuleServer {
         return statistics;
     }
 
-    @Override
-    public List<UserApply> getUserApplys() {
-        List<UserApply> userApplies = applyDao.selectApplyAll();
-        return userApplies;
-    }
-
-    /**
-     * 审批通过
-     * @param user_id
-     */
-    @Override
-    public void consentApply(int user_id) {
-        applyDao.updateApplyStateByUserId(user_id,"科目一");//更新用户状态
-        UserApply apply = applyDao.selectApplyByUserId(user_id);
-        absenteeDao.insertUserAbsentee(apply);
-        applyDao.deleteUserApplyByUserId(user_id);//删除用户报名信息
-    }
-
-    /**
-     * 审批不通过
-     * @param user_id
-     */
-    @Override
-    public void refuseApply(int user_id) {
-        applyDao.updateApplyStateByUserId(user_id,"未报名");//更新用户状态
-        applyDao.deleteUserApplyByUserId(user_id);//删除用户报名信息
-        News news = new News();
-        news.setUser_id(user_id);
-        news.setTitle("通知");
-        news.setContent("由于您不符合报名条件，因此报名被驳回!");
-        Date date = new Date();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        news.setDate(format.format(date));
-        newsDao.insertNews(news);
-    }
-
-    @Override
-    public List<UserApply> getUserAbsenteeAll() {
-        List<UserApply> absentees = absenteeDao.selectAbsenteeAll();
-        return absentees;
-    }
-
-    @Override
-    public UserApply getUserApplyMessage(int user_id) {
-        return applyDao.selectApplyByUserId(user_id);
-    }
-
-    @Override
-    public Absentee getUserAbsentee(int user_id) {
-        Absentee absentee = absenteeDao.selectAbsenteeByUserId(user_id);
-        absentee.setState(applyDao.selectApplyStateByUserId(user_id));
-        absentee.setDate(statisticsDao.selectUserApplyDateByUserId(user_id));
-        return absentee;
-    }
 }

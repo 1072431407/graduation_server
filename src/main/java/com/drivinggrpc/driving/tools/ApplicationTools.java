@@ -4,6 +4,8 @@ import com.drivinggrpc.driving.DrivingApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.UUID;
+
 /**
  * https://github.com/1072431407/graduation_server.git
  * git remote add origin {url}
@@ -20,5 +22,14 @@ public class ApplicationTools {
 //    public static String http://192.168.3.36:8080/androidImage/head_image.png
     public static String getHeadImage(String newFileName){
         return  "http://"+SERVER_IP+":8080/androidImage/"+newFileName+".jpg";
+    }
+
+    public static String getPhyTheFees(){
+        return "http://"+SERVER_IP+":8080/PhyTheFees";
+    }
+
+    public static String getUUID(){
+        String uuid = UUID.randomUUID().toString();  //转化为String对象
+        return uuid.replace("-", "");
     }
 }

@@ -1,17 +1,22 @@
 package com.drivinggrpc.driving.po;
 
-public class UserApply {
+public class Graduate {
     private int user_id;
-    private String picture;
     private String name;
     private String sex;
     private String age;
     private String phone;
     private String type;
     private String code;
-    private String old_type;
-    private String address;
+    private int state;
 
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public int getState() {
+        return state;
+    }
 
     public void setCode(String code) {
         this.code = code;
@@ -25,10 +30,6 @@ public class UserApply {
         this.user_id = user_id;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -37,17 +38,11 @@ public class UserApply {
         this.age = age;
     }
 
-    public void setOld_type(String old_type) {
-        this.old_type = old_type;
-    }
 
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
 
     public void setSex(String sex) {
         this.sex = sex;
@@ -61,13 +56,6 @@ public class UserApply {
         return user_id;
     }
 
-    public String getPicture() {
-        return picture;
-    }
-
-    public String getAddress() {
-        return address;
-    }
 
     public String getAge() {
         return age;
@@ -75,10 +63,6 @@ public class UserApply {
 
     public String getName() {
         return name;
-    }
-
-    public String getOld_type() {
-        return old_type;
     }
 
     public String getPhone() {

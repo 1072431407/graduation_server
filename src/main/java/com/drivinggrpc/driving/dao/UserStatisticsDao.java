@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 @Component
 @Mapper
 public interface UserStatisticsDao {
-
     @Select("select date from user_statistics where user_id = #{user_id}")
     String selectUserApplyDateByUserId(int user_id);
 
@@ -21,5 +20,4 @@ public interface UserStatisticsDao {
 
     @Select("select * from user_statistics where user_id = #{user_id}")
     UserStatistics selectUserStatisticsAllByUserId(int user_id);
-
 }

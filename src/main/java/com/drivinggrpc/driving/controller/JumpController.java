@@ -17,10 +17,5 @@ public class JumpController {
     public String main(){
         return "main";
     }
-    @GetMapping("/apply")
-    public String apply(){
-        return "list1_0";
-    }
-
 
 }

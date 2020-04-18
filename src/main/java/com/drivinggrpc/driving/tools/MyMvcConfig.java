@@ -37,7 +37,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
                         .addPathPatterns("/**")
                 .excludePathPatterns("/login","/static/**","/loginRequest",
                         "/forPasswordRequest","/getVerCode","/forget-password",
-                        "/androidImage/**","/images/**");
+                        "/androidImage/**","/images/**","/PhyTheFees");
             }
         };
     }
