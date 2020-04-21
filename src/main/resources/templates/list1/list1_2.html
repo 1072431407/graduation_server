@@ -162,7 +162,8 @@
                                     <td th:text="${graduate.type}"></td>
                                     <td th:text="${graduate.code}"></td>
                                     <td>
-                                        <button type="button" class="btn btn-warning btn-primary mb-1" th:onclick="'javascript:remove('+${graduate.user_id}+');'">
+
+                                        <button type="button" class="btn btn-warning btn-primary mb-1" th:onclick="remove([[${graduate.user_id}]]);">
                                             删除
                                         </button>
                                     </td>

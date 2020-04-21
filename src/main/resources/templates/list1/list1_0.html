@@ -188,12 +188,13 @@
                                     <td th:text="${apply.phone}"></td>
                                     <td th:text="${apply.type}"></td>
                                     <td>
-                                        <button type="button" class="btn btn-success" th:onclick="'javascript:consent('+${apply.user_id}+');'">同意</button>
-                                        <button type="button" class="btn btn-danger" th:onclick="'javascript:refuse('+${apply.user_id}+');'">拒绝</button>
-                                        <button type="button" class="btn btn-warning btn-primary mb-1" data-toggle="modal" data-target="#smallmodal" th:onclick="'javascript:examine('+${apply.user_id}+');'">
+                                        <button type="button" class="btn btn-success" th:onclick="consent([[${apply.user_id}]]);">同意</button>
+                                        <button type="button" class="btn btn-danger" th:onclick="refuse([[${apply.user_id}]]);">拒绝</button>
+                                        <button type="button" class="btn btn-warning btn-primary mb-1" data-toggle="modal" data-target="#smallmodal" th:onclick="examine([[${apply.user_id}]]);">
                                             查看信息
                                         </button>
-                                        <button type="button" class="btn btn-warning btn-primary mb-1" th:onclick="'javascript:block('+${apply.user_id}+');'">
+
+                                        <button type="button" class="btn btn-warning btn-primary mb-1" th:onclick="block([[${apply.user_id}]]);">
                                             拉黑
                                         </button>
                                     </td>

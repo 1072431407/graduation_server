@@ -1,13 +1,17 @@
 package com.drivinggrpc.driving.po;
 
 public class News {
-    private int user_id;
+    private String user_id;
     private String title;
     private String content;
     private String date;
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(String user_id) {
         this.user_id = user_id;
+    }
+
+    public String getUser_id() {
+        return user_id;
     }
 
     public void setDate(String date) {
@@ -22,9 +26,6 @@ public class News {
         this.title = title;
     }
 
-    public int getUser_id() {
-        return user_id;
-    }
 
     public String getDate() {
         return date;

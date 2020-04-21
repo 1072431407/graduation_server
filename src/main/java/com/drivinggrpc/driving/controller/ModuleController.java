@@ -52,7 +52,7 @@ public class ModuleController {
      * @param userId
      * @return
      */
-    public ApplyStateResponse getApplyState(int userId) {
+    public ApplyStateResponse getApplyState(String userId) {
         ApplyStateResponse response = ApplyStateResponse.newBuilder().setState(moduleServer.getApplyStateByUserId(userId)).build();
         logger.info("getApplyState:userId="+userId+"-->state="+response.getState());
         return response;

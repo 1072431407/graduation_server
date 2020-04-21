@@ -131,12 +131,73 @@
     </header>
 
     <div class="content">
+        <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="smallmodalLabel">考试资料</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div><a>考试类型: </a><a id="type"></a></div>
+                        <div><a>考试日期: </a><a id="data"></a></div>
+                        <div><a>最大人数: </a><a id="max"></a></div>
+                        <div><a>考试时间: </a><a id="time"></a></div>
+                        <div><a>考试地址: </a><a id="address"></a></div>
+                        <div><a>备注: </a><a id="remark"></a></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="animated fadeIn">
             <div class="row">
 
                 <div class="col-md-12">
                     <div class="card" >
+                        <div class="card-header">
+                            <strong class="card-title">Data Table</strong>
+                        </div>
+                        <div class="card-body" >
+                            <table style="table-layout: fixed;" id="bootstrap-data-table" class="table table-striped table-bordered" th:fragment="list">
+                                <thead >
+                                <tr>
+                                    <th>姓名</th>
+                                    <th>类型</th>
+                                    <th>日期</th>
+                                    <th>时间</th>
+                                    <th>地址</th>
+                                    <th style="width: 250px;">审批</th>
+                                </tr>
+                                </thead>
+                                <tbody >
+                                <tr th:each="report:${reports}">
+                                    <td th:text="${report.name}"></td>
+                                    <td th:text="${report.type}"></td>
+                                    <td th:text="${report.data}"></td>
+                                    <td th:text="${report.time}"></td>
+                                    <td style="max-width: 250px;min-width: 180px;" th:text="${report.address}"></td>
+                                    <td>
+                                        <button type="button" class="btn btn-success" th:onclick="eligible([[${report.user_id}]]);">
+                                            合格
+                                        </button>
+                                        <button type="button" class="btn btn-danger" th:onclick="uneligible ([[${report.user_id}]]);">
+                                            不合格
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-primary mb-1" data-toggle="modal" data-target="#smallmodal" th:onclick="check([[${report.exam_id}]]);">
+                                            查看信息
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
@@ -186,6 +247,60 @@
 
 
 <script type="text/javascript">
+    function eligible(user_id) {
+        console.log(user_id);
+        $.ajax({
+            type:"get",
+            url:"/loggingData/eligible",
+            dataType:"text",
+            data:{"user_id":user_id},
+            success:function (data) {
+                $('.card-body').html(data);
+                $('#bootstrap-data-table-export').DataTable();
+                $('.table').DataTable();
+                $('.table-striped').DataTable();
+                $('.table-bordered').DataTable();
+            }
+        })
+    }
+    function uneligible(user_id) {
+        console.log(user_id);
+        $.ajax({
+            type:"get",
+            url:"/loggingData/uneligible",
+            dataType:"text",
+            data:{"exam_id":exam_id},
+            success:function (data) {
+                $('.card-body').html(data);
+                $('#bootstrap-data-table-export').DataTable();
+                $('.table').DataTable();
+                $('.table-striped').DataTable();
+                $('.table-bordered').DataTable();
+            }
+        })
+    }
+    function check(exam_id) {
+        console.log(exam_id);
+        $.ajax({
+            type:"get",
+            url:"/loggingData/check",
+            dataType:"json",
+            data:{"exam_id":exam_id},
+            cache: false,
+            async: true,
+            success:function (data) {
+                console.log(data);
+                if (data!=null){
+                    $("#type").html(data['type']);
+                    $("#data").html(data['data']);
+                    $("#max").html(data['max']);
+                    $("#time").html(data['time']);
+                    $("#address").html(data['address']);
+                    $("#remark").html(data['remark']);
+                }
+            }
+        })
+    }
     function loginOut() {
         $.ajax({
             type:"POST",

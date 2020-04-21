@@ -39,7 +39,7 @@ public class StudentAdminServerImpl implements StudentAdminServer {
      * @param user_id
      */
     @Override
-    public void consentApply(int user_id) {
+    public void consentApply(String user_id) {
         News news = new News();
         applyDao.updateApplyStateByUserId(user_id,"科目一");//更新用户状态
         UserApply apply = applyDao.selectApplyByUserId(user_id);
@@ -59,7 +59,7 @@ public class StudentAdminServerImpl implements StudentAdminServer {
      * @param user_id
      */
     @Override
-    public void refuseApply(int user_id) {
+    public void refuseApply(String user_id) {
         applyDao.updateApplyStateByUserId(user_id,"未报名");//更新用户状态
         UserApply userApply = applyDao.selectApplyByUserId(user_id);
         applyDao.deleteUserApplyByUserId(user_id);//删除用户报名信息
@@ -83,12 +83,12 @@ public class StudentAdminServerImpl implements StudentAdminServer {
     }
 
     @Override
-    public UserApply getUserApplyMessage(int user_id) {
+    public UserApply getUserApplyMessage(String user_id) {
         return applyDao.selectApplyByUserId(user_id);
     }
 
     @Override
-    public Absentee getUserAbsentee(int user_id) {
+    public Absentee getUserAbsentee(String user_id) {
         Absentee absentee = absenteeDao.selectAbsenteeByUserId(user_id);
         absentee.setState(applyDao.selectApplyStateByUserId(user_id));
         absentee.setDate(statisticsDao.selectUserApplyDateByUserId(user_id));
@@ -96,7 +96,7 @@ public class StudentAdminServerImpl implements StudentAdminServer {
     }
 
     @Override
-    public void block(int user_id) {
+    public void block(String user_id) {
         UserApply userApply = applyDao.selectApplyByUserId(user_id);
         applyDao.updateApplyStateByUserId(user_id,"未报名");//更新用户状态
         File file = new File(userApply.getPicture());
@@ -121,7 +121,7 @@ public class StudentAdminServerImpl implements StudentAdminServer {
     }
 
     @Override
-    public void removeGraduate(int user_id) {
+    public void removeGraduate(String user_id) {
         graduateDao.deleteGraduateByUserId(user_id);
     }
 

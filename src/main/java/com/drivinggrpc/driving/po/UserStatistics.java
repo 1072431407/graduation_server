@@ -1,7 +1,7 @@
 package com.drivinggrpc.driving.po;
 
 public class UserStatistics {
-    private int user_id;
+    private String user_id;
     private int minute;
     private String date;
     private int num_questions_1;
@@ -77,16 +77,16 @@ public class UserStatistics {
         this.num_questions_4 = num_questions_4;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public String getUser_id() {
+        return user_id;
     }
 
     public void setDate(String date) {
         this.date = date;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 
     public int getMinute() {

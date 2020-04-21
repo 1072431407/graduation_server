@@ -11,9 +11,9 @@ import java.util.List;
 public interface ModuleServer {
     String userApply(UserApply userApply,String date);
 
-    String getApplyStateByUserId(int userId);
+    String getApplyStateByUserId(String userId);
 
-    UserStatistics getStatisticsData(int userId);
+    UserStatistics getStatisticsData(String userId);
 
 
 }

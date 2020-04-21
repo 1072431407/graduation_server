@@ -144,7 +144,7 @@
 
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="smallmodalLabel">用户资料</h5>
+                        <h5 class="modal-title" id="smallmodalLabel">考试资料</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -153,6 +153,7 @@
                         <div><a>考试类型: </a><a id="type"></a></div>
                         <div><a>考试日期: </a><a id="data"></a></div>
                         <div><a>最大人数: </a><a id="max"></a></div>
+                        <div><a>考试时间: </a><a id="time"></a></div>
                         <div><a>考试地址: </a><a id="address"></a></div>
                         <div><a>备注: </a><a id="remark"></a></div>
                     </div>
@@ -178,8 +179,8 @@
                                     <th>类型</th>
                                     <th>日期</th>
                                     <th>人数</th>
+                                    <th>时间</th>
                                     <th style="max-width: 250px;min-width: 180px;">地址</th>
-                                    <th style="max-width: 200px;min-width: 150px;">备注</th>
                                     <th style="width: 150px;">审批</th>
                                 </tr>
                                 </thead>
@@ -188,8 +189,8 @@
                                     <td th:text="${exam.type}"></td>
                                     <td th:text="${exam.data}"></td>
                                     <td th:text="${exam.max}"></td>
+                                    <td th:text="${exam.time}"></td>
                                     <td style="max-width: 250px;min-width: 180px;" th:text="${exam.address}"></td>
-                                    <td style="max-width: 200px;min-width: 150px;" th:text="${exam.remark}"></td>
                                     <td>
                                         <button type="button" class="btn btn-warning btn-primary mb-1" data-toggle="modal" data-target="#smallmodal" th:onclick="check([[${exam.exam_id}]]);">
                                             查看信息
@@ -285,6 +286,7 @@
                     $("#type").html(data['type']);
                     $("#data").html(data['data']);
                     $("#max").html(data['max']);
+                    $("#time").html(data['time']);
                     $("#address").html(data['address']);
                     $("#remark").html(data['remark']);
                 }

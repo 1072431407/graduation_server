@@ -9,6 +9,7 @@ import com.drivinggrpc.driving.po.User;
 import com.drivinggrpc.driving.po.UserMessage;
 import com.drivinggrpc.driving.po.UserStatistics;
 import com.drivinggrpc.driving.server.UserServer;
+import com.drivinggrpc.driving.tools.ApplicationTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -60,6 +61,7 @@ public class UserServerImpl implements UserServer {
             return "该账号已存在";
         else{
             User newUser = new User();
+            newUser.setId(ApplicationTools.getUUID());
             newUser.setUsername(username);
             newUser.setPassword(password);
             newUser.setPower(power);

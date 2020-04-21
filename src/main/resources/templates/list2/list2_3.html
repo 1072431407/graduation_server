@@ -131,18 +131,95 @@
     </header>
 
     <div class="content">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Basic Form</strong> Elements
+                </div>
+                <div class="card-body card-block">
+                    <div class="form-horizontal">
 
-        <div class="animated fadeIn">
-            <div class="row">
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">Static</label></div>
+                            <div class="col-12 col-md-9">
+                                <p class="form-control-static">Username</p>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="type" class=" form-control-label">练车类型</label></div>
+                            <div class="col-12 col-md-9">
+                                <select name="selectSm" id="type" class="form-control-sm form-control">
+                                    <option value="0">科目二</option>
+                                    <option value="1">科目三</option>
+                                </select>
+                            </div>
+                        </div>
 
-                <div class="col-md-12">
-                    <div class="card" >
+
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">练车起始日期</label></div>
+                            <div class="col-12 col-md-9">
+                                <select id="startYear" class="sel_year" name="YYYY">
+                                    <option value="">请选择</option>
+                                </select>
+                                <font>年</font>
+                                <select id="startMonth" class="sel_month" name="MM">
+                                    <option value="">请选择</option>
+                                </select>
+                                <font>月</font>
+                                <select id="startDay" class="sel_day" name="DD">
+                                    <option value="">请选择</option>
+                                </select>
+                                <font>日</font>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">练车结束日期</label></div>
+                            <div class="col-12 col-md-9">
+                                <select id="overYear" class="sel_year" name="YYYY">
+                                    <option value="">请选择</option>
+                                </select>
+                                <font>年</font>
+                                <select id="overMonth" class="sel_month" name="MM">
+                                    <option value="">请选择</option>
+                                </select>
+                                <font>月</font>
+                                <select id="overDay" class="sel_day" name="DD">
+                                    <option value="">请选择</option>
+                                </select>
+                                <font>日</font>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">练车时间</label></div>
+                            <div class="col-12 col-md-9"> <input id ="time" type="time" value="00:00"/></div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="duration" class=" form-control-label">时长（分钟）</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="duration" name="text-input" placeholder="180" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="max" class=" form-control-label">最大人数</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="max" name="text-input" placeholder="10" class="form-control"><small class="form-text text-muted">The largest number of people</small></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="address" class=" form-control-label">地址</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="address" name="text-input" placeholder="吉林省吉林市龙潭区xx驾校xx楼xx室" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="remark" class=" form-control-label">备注</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="remark" name="text-input" placeholder="" class="form-control"></div>
+                        </div>
+
                     </div>
                 </div>
-
-
+                <div class="card-footer">
+                    <button type="button" class="btn btn-success" onclick="addExam()">立即报名</button>
+                </div>
             </div>
-        </div><!-- .animated -->
+
+        </div>
     </div><!-- .content -->
 
 
@@ -184,8 +261,117 @@
 <script src="assets/js/lib/data-table/buttons.colVis.min.js"></script>
 <script src="assets/js/init/datatables-init.js"></script>
 
-
+<script src="assets/js/birthday.js"></script>
+<script src="assets/js/jquery.time.js"></script>
 <script type="text/javascript">
+    function addExam() {
+        var exam_type = $("#type option:selected").text();//选中的文本
+        var max = document.getElementById("max").value;
+        var address = document.getElementById("address").value;
+        var remark = document.getElementById("remark").value;
+        var time = document.getElementById("time").value;
+        var startYear = $("#startYear option:selected").text();//选中的文本
+        var startMonth = $("#startMonth option:selected").text();//选中的文本
+        var startDay = $("#startDay option:selected").text();//选中的文本
+        var overYear = $("#overYear option:selected").text();//选中的文本
+        var overMonth = $("#overMonth option:selected").text();//选中的文本
+        var overDay = $("#overDay option:selected").text();//选中的文本
+        var duration = document.getElementById("duration").value;
+
+        if (startYear == "--"){
+            alert("请选择日期年份");
+            return;
+        }
+        if (startMonth == "--"){
+            alert("请选择日期月份");
+            return;
+        }
+        if (startDay == "--"){
+            alert("请选择日期");
+            return;
+        }
+        if (overYear == "--"){
+            alert("请选择日期年份");
+            return;
+        }
+        if (overMonth == "--"){
+            alert("请选择日期月份");
+            return;
+        }
+        if (overDay == "--"){
+            alert("请选择日期");
+            return;
+        }
+        if (duration == ""){
+            alert("请输入最大人员数量");
+            return;
+        }else {
+            if(isNaN(duration)) {
+                alert("练习时长为数字");
+                return;
+            }
+        }
+
+        if (max == ""){
+            alert("请输入最大人员数量");
+            return;
+        }else {
+            if(isNaN(max)) {
+                alert("最大人员数量为数字");
+                return;
+            }
+        }
+        if (address == ""){
+            alert("请输入地址");
+            return;
+        }
+        if (remark == null)
+            remark = "";
+
+        if (time == null || time == ''){
+            alert("请选择时间");
+            return;
+        }
+        if (startYear>overYear){
+            alert("结束日期必须大于起始日期!");
+            return;
+        }else {
+            if (startMonth>overMonth){
+                alert("结束日期必须大于起始日期!");
+                return;
+            }else {
+                if (startDay>overDay){
+                    alert("结束日期必须大于起始日期!");
+                    return;
+                }
+            }
+        }
+        $.ajax({
+            type:"get",
+            url:"/addExercise/add",
+            dataType:"text",
+            data:{
+                "exam_type":exam_type,
+                "startYear":startYear,
+                "startMonth":startMonth,
+                "startDay":startDay,
+                "overYear":overYear,
+                "overMonth":overMonth,
+                "overDay":overDay,
+                "max":max,
+                "address":address,
+                "remark":remark,
+                "duration":duration,
+                "time":time
+            },
+            success:function (data) {
+                if (data == "succeed")
+                    alert("添加成功!");
+                else
+                    alert(data);
+            }
+        });
+    }
     function loginOut() {
         $.ajax({
             type:"POST",

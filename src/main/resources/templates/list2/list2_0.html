@@ -150,7 +150,9 @@
                             <div class="col-12 col-md-9">
                                 <select name="selectSm" id="type" class="form-control-sm form-control">
                                     <option value="0">科目一</option>
-                                    <option value="1">科目四</option>
+                                    <option value="1">科目二</option>
+                                    <option value="2">科目三</option>
+                                    <option value="3">科目四</option>
                                 </select>
                             </div>
                         </div>
@@ -172,6 +174,10 @@
                                 </select>
                                 <font>日</font>
                             </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">考试时间</label></div>
+                            <div class="col-12 col-md-9"> <input id ="time" type="time" value="00:00"/></div>
                         </div>
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="max" class=" form-control-label">最大人数</label></div>
@@ -249,6 +255,7 @@
         var max = document.getElementById("max").value;
         var address = document.getElementById("address").value;
         var remark = document.getElementById("remark").value;
+        var time = document.getElementById("time").value;
         if (year == "--"){
             alert("请选择日期年份");
             return;
@@ -276,6 +283,11 @@
         }
         if (remark == null)
             remark = "";
+
+        if (time == null || time == ''){
+            alert("请选择时间");
+            return;
+        }
         $.ajax({
             type:"get",
             url:"/addExam/add",
@@ -287,7 +299,8 @@
                 "day":day,
                 "max":max,
                 "address":address,
-                "remark":remark
+                "remark":remark,
+                "time":time
             },
             success:function (data) {
                 if (data == "succeed")

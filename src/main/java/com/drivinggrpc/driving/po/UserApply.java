@@ -1,7 +1,7 @@
 package com.drivinggrpc.driving.po;
 
 public class UserApply {
-    private int user_id;
+    private String user_id;
     private String picture;
     private String name;
     private String sex;
@@ -12,6 +12,13 @@ public class UserApply {
     private String old_type;
     private String address;
 
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
 
     public void setCode(String code) {
         this.code = code;
@@ -21,9 +28,6 @@ public class UserApply {
         return code;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
 
     public void setAddress(String address) {
         this.address = address;
@@ -57,9 +61,6 @@ public class UserApply {
         this.type = type;
     }
 
-    public int getUser_id() {
-        return user_id;
-    }
 
     public String getPicture() {
         return picture;

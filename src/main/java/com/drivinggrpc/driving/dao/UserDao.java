@@ -16,6 +16,6 @@ public interface UserDao {
     @Update("update user set password = #{password} where username = #{username}")
     int modifyPasswordByUserName(User user);
 
-    @Insert("insert into user(username,password,power) values (#{username},#{password},#{power})")
+    @Insert("insert into user(id,username,password,power) values (#{id},#{username},#{password},#{power})")
     int insertUser(User user);
 }

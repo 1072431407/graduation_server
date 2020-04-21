@@ -42,7 +42,7 @@ public class StudentAdminController {
      * @return
      */
     @GetMapping("/applyExamine/consentApply")
-    public String consentApply(@RequestParam(value = "user_id")int user_id, Model model){
+    public String consentApply(@RequestParam(value = "user_id")String user_id, Model model){
         studentAdminServer.consentApply(user_id);
         logger.info("/applyExamine/consentApply:userId="+user_id);
         List<UserApply> userApplys = studentAdminServer.getUserApplys();
@@ -57,7 +57,7 @@ public class StudentAdminController {
      * @return
      */
     @GetMapping("/applyExamine/refuseApply")
-    public String refuseApply(@RequestParam(value = "user_id")int user_id,Model model){
+    public String refuseApply(@RequestParam(value = "user_id")String user_id,Model model){
         studentAdminServer.refuseApply(user_id);
         logger.info("/applyExamine/refuseApply:userId="+user_id);
         List<UserApply> userApplys = studentAdminServer.getUserApplys();
@@ -72,7 +72,7 @@ public class StudentAdminController {
      * @return
      */
     @GetMapping("/applyExamine/block")
-    public String block(@RequestParam(value = "user_id")int user_id,Model model){
+    public String block(@RequestParam(value = "user_id")String user_id,Model model){
         studentAdminServer.block(user_id);
         logger.info("/applyExamine/block:userId="+user_id);
         List<UserApply> userApplys = studentAdminServer.getUserApplys();
@@ -87,7 +87,7 @@ public class StudentAdminController {
      */
     @ResponseBody
     @GetMapping("/applyExamine/examineApply")
-    public UserApply examineApply(@RequestParam(value = "user_id")int user_id){
+    public UserApply examineApply(@RequestParam(value = "user_id")String user_id){
         UserApply apply = studentAdminServer.getUserApplyMessage(user_id);
         logger.info("/applyExamine/examineApply:userId="+user_id);
         return apply;
@@ -112,7 +112,7 @@ public class StudentAdminController {
      */
     @ResponseBody
     @GetMapping("/absentee/examine")
-    public Absentee absenteeExamine(@RequestParam(value = "user_id")int user_id){
+    public Absentee absenteeExamine(@RequestParam(value = "user_id")String user_id){
         Absentee absentee = studentAdminServer.getUserAbsentee(user_id);
         return absentee;
     }
@@ -136,7 +136,7 @@ public class StudentAdminController {
      * @return
      */
     @GetMapping("/graduate/remove")
-    public String removeGraduate(@RequestParam(value = "user_id")int user_id,Model model){
+    public String removeGraduate(@RequestParam(value = "user_id")String user_id,Model model){
         studentAdminServer.removeGraduate(user_id);
         logger.info("/graduate/remove:userId="+user_id);
         List<Graduate> graduate = studentAdminServer.getGraduateAll();
@@ -163,7 +163,7 @@ public class StudentAdminController {
      * @return
      */
     @GetMapping("/blacklist/remove")
-    public String removeBlacklist(@RequestParam(value = "user_id")int user_id,Model model){
+    public String removeBlacklist(@RequestParam(value = "user_id")String user_id,Model model){
         studentAdminServer.removeGraduate(user_id);
         logger.info("/blacklist/remove:userId="+user_id);
         List<Graduate> blacklist = studentAdminServer.getBlackListAll();

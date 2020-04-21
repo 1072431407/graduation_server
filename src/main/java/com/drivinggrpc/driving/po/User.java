@@ -1,10 +1,18 @@
 package com.drivinggrpc.driving.po;
 
 public class User {
-    private int id;
+    private String id;
     private String username;
     private String password;
     private int power;
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
 
     public void setPower(int power) {
         this.power = power;
@@ -18,9 +26,6 @@ public class User {
         this.password = password;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public void setUsername(String username) {
         this.username = username;
@@ -34,7 +39,4 @@ public class User {
         return username;
     }
 
-    public int getId() {
-        return id;
-    }
 }

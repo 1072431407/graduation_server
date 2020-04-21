@@ -13,7 +13,7 @@ import java.util.List;
 public interface NewsDao {
 
     @Select("select * from news where user_id=#{user_id}")
-    List<News> selectNewsByUserId(int user_id);
+    List<News> selectNewsByUserId(String user_id);
 
     @Insert("insert into news(user_id,title,content,date) value(#{user_id},#{title},#{content},#{date})")
     int insertNews(News news);

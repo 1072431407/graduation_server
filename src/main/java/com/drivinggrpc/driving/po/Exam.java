@@ -1,12 +1,50 @@
 package com.drivinggrpc.driving.po;
 
+import java.util.List;
+
 public class Exam {
-    private String exam_id;
-    private String type;
-    private String data;
-    private int max;
-    private String address;
-    private String remark;
+    private String exam_id;//考试的UUID
+    private String type;//考试类型
+    private String data;//考试日期
+    private String time;//考试时间
+    private int max;//考试最大人数
+    private int num;//当前报名人数
+    private String address;//考试地址
+    private String remark;//备注
+    private int duration;//时长（分钟）
+    private int state;//0代表考试 1代表练车
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getTime() {
+        return time;
+    }
 
     public void setRemark(String remark) {
         this.remark = remark;
@@ -55,4 +93,5 @@ public class Exam {
     public String getExam_id() {
         return exam_id;
     }
+
 }

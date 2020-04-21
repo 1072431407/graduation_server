@@ -191,7 +191,7 @@
                                     <td th:text="${absentee.phone}"></td>
                                     <td th:text="${absentee.type}"></td>
                                     <td>
-                                        <button type="button" class="btn btn-warning btn-primary mb-1" data-toggle="modal" data-target="#smallmodal" th:onclick="'javascript:examine('+${absentee.user_id}+');'">
+                                        <button type="button" class="btn btn-warning btn-primary mb-1" data-toggle="modal" data-target="#smallmodal" th:onclick="examine([[${absentee.user_id}]]);">
                                             查看信息
                                         </button>
                                     </td>

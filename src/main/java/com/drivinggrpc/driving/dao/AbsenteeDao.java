@@ -16,7 +16,7 @@ public interface AbsenteeDao {
     List<UserApply> selectAbsenteeAll();
 
     @Select("select * from absentee where user_id = #{user_id}")
-    Absentee selectAbsenteeByUserId(int user_id);
+    Absentee selectAbsenteeByUserId(String user_id);
 
     @Insert("insert into absentee(user_id,picture,name,sex,age,address,phone,old_type,type,code) values (#{user_id},#{picture},#{name},#{sex},#{age},#{address},#{phone},#{old_type},#{type},#{code})")
     int insertUserAbsentee(UserApply apply);

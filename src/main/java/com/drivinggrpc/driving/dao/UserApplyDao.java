@@ -14,17 +14,18 @@ public interface UserApplyDao {
     int insertUserApply(UserApply apply);
 
     @Delete("delete from user_apply where user_id=#{user_id}")
-    int deleteUserApplyByUserId(int user_id);
-
-    @Select("select state from apply_state where user_id=#{user_id}")
-    String selectApplyStateByUserId(int user_id);
-
-    @Update("update apply_state set state=#{state} where user_id=#{user_id}")
-    int updateApplyStateByUserId(int user_id,String state);
+    int deleteUserApplyByUserId(String user_id);
 
     @Select("select * from user_apply")
     List<UserApply> selectApplyAll();
 
     @Select("select * from user_apply where user_id=#{user_id}")
-    UserApply selectApplyByUserId(int user_id);
+    UserApply selectApplyByUserId(String user_id);
+
+    /*******************************************************************/
+    @Select("select state from apply_state where user_id=#{user_id}")
+    String selectApplyStateByUserId(String user_id);
+
+    @Update("update apply_state set state=#{state} where user_id=#{user_id}")
+    int updateApplyStateByUserId(String user_id,String state);
 }

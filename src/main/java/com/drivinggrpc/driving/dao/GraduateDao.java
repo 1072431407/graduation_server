@@ -19,8 +19,11 @@ public interface GraduateDao {
     List<Graduate> selectGraduate(int state);
 
     @Delete("delete from graduate where user_id=#{user_id}")
-    int deleteGraduateByUserId(int user_id);
+    int deleteGraduateByUserId(String user_id);
 
     @Insert("insert into graduate(user_id,name,sex,age,phone,type,code,state) values (#{user_id},#{name},#{sex},#{age},#{phone},#{type},#{code},#{state})")
     int insertGraduate(Graduate graduate);
+
+    @Select("select * from graduate where user_id=#{user_id}")
+    Graduate selectGraduateByUserId(String user_id);
 }

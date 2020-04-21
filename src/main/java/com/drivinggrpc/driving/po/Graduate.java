@@ -1,7 +1,10 @@
 package com.drivinggrpc.driving.po;
 
+/**
+ * 毕业人员state=0  黑名单state=1
+ */
 public class Graduate {
-    private int user_id;
+    private String user_id;
     private String name;
     private String sex;
     private String age;
@@ -9,6 +12,14 @@ public class Graduate {
     private String type;
     private String code;
     private int state;
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
 
     public void setState(int state) {
         this.state = state;
@@ -24,10 +35,6 @@ public class Graduate {
 
     public String getCode() {
         return code;
-    }
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
     }
 
     public void setName(String name) {
@@ -51,11 +58,6 @@ public class Graduate {
     public void setType(String type) {
         this.type = type;
     }
-
-    public int getUser_id() {
-        return user_id;
-    }
-
 
     public String getAge() {
         return age;

@@ -55,16 +55,16 @@ public final class ModuleProto {
     java.lang.String[] descriptorData = {
       "\n\014module.proto\022(com.drivinggrpc.driving." +
       "rpc.proto.module\"\272\001\n\025StatisticsDataReque" +
-      "st\022\017\n\007user_id\030\001 \001(\005\022b\n\014request_type\030\002 \001(" +
+      "st\022\017\n\007user_id\030\001 \001(\t\022b\n\014request_type\030\002 \001(" +
       "\0162L.com.drivinggrpc.driving.rpc.proto.mo" +
       "dule.StatisticsDataRequest.REQUEST_TYPE\"" +
       ",\n\014REQUEST_TYPE\022\r\n\tSUBJECT_1\020\000\022\r\n\tSUBJEC" +
       "T_4\020\001\"e\n\026StatisticsDataResponse\022\025\n\rnum_q" +
       "uestions\030\001 \001(\t\022\020\n\010accuracy\030\002 \001(\t\022\022\n\naver" +
       "_score\030\003 \001(\t\022\016\n\006degree\030\004 \001(\t\"$\n\021ApplySta" +
-      "teRequest\022\017\n\007user_id\030\001 \001(\005\"#\n\022ApplyState" +
+      "teRequest\022\017\n\007user_id\030\001 \001(\t\"#\n\022ApplyState" +
       "Response\022\r\n\005state\030\001 \001(\t\"\264\001\n\014ApplyRequest" +
-      "\022\017\n\007user_id\030\001 \001(\005\022\017\n\007picture\030\002 \001(\014\022\014\n\004da" +
+      "\022\017\n\007user_id\030\001 \001(\t\022\017\n\007picture\030\002 \001(\014\022\014\n\004da" +
       "te\030\003 \001(\t\022\014\n\004name\030\004 \001(\t\022\013\n\003sex\030\005 \001(\t\022\013\n\003a" +
       "ge\030\006 \001(\t\022\017\n\007address\030\007 \001(\t\022\r\n\005phone\030\010 \001(\t" +
       "\022\014\n\004code\030\t \001(\t\022\020\n\010old_type\030\n \001(\t\022\014\n\004type" +

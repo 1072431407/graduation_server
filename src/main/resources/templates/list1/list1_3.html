@@ -162,8 +162,8 @@
                                     <td th:text="${blacklist.type}"></td>
                                     <td th:text="${blacklist.code}"></td>
                                     <td>
-                                        <button type="button" class="btn btn-danger" th:onclick="'javascript:remove('+${blacklist.user_id}+');'">
-                                            移除
+                                        <button type="button" class="btn btn-warning btn-primary mb-1" th:onclick="remove([[${blacklist.user_id}]]);">
+                                            删除
                                         </button>
                                     </td>
                                 </tr>

@@ -75,7 +75,7 @@ public final class UserProto {
     java.lang.String[] descriptorData = {
       "\n\nuser.proto\022&com.drivinggrpc.driving.rp" +
       "c.proto.user\"\210\002\n\025setUserMessageRequest\022\017" +
-      "\n\007user_id\030\001 \001(\005\022\022\n\nhead_image\030\002 \001(\014\022\021\n\tn" +
+      "\n\007user_id\030\001 \001(\t\022\022\n\nhead_image\030\002 \001(\014\022\021\n\tn" +
       "ick_name\030\003 \001(\t\022\021\n\tsignature\030\004 \001(\t\022\014\n\004nam" +
       "e\030\005 \001(\t\022\r\n\005phone\030\006 \001(\t\022\013\n\003sex\030\007 \001(\t\022\013\n\003a" +
       "ge\030\010 \001(\t\022\013\n\003job\030\t \001(\t\022\017\n\007qq_code\030\n \001(\t\022\017" +
@@ -91,7 +91,7 @@ public final class UserProto {
       "\001(\t\022\020\n\010password\030\002 \001(\t\"#\n\022upPasswordRespo" +
       "nse\022\r\n\005state\030\001 \001(\t\"*\n\025getUserMessageRequ" +
       "est\022\021\n\tuser_name\030\001 \001(\t\"\367\001\n\026getUserMessag" +
-      "eResponse\022\017\n\007user_id\030\001 \001(\005\022\022\n\nhead_image" +
+      "eResponse\022\017\n\007user_id\030\001 \001(\t\022\022\n\nhead_image" +
       "\030\002 \001(\t\022\021\n\tnick_name\030\003 \001(\t\022\021\n\tsignature\030\004" +
       " \001(\t\022\016\n\006minute\030\005 \001(\005\022\014\n\004date\030\006 \001(\t\022\014\n\004na" +
       "me\030\007 \001(\t\022\r\n\005phone\030\010 \001(\t\022\013\n\003sex\030\t \001(\t\022\013\n\003" +

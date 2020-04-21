@@ -3,7 +3,7 @@ package com.drivinggrpc.driving.po;
 
 
 public class UserMessage {
-    private int user_id;
+    private String user_id;
     private String head_image;
     private String nick_name;
     private String signature;
@@ -18,15 +18,13 @@ public class UserMessage {
     private String we_chat;
     private String e_mail;
 
-    public UserMessage() {
-    }
 
-    public int getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(int user_id) {
+    public void setUser_id(String user_id) {
         this.user_id = user_id;
+    }
+
+    public String getUser_id() {
+        return user_id;
     }
 
     public String getHead_image() {
