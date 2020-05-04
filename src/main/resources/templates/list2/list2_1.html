@@ -27,11 +27,8 @@
 
 </head>
 <style id="table_style">
-
     td {
-
         white-space:nowrap;overflow:hidden;text-overflow: ellipsis;
-
     }
 </style>
 <body>
@@ -150,6 +147,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
+                        <div><a>驾证类型: </a><a id="type_code"></a></div>
                         <div><a>考试类型: </a><a id="type"></a></div>
                         <div><a>考试日期: </a><a id="data"></a></div>
                         <div><a>最大人数: </a><a id="max"></a></div>
@@ -283,6 +281,7 @@
             success:function (data) {
                 console.log(data);
                 if (data!=null){
+                    $("#type_code").html(data['type_code']);
                     $("#type").html(data['type']);
                     $("#data").html(data['data']);
                     $("#max").html(data['max']);

@@ -20,17 +20,11 @@ public interface StatisticsDataRequestOrBuilder extends
       getUserIdBytes();
 
   /**
-   * <pre>
-   * </pre>
-   *
    * <code>.com.drivinggrpc.driving.rpc.proto.module.StatisticsDataRequest.REQUEST_TYPE request_type = 2;</code>
    * @return The enum numeric value on the wire for requestType.
    */
   int getRequestTypeValue();
   /**
-   * <pre>
-   * </pre>
-   *
    * <code>.com.drivinggrpc.driving.rpc.proto.module.StatisticsDataRequest.REQUEST_TYPE request_type = 2;</code>
    * @return The requestType.
    */

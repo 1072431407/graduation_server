@@ -1,10 +1,7 @@
 package com.drivinggrpc.driving.server.impl;
 
 import com.drivinggrpc.driving.dao.*;
-import com.drivinggrpc.driving.po.Absentee;
-import com.drivinggrpc.driving.po.Graduate;
-import com.drivinggrpc.driving.po.News;
-import com.drivinggrpc.driving.po.UserApply;
+import com.drivinggrpc.driving.po.*;
 import com.drivinggrpc.driving.server.StudentAdminServer;
 import com.drivinggrpc.driving.tools.ApplicationTools;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +24,8 @@ public class StudentAdminServerImpl implements StudentAdminServer {
     private UserStatisticsDao statisticsDao;
     @Autowired
     private GraduateDao graduateDao;
-
+    @Autowired
+    private BillDao billDao;
     @Override
     public List<UserApply> getUserApplys() {
         List<UserApply> userApplies = applyDao.selectApplyAll();
@@ -46,11 +44,16 @@ public class StudentAdminServerImpl implements StudentAdminServer {
         absenteeDao.insertUserAbsentee(apply);
         news.setUser_id(user_id);
         news.setTitle("通知");
-        news.setContent("您已经报名成功,请通过官网官网缴费入口或到校内进行交款.缴费入口:"+ ApplicationTools.getPhyTheFees());
-        Date date = new Date();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        news.setDate(format.format(date));
+        news.setContent("您已经报名成功,请通过“我的账单”缴费入口进行交款");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        news.setDate(format.format(new Date()));
         newsDao.insertNews(news);
+        Bill bill = new Bill();
+        bill.setUser_id(user_id);
+        bill.setDate(new Date().getTime());
+        bill.setMoney(3000);
+        bill.setCause("报名费");
+        billDao.insertBill(bill);
         applyDao.deleteUserApplyByUserId(user_id);//删除用户报名信息
     }
 

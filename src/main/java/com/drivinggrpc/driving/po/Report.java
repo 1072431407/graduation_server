@@ -6,11 +6,37 @@ package com.drivinggrpc.driving.po;
 public class Report {
     private String exam_id;
     private String user_id;
+    private long apply_time;
     private String name;
     private String type;
     private String data;
     private String time;
     private String address;
+    private int state;
+
+    public long getApply_time() {
+        return apply_time;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public void setApply_time(long apply_time) {
+        this.apply_time = apply_time;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setApplyTime(long applyTime) {
+        this.apply_time = applyTime;
+    }
+
+    public long getApplyTime() {
+        return apply_time;
+    }
 
     public void setUser_id(String user_id) {
         this.user_id = user_id;

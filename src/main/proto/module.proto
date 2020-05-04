@@ -8,15 +8,81 @@ service ModuleRpcServer{
     rpc apply(ApplyRequest) returns(ApplyResponse){}
     rpc getApplyState(ApplyStateRequest) returns(ApplyStateResponse){}
     rpc getStatisticsData(StatisticsDataRequest) returns(StatisticsDataResponse){}
+    rpc getExam(ExamRequest) returns(stream ExamResponse){}
+    rpc getExercise(ExamRequest) returns(stream ExamResponse){}
+    rpc applyExam(ApplyExamRequest) returns(ApplyExamResponse){}
+    rpc applyExercise(ApplyExamRequest) returns(ApplyExamResponse){}
+    rpc getNews(NewsRequest) returns(stream NewsResponse){}
+    rpc readNews(ReadNewsRequest) returns(ReadNewsResponse){}
+    rpc getBill(BillRequest) returns(stream BillResponse){}
+    rpc billPay(PayRequest) returns(PayResponse){}
+}
+message PayRequest{
+    int32 id = 1;
+}
+message PayResponse{
+    string state = 1;
+}
+message BillRequest{
+    string user_id = 1;
+}
+message BillResponse{
+    string user_id = 1;
+    int64 date = 2;
+    string cause = 3;
+    int32 money = 4;
+    int32 state = 5;
+    int32 id = 6;
+}
+message ReadNewsRequest{
+    int32 id = 1;
+}
+message ReadNewsResponse{
+    int32 id = 1;
+}
+
+message NewsRequest{
+    string user_id = 1;
+}
+message NewsResponse{
+    string user_id = 1;
+    string title = 2;
+    string content = 3;
+    string date = 4;
+    int32 state = 5;
+    int32 id = 6;
+}
+message ApplyExamRequest{
+    string user_id = 1;
+    string exam_id = 2;
+}
+message ApplyExamResponse{
+    string state = 1;
+}
+message ExamRequest{
+    int32 state = 1;//1-4 代表科目一倒四
+}
+message ExamResponse{
+    string exam_id = 1;//考试的UUID
+    string type = 2;//考试类型
+    string data = 3;//考试日期
+    string time = 4;//考试时间
+    int32 max = 5;//考试最大人数
+    int32 num = 6;//当前报名人数
+    string address = 7;//考试地址
+    string remark = 8;//备注
+    int32 duration = 9;//时长（分钟）
+    string state = 10;//标识成功=succeed，失败 显示失败信息
+    string type_code = 11;
 }
 
 message StatisticsDataRequest{
     enum REQUEST_TYPE {//枚举消息类型
-        SUBJECT_1 = 0; //proto3版本中，首成员必须为0，成员不应有相同的值
-        SUBJECT_4 = 1;
+                       SUBJECT_1 = 0; //proto3版本中，首成员必须为0，成员不应有相同的值
+                       SUBJECT_4 = 1;
     }
     string user_id = 1;
-    REQUEST_TYPE request_type = 2;//
+    REQUEST_TYPE request_type = 2;
 }
 message StatisticsDataResponse{
     string num_questions = 1;

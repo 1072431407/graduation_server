@@ -13,6 +13,15 @@ public class Exam {
     private String remark;//备注
     private int duration;//时长（分钟）
     private int state;//0代表考试 1代表练车
+    private String type_code;//驾驶证件类型
+
+    public void setType_code(String type_code) {
+        this.type_code = type_code;
+    }
+
+    public String getType_code() {
+        return type_code;
+    }
 
     public void setState(int state) {
         this.state = state;

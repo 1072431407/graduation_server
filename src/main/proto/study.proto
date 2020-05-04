@@ -1,0 +1,37 @@
+syntax = "proto3";
+package com.drivinggrpc.driving.rpc.proto.study;
+option  java_package = "com.drivinggrpc.driving.rpc.proto.study";
+option  java_outer_classname = "StudyProto";
+option  java_multiple_files = true;
+
+service StudyRpcServer{
+    rpc getTopic(GetTopicRequest) returns(stream GetTopicResponse){};
+    rpc getExam(GetExamRequest) returns(stream GetTopicResponse){};
+    rpc submitStatistics(SubmitStatisticsRequest) returns(SubmitStatisticsResponse){};
+}
+message SubmitStatisticsRequest{
+    int32 num = 1;//label=1正确的题数量  label=2标识分数
+    int32 sum = 2;//label=1答题总数
+    string type = 3;//科目一、四
+    int32 label = 4;//1标识答题数量和总数 2标识平均分
+    string user_id = 5;
+}
+message SubmitStatisticsResponse{
+}
+message GetExamRequest{
+    string type = 1;//科目一//科目四
+}
+message GetTopicRequest{
+    string state = 1;//随机练习、顺序练习、背题模式
+    string type = 2;//科目一//科目四
+}
+message GetTopicResponse{
+    string topic = 1;//题目
+    string radio_a = 2;//选项A
+    string radio_b = 3;
+    string radio_c = 4;
+    string radio_d = 5;
+    int32 switch_radio = 6;//我的选项
+    int32 correct_radio = 7;//正确选项
+    string tips = 8;//提示
+}

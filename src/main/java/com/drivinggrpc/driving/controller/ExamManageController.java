@@ -121,7 +121,8 @@ public class ExamManageController {
                         @RequestParam(value = "max")int max,
                         @RequestParam(value = "address")String address,
                         @RequestParam(value = "remark",required = false)String remark,
-                        @RequestParam(value = "time")String time){
+                        @RequestParam(value = "time")String time,
+                          @RequestParam(value = "typeCode")String typeCode){
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = null;
@@ -138,6 +139,7 @@ public class ExamManageController {
         exam.setMax(max);
         exam.setAddress(address);
         exam.setTime(time);
+        exam.setType_code(typeCode);
         if (remark!=null)
             exam.setRemark(remark);
         logger.info("/addExam/add");
@@ -176,7 +178,8 @@ public class ExamManageController {
                               @RequestParam(value = "address")String address,
                               @RequestParam(value = "duration")int duration,
                               @RequestParam(value = "remark",required = false)String remark,
-                              @RequestParam(value = "time")String time){
+                              @RequestParam(value = "time")String time,
+                              @RequestParam(value = "typeCode")String typeCode){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         List<Exam> listBeans = new ArrayList<>();
         try {
@@ -192,6 +195,7 @@ public class ExamManageController {
                     bean.setMax(max);
                     bean.setAddress(address);
                     bean.setTime(time);
+                    bean.setType_code(typeCode);
                     if (remark!=null)
                         bean.setRemark(remark);
                     bean.setDuration(duration);

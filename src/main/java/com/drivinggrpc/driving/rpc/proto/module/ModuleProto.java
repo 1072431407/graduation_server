@@ -15,6 +15,66 @@ public final class ModuleProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_PayRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_drivinggrpc_driving_rpc_proto_module_PayRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_PayResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_drivinggrpc_driving_rpc_proto_module_PayResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_BillRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_drivinggrpc_driving_rpc_proto_module_BillRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_BillResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_drivinggrpc_driving_rpc_proto_module_BillResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_ReadNewsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_drivinggrpc_driving_rpc_proto_module_ReadNewsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_ReadNewsResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_drivinggrpc_driving_rpc_proto_module_ReadNewsResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_NewsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_drivinggrpc_driving_rpc_proto_module_NewsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_NewsResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_drivinggrpc_driving_rpc_proto_module_NewsResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyExamRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyExamRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyExamResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyExamResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_ExamRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_drivinggrpc_driving_rpc_proto_module_ExamRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_ExamResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_drivinggrpc_driving_rpc_proto_module_ExamResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_drivinggrpc_driving_rpc_proto_module_StatisticsDataRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -54,71 +114,187 @@ public final class ModuleProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\014module.proto\022(com.drivinggrpc.driving." +
-      "rpc.proto.module\"\272\001\n\025StatisticsDataReque" +
-      "st\022\017\n\007user_id\030\001 \001(\t\022b\n\014request_type\030\002 \001(" +
-      "\0162L.com.drivinggrpc.driving.rpc.proto.mo" +
-      "dule.StatisticsDataRequest.REQUEST_TYPE\"" +
-      ",\n\014REQUEST_TYPE\022\r\n\tSUBJECT_1\020\000\022\r\n\tSUBJEC" +
-      "T_4\020\001\"e\n\026StatisticsDataResponse\022\025\n\rnum_q" +
-      "uestions\030\001 \001(\t\022\020\n\010accuracy\030\002 \001(\t\022\022\n\naver" +
-      "_score\030\003 \001(\t\022\016\n\006degree\030\004 \001(\t\"$\n\021ApplySta" +
-      "teRequest\022\017\n\007user_id\030\001 \001(\t\"#\n\022ApplyState" +
-      "Response\022\r\n\005state\030\001 \001(\t\"\264\001\n\014ApplyRequest" +
-      "\022\017\n\007user_id\030\001 \001(\t\022\017\n\007picture\030\002 \001(\014\022\014\n\004da" +
-      "te\030\003 \001(\t\022\014\n\004name\030\004 \001(\t\022\013\n\003sex\030\005 \001(\t\022\013\n\003a" +
-      "ge\030\006 \001(\t\022\017\n\007address\030\007 \001(\t\022\r\n\005phone\030\010 \001(\t" +
-      "\022\014\n\004code\030\t \001(\t\022\020\n\010old_type\030\n \001(\t\022\014\n\004type" +
-      "\030\013 \001(\t\"\036\n\rApplyResponse\022\r\n\005state\030\001 \001(\t2\267" +
-      "\003\n\017ModuleRpcServer\022z\n\005apply\0226.com.drivin" +
-      "ggrpc.driving.rpc.proto.module.ApplyRequ" +
-      "est\0327.com.drivinggrpc.driving.rpc.proto." +
-      "module.ApplyResponse\"\000\022\214\001\n\rgetApplyState" +
-      "\022;.com.drivinggrpc.driving.rpc.proto.mod" +
-      "ule.ApplyStateRequest\032<.com.drivinggrpc." +
-      "driving.rpc.proto.module.ApplyStateRespo" +
-      "nse\"\000\022\230\001\n\021getStatisticsData\022?.com.drivin" +
-      "ggrpc.driving.rpc.proto.module.Statistic" +
-      "sDataRequest\032@.com.drivinggrpc.driving.r" +
-      "pc.proto.module.StatisticsDataResponse\"\000" +
-      "B9\n(com.drivinggrpc.driving.rpc.proto.mo" +
-      "duleB\013ModuleProtoP\001b\006proto3"
+      "rpc.proto.module\"\030\n\nPayRequest\022\n\n\002id\030\001 \001" +
+      "(\005\"\034\n\013PayResponse\022\r\n\005state\030\001 \001(\t\"\036\n\013Bill" +
+      "Request\022\017\n\007user_id\030\001 \001(\t\"f\n\014BillResponse" +
+      "\022\017\n\007user_id\030\001 \001(\t\022\014\n\004date\030\002 \001(\003\022\r\n\005cause" +
+      "\030\003 \001(\t\022\r\n\005money\030\004 \001(\005\022\r\n\005state\030\005 \001(\005\022\n\n\002" +
+      "id\030\006 \001(\005\"\035\n\017ReadNewsRequest\022\n\n\002id\030\001 \001(\005\"" +
+      "\036\n\020ReadNewsResponse\022\n\n\002id\030\001 \001(\005\"\036\n\013NewsR" +
+      "equest\022\017\n\007user_id\030\001 \001(\t\"h\n\014NewsResponse\022" +
+      "\017\n\007user_id\030\001 \001(\t\022\r\n\005title\030\002 \001(\t\022\017\n\007conte" +
+      "nt\030\003 \001(\t\022\014\n\004date\030\004 \001(\t\022\r\n\005state\030\005 \001(\005\022\n\n" +
+      "\002id\030\006 \001(\005\"4\n\020ApplyExamRequest\022\017\n\007user_id" +
+      "\030\001 \001(\t\022\017\n\007exam_id\030\002 \001(\t\"\"\n\021ApplyExamResp" +
+      "onse\022\r\n\005state\030\001 \001(\t\"\034\n\013ExamRequest\022\r\n\005st" +
+      "ate\030\001 \001(\005\"\270\001\n\014ExamResponse\022\017\n\007exam_id\030\001 " +
+      "\001(\t\022\014\n\004type\030\002 \001(\t\022\014\n\004data\030\003 \001(\t\022\014\n\004time\030" +
+      "\004 \001(\t\022\013\n\003max\030\005 \001(\005\022\013\n\003num\030\006 \001(\005\022\017\n\007addre" +
+      "ss\030\007 \001(\t\022\016\n\006remark\030\010 \001(\t\022\020\n\010duration\030\t \001" +
+      "(\005\022\r\n\005state\030\n \001(\t\022\021\n\ttype_code\030\013 \001(\t\"\272\001\n" +
+      "\025StatisticsDataRequest\022\017\n\007user_id\030\001 \001(\t\022" +
+      "b\n\014request_type\030\002 \001(\0162L.com.drivinggrpc." +
+      "driving.rpc.proto.module.StatisticsDataR" +
+      "equest.REQUEST_TYPE\",\n\014REQUEST_TYPE\022\r\n\tS" +
+      "UBJECT_1\020\000\022\r\n\tSUBJECT_4\020\001\"e\n\026StatisticsD" +
+      "ataResponse\022\025\n\rnum_questions\030\001 \001(\t\022\020\n\010ac" +
+      "curacy\030\002 \001(\t\022\022\n\naver_score\030\003 \001(\t\022\016\n\006degr" +
+      "ee\030\004 \001(\t\"$\n\021ApplyStateRequest\022\017\n\007user_id" +
+      "\030\001 \001(\t\"#\n\022ApplyStateResponse\022\r\n\005state\030\001 " +
+      "\001(\t\"\264\001\n\014ApplyRequest\022\017\n\007user_id\030\001 \001(\t\022\017\n" +
+      "\007picture\030\002 \001(\014\022\014\n\004date\030\003 \001(\t\022\014\n\004name\030\004 \001" +
+      "(\t\022\013\n\003sex\030\005 \001(\t\022\013\n\003age\030\006 \001(\t\022\017\n\007address\030" +
+      "\007 \001(\t\022\r\n\005phone\030\010 \001(\t\022\014\n\004code\030\t \001(\t\022\020\n\010ol" +
+      "d_type\030\n \001(\t\022\014\n\004type\030\013 \001(\t\"\036\n\rApplyRespo" +
+      "nse\022\r\n\005state\030\001 \001(\t2\312\013\n\017ModuleRpcServer\022z" +
+      "\n\005apply\0226.com.drivinggrpc.driving.rpc.pr" +
+      "oto.module.ApplyRequest\0327.com.drivinggrp" +
+      "c.driving.rpc.proto.module.ApplyResponse" +
+      "\"\000\022\214\001\n\rgetApplyState\022;.com.drivinggrpc.d" +
+      "riving.rpc.proto.module.ApplyStateReques" +
+      "t\032<.com.drivinggrpc.driving.rpc.proto.mo" +
+      "dule.ApplyStateResponse\"\000\022\230\001\n\021getStatist" +
+      "icsData\022?.com.drivinggrpc.driving.rpc.pr" +
+      "oto.module.StatisticsDataRequest\032@.com.d" +
+      "rivinggrpc.driving.rpc.proto.module.Stat" +
+      "isticsDataResponse\"\000\022|\n\007getExam\0225.com.dr" +
+      "ivinggrpc.driving.rpc.proto.module.ExamR" +
+      "equest\0326.com.drivinggrpc.driving.rpc.pro" +
+      "to.module.ExamResponse\"\0000\001\022\200\001\n\013getExerci" +
+      "se\0225.com.drivinggrpc.driving.rpc.proto.m" +
+      "odule.ExamRequest\0326.com.drivinggrpc.driv" +
+      "ing.rpc.proto.module.ExamResponse\"\0000\001\022\206\001" +
+      "\n\tapplyExam\022:.com.drivinggrpc.driving.rp" +
+      "c.proto.module.ApplyExamRequest\032;.com.dr" +
+      "ivinggrpc.driving.rpc.proto.module.Apply" +
+      "ExamResponse\"\000\022\212\001\n\rapplyExercise\022:.com.d" +
+      "rivinggrpc.driving.rpc.proto.module.Appl" +
+      "yExamRequest\032;.com.drivinggrpc.driving.r" +
+      "pc.proto.module.ApplyExamResponse\"\000\022|\n\007g" +
+      "etNews\0225.com.drivinggrpc.driving.rpc.pro" +
+      "to.module.NewsRequest\0326.com.drivinggrpc." +
+      "driving.rpc.proto.module.NewsResponse\"\0000" +
+      "\001\022\203\001\n\010readNews\0229.com.drivinggrpc.driving" +
+      ".rpc.proto.module.ReadNewsRequest\032:.com." +
+      "drivinggrpc.driving.rpc.proto.module.Rea" +
+      "dNewsResponse\"\000\022|\n\007getBill\0225.com.driving" +
+      "grpc.driving.rpc.proto.module.BillReques" +
+      "t\0326.com.drivinggrpc.driving.rpc.proto.mo" +
+      "dule.BillResponse\"\0000\001\022x\n\007billPay\0224.com.d" +
+      "rivinggrpc.driving.rpc.proto.module.PayR" +
+      "equest\0325.com.drivinggrpc.driving.rpc.pro" +
+      "to.module.PayResponse\"\000B9\n(com.drivinggr" +
+      "pc.driving.rpc.proto.moduleB\013ModuleProto" +
+      "P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_com_drivinggrpc_driving_rpc_proto_module_StatisticsDataRequest_descriptor =
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_PayRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_PayRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_drivinggrpc_driving_rpc_proto_module_PayRequest_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_PayResponse_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_PayResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_drivinggrpc_driving_rpc_proto_module_PayResponse_descriptor,
+        new java.lang.String[] { "State", });
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_BillRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_BillRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_drivinggrpc_driving_rpc_proto_module_BillRequest_descriptor,
+        new java.lang.String[] { "UserId", });
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_BillResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_BillResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_drivinggrpc_driving_rpc_proto_module_BillResponse_descriptor,
+        new java.lang.String[] { "UserId", "Date", "Cause", "Money", "State", "Id", });
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_ReadNewsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_ReadNewsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_drivinggrpc_driving_rpc_proto_module_ReadNewsRequest_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_ReadNewsResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_ReadNewsResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_drivinggrpc_driving_rpc_proto_module_ReadNewsResponse_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_NewsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_NewsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_drivinggrpc_driving_rpc_proto_module_NewsRequest_descriptor,
+        new java.lang.String[] { "UserId", });
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_NewsResponse_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_NewsResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_drivinggrpc_driving_rpc_proto_module_NewsResponse_descriptor,
+        new java.lang.String[] { "UserId", "Title", "Content", "Date", "State", "Id", });
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyExamRequest_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyExamRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyExamRequest_descriptor,
+        new java.lang.String[] { "UserId", "ExamId", });
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyExamResponse_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyExamResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyExamResponse_descriptor,
+        new java.lang.String[] { "State", });
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_ExamRequest_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_ExamRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_drivinggrpc_driving_rpc_proto_module_ExamRequest_descriptor,
+        new java.lang.String[] { "State", });
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_ExamResponse_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_ExamResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_drivinggrpc_driving_rpc_proto_module_ExamResponse_descriptor,
+        new java.lang.String[] { "ExamId", "Type", "Data", "Time", "Max", "Num", "Address", "Remark", "Duration", "State", "TypeCode", });
+    internal_static_com_drivinggrpc_driving_rpc_proto_module_StatisticsDataRequest_descriptor =
+      getDescriptor().getMessageTypes().get(12);
     internal_static_com_drivinggrpc_driving_rpc_proto_module_StatisticsDataRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_drivinggrpc_driving_rpc_proto_module_StatisticsDataRequest_descriptor,
         new java.lang.String[] { "UserId", "RequestType", });
     internal_static_com_drivinggrpc_driving_rpc_proto_module_StatisticsDataResponse_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_com_drivinggrpc_driving_rpc_proto_module_StatisticsDataResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_drivinggrpc_driving_rpc_proto_module_StatisticsDataResponse_descriptor,
         new java.lang.String[] { "NumQuestions", "Accuracy", "AverScore", "Degree", });
     internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyStateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyStateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyStateRequest_descriptor,
         new java.lang.String[] { "UserId", });
     internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyStateResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyStateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyStateResponse_descriptor,
         new java.lang.String[] { "State", });
     internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyRequest_descriptor,
         new java.lang.String[] { "UserId", "Picture", "Date", "Name", "Sex", "Age", "Address", "Phone", "Code", "OldType", "Type", });
     internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_drivinggrpc_driving_rpc_proto_module_ApplyResponse_descriptor,

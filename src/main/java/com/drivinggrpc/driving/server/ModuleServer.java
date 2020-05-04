@@ -1,8 +1,6 @@
 package com.drivinggrpc.driving.server;
 
-import com.drivinggrpc.driving.po.Absentee;
-import com.drivinggrpc.driving.po.UserApply;
-import com.drivinggrpc.driving.po.UserStatistics;
+import com.drivinggrpc.driving.po.*;
 import com.drivinggrpc.driving.rpc.proto.module.ApplyStateResponse;
 import com.drivinggrpc.driving.rpc.proto.module.StatisticsDataRequest;
 
@@ -15,5 +13,19 @@ public interface ModuleServer {
 
     UserStatistics getStatisticsData(String userId);
 
+    List<Exam> getExam(int state);
 
+    String applyExam(String examId, String userId);
+
+    List<Exam> getExercise(int state);
+
+    String applyExercise(String examId, String userId);
+
+    List<News> getNews(String userId);
+
+    List<Bill> getBill(String userId);
+
+    void readNews(int id);
+
+    String billPay(int id);
 }

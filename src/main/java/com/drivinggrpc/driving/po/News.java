@@ -5,6 +5,24 @@ public class News {
     private String title;
     private String content;
     private String date;
+    private int state;
+    private int id;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public int getState() {
+        return state;
+    }
 
     public void setUser_id(String user_id) {
         this.user_id = user_id;

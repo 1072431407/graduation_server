@@ -20,4 +20,7 @@ public interface AbsenteeDao {
 
     @Insert("insert into absentee(user_id,picture,name,sex,age,address,phone,old_type,type,code) values (#{user_id},#{picture},#{name},#{sex},#{age},#{address},#{phone},#{old_type},#{type},#{code})")
     int insertUserAbsentee(UserApply apply);
+
+    @Select("select type from absentee where user_id = #{user_id}")
+    String selectTypeByUserId(String user_id);
 }

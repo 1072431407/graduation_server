@@ -1,8 +1,6 @@
 package com.drivinggrpc.driving.dao;
 
 import com.drivinggrpc.driving.po.Graduate;
-import com.drivinggrpc.driving.po.News;
-import com.drivinggrpc.driving.po.UserApply;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;

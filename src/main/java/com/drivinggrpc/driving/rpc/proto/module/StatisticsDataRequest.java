@@ -249,9 +249,6 @@ private static final long serialVersionUID = 0L;
   public static final int REQUEST_TYPE_FIELD_NUMBER = 2;
   private int requestType_;
   /**
-   * <pre>
-   * </pre>
-   *
    * <code>.com.drivinggrpc.driving.rpc.proto.module.StatisticsDataRequest.REQUEST_TYPE request_type = 2;</code>
    * @return The enum numeric value on the wire for requestType.
    */
@@ -259,9 +256,6 @@ private static final long serialVersionUID = 0L;
     return requestType_;
   }
   /**
-   * <pre>
-   * </pre>
-   *
    * <code>.com.drivinggrpc.driving.rpc.proto.module.StatisticsDataRequest.REQUEST_TYPE request_type = 2;</code>
    * @return The requestType.
    */
@@ -667,9 +661,6 @@ private static final long serialVersionUID = 0L;
 
     private int requestType_ = 0;
     /**
-     * <pre>
-     * </pre>
-     *
      * <code>.com.drivinggrpc.driving.rpc.proto.module.StatisticsDataRequest.REQUEST_TYPE request_type = 2;</code>
      * @return The enum numeric value on the wire for requestType.
      */
@@ -677,9 +668,6 @@ private static final long serialVersionUID = 0L;
       return requestType_;
     }
     /**
-     * <pre>
-     * </pre>
-     *
      * <code>.com.drivinggrpc.driving.rpc.proto.module.StatisticsDataRequest.REQUEST_TYPE request_type = 2;</code>
      * @param value The enum numeric value on the wire for requestType to set.
      * @return This builder for chaining.
@@ -690,9 +678,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * </pre>
-     *
      * <code>.com.drivinggrpc.driving.rpc.proto.module.StatisticsDataRequest.REQUEST_TYPE request_type = 2;</code>
      * @return The requestType.
      */
@@ -702,9 +687,6 @@ private static final long serialVersionUID = 0L;
       return result == null ? com.drivinggrpc.driving.rpc.proto.module.StatisticsDataRequest.REQUEST_TYPE.UNRECOGNIZED : result;
     }
     /**
-     * <pre>
-     * </pre>
-     *
      * <code>.com.drivinggrpc.driving.rpc.proto.module.StatisticsDataRequest.REQUEST_TYPE request_type = 2;</code>
      * @param value The requestType to set.
      * @return This builder for chaining.
@@ -719,9 +701,6 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <pre>
-     * </pre>
-     *
      * <code>.com.drivinggrpc.driving.rpc.proto.module.StatisticsDataRequest.REQUEST_TYPE request_type = 2;</code>
      * @return This builder for chaining.
      */

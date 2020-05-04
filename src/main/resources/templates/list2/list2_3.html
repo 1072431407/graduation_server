@@ -146,6 +146,24 @@
                             </div>
                         </div>
                         <div class="row form-group">
+                            <div class="col col-md-3"><label for="typeCode" class=" form-control-label">练车类型</label></div>
+                            <div class="col-12 col-md-9">
+                                <select name="selectSm" id="typeCode" class="form-control-sm form-control">
+                                    <option value="0">A1</option>
+                                    <option value="1">A2</option>
+                                    <option value="1">A3</option>
+                                    <option value="1">B1</option>
+                                    <option value="1">B2</option>
+                                    <option value="1">C1</option>
+                                    <option value="1">C2</option>
+                                    <option value="1">C3</option>
+                                    <option value="1">D</option>
+                                    <option value="1">E</option>
+                                    <option value="1">F</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
                             <div class="col col-md-3"><label for="type" class=" form-control-label">练车类型</label></div>
                             <div class="col-12 col-md-9">
                                 <select name="selectSm" id="type" class="form-control-sm form-control">
@@ -277,6 +295,7 @@
         var overMonth = $("#overMonth option:selected").text();//选中的文本
         var overDay = $("#overDay option:selected").text();//选中的文本
         var duration = document.getElementById("duration").value;
+        var typeCode = $("#typeCode option:selected").text();//选中的文本
 
         if (startYear == "--"){
             alert("请选择日期年份");
@@ -362,7 +381,8 @@
                 "address":address,
                 "remark":remark,
                 "duration":duration,
-                "time":time
+                "time":time,
+                "typeCode":typeCode
             },
             success:function (data) {
                 if (data == "succeed")

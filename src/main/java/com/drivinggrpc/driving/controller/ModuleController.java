@@ -1,8 +1,6 @@
 package com.drivinggrpc.driving.controller;
 
-import com.drivinggrpc.driving.po.Absentee;
-import com.drivinggrpc.driving.po.UserApply;
-import com.drivinggrpc.driving.po.UserStatistics;
+import com.drivinggrpc.driving.po.*;
 import com.drivinggrpc.driving.rpc.proto.module.*;
 import com.drivinggrpc.driving.server.ModuleServer;
 import com.drivinggrpc.driving.tools.ApplicationTools;
@@ -12,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -84,5 +83,125 @@ public class ModuleController {
         }
         logger.info("StatisticsDataResponse:userId="+request.getUserId()+",REQUEST_TYPE="+request.getRequestType());
         return response;
+    }
+
+    /**
+     * 获取考试 练车列表
+     * @param state
+     * @return
+     */
+    public List<ExamResponse> getExam(int state) {
+        List<Exam> list = moduleServer.getExam(state);
+        List<ExamResponse> listBeans = new ArrayList<>();
+        if (list != null){
+            for (Exam exam:list){
+                ExamResponse response = ExamResponse.newBuilder()
+                        .setExamId(exam.getExam_id())
+                        .setType(exam.getType())
+                        .setData(exam.getData())
+                        .setTime(exam.getTime())
+                        .setMax(exam.getMax())
+                        .setNum(exam.getNum())
+                        .setAddress(exam.getAddress())
+                        .setRemark(exam.getRemark())
+                        .setDuration(exam.getDuration())
+                        .setTypeCode(exam.getType_code())
+                        .build();
+                listBeans.add(response);
+            }
+        }
+        return listBeans;
+    }
+
+    /**
+     * 报名考试 报名
+     * @param examId
+     * @param userId
+     * @return 成功succeed  失败返回失败信息
+     */
+    public ApplyExamResponse applyExam(String examId, String userId) {
+        String state = moduleServer.applyExam(examId,userId);
+        ApplyExamResponse response = ApplyExamResponse.newBuilder()
+                .setState(state)
+                .build();
+        return response;
+    }
+
+    public List<ExamResponse> getExercise(int state) {
+        List<Exam> list = moduleServer.getExercise(state);
+        List<ExamResponse> listBeans = new ArrayList<>();
+        if (list != null){
+            for (Exam exam:list){
+                ExamResponse response = ExamResponse.newBuilder()
+                        .setExamId(exam.getExam_id())
+                        .setType(exam.getType())
+                        .setData(exam.getData())
+                        .setTime(exam.getTime())
+                        .setMax(exam.getMax())
+                        .setNum(exam.getNum())
+                        .setAddress(exam.getAddress())
+                        .setRemark(exam.getRemark())
+                        .setDuration(exam.getDuration())
+                        .setTypeCode(exam.getType_code())
+                        .build();
+                listBeans.add(response);
+            }
+        }
+        return listBeans;
+    }
+
+    public ApplyExamResponse applyExercise(String examId, String userId) {
+        String state = moduleServer.applyExercise(examId,userId);
+        ApplyExamResponse response = ApplyExamResponse.newBuilder()
+                .setState(state)
+                .build();
+        return response;
+    }
+
+    public List<NewsResponse> getNews(String userId) {
+        List<NewsResponse> list = new ArrayList<>();
+        List<News> listBeans = moduleServer.getNews(userId);
+        if (listBeans != null){
+            for(News item:listBeans){
+                NewsResponse response = NewsResponse.newBuilder()
+                        .setContent(item.getContent())
+                        .setUserId(item.getUser_id())
+                        .setTitle(item.getTitle())
+                        .setDate(item.getDate())
+                        .setState(item.getState())
+                        .setId(item.getId())
+                        .build();
+                list.add(response);
+            }
+        }
+        return list;
+    }
+
+    public List<BillResponse> getBill(String userId) {
+        List<BillResponse> list = new ArrayList<>();
+        List<Bill> listBeans = moduleServer.getBill(userId);
+        if (listBeans != null){
+            for(Bill item:listBeans){
+                BillResponse response = BillResponse.newBuilder()
+                        .setUserId(item.getUser_id())
+                        .setDate(item.getDate())
+                        .setCause(item.getCause())
+                        .setMoney(item.getMoney())
+                        .setState(item.getState())
+                        .setId(item.getId())
+                        .build();
+                list.add(response);
+            }
+        }
+        return list;
+    }
+
+    public void readNews(int id) {
+        moduleServer.readNews(id);
+    }
+
+    public PayResponse billPay(int id) {
+        String state = moduleServer.billPay(id);
+        return PayResponse.newBuilder().setState(state).build();
     }
 }

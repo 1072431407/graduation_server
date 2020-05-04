@@ -120,6 +120,254 @@ public final class ModuleRpcServerGrpc {
     return getGetStatisticsDataMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.ExamRequest,
+      com.drivinggrpc.driving.rpc.proto.module.ExamResponse> getGetExamMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getExam",
+      requestType = com.drivinggrpc.driving.rpc.proto.module.ExamRequest.class,
+      responseType = com.drivinggrpc.driving.rpc.proto.module.ExamResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.ExamRequest,
+      com.drivinggrpc.driving.rpc.proto.module.ExamResponse> getGetExamMethod() {
+    io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.ExamRequest, com.drivinggrpc.driving.rpc.proto.module.ExamResponse> getGetExamMethod;
+    if ((getGetExamMethod = ModuleRpcServerGrpc.getGetExamMethod) == null) {
+      synchronized (ModuleRpcServerGrpc.class) {
+        if ((getGetExamMethod = ModuleRpcServerGrpc.getGetExamMethod) == null) {
+          ModuleRpcServerGrpc.getGetExamMethod = getGetExamMethod =
+              io.grpc.MethodDescriptor.<com.drivinggrpc.driving.rpc.proto.module.ExamRequest, com.drivinggrpc.driving.rpc.proto.module.ExamResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getExam"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.drivinggrpc.driving.rpc.proto.module.ExamRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.drivinggrpc.driving.rpc.proto.module.ExamResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ModuleRpcServerMethodDescriptorSupplier("getExam"))
+              .build();
+        }
+      }
+    }
+    return getGetExamMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.ExamRequest,
+      com.drivinggrpc.driving.rpc.proto.module.ExamResponse> getGetExerciseMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getExercise",
+      requestType = com.drivinggrpc.driving.rpc.proto.module.ExamRequest.class,
+      responseType = com.drivinggrpc.driving.rpc.proto.module.ExamResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.ExamRequest,
+      com.drivinggrpc.driving.rpc.proto.module.ExamResponse> getGetExerciseMethod() {
+    io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.ExamRequest, com.drivinggrpc.driving.rpc.proto.module.ExamResponse> getGetExerciseMethod;
+    if ((getGetExerciseMethod = ModuleRpcServerGrpc.getGetExerciseMethod) == null) {
+      synchronized (ModuleRpcServerGrpc.class) {
+        if ((getGetExerciseMethod = ModuleRpcServerGrpc.getGetExerciseMethod) == null) {
+          ModuleRpcServerGrpc.getGetExerciseMethod = getGetExerciseMethod =
+              io.grpc.MethodDescriptor.<com.drivinggrpc.driving.rpc.proto.module.ExamRequest, com.drivinggrpc.driving.rpc.proto.module.ExamResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getExercise"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.drivinggrpc.driving.rpc.proto.module.ExamRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.drivinggrpc.driving.rpc.proto.module.ExamResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ModuleRpcServerMethodDescriptorSupplier("getExercise"))
+              .build();
+        }
+      }
+    }
+    return getGetExerciseMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest,
+      com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse> getApplyExamMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "applyExam",
+      requestType = com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest.class,
+      responseType = com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest,
+      com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse> getApplyExamMethod() {
+    io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest, com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse> getApplyExamMethod;
+    if ((getApplyExamMethod = ModuleRpcServerGrpc.getApplyExamMethod) == null) {
+      synchronized (ModuleRpcServerGrpc.class) {
+        if ((getApplyExamMethod = ModuleRpcServerGrpc.getApplyExamMethod) == null) {
+          ModuleRpcServerGrpc.getApplyExamMethod = getApplyExamMethod =
+              io.grpc.MethodDescriptor.<com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest, com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "applyExam"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ModuleRpcServerMethodDescriptorSupplier("applyExam"))
+              .build();
+        }
+      }
+    }
+    return getApplyExamMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest,
+      com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse> getApplyExerciseMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "applyExercise",
+      requestType = com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest.class,
+      responseType = com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest,
+      com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse> getApplyExerciseMethod() {
+    io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest, com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse> getApplyExerciseMethod;
+    if ((getApplyExerciseMethod = ModuleRpcServerGrpc.getApplyExerciseMethod) == null) {
+      synchronized (ModuleRpcServerGrpc.class) {
+        if ((getApplyExerciseMethod = ModuleRpcServerGrpc.getApplyExerciseMethod) == null) {
+          ModuleRpcServerGrpc.getApplyExerciseMethod = getApplyExerciseMethod =
+              io.grpc.MethodDescriptor.<com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest, com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "applyExercise"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ModuleRpcServerMethodDescriptorSupplier("applyExercise"))
+              .build();
+        }
+      }
+    }
+    return getApplyExerciseMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.NewsRequest,
+      com.drivinggrpc.driving.rpc.proto.module.NewsResponse> getGetNewsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getNews",
+      requestType = com.drivinggrpc.driving.rpc.proto.module.NewsRequest.class,
+      responseType = com.drivinggrpc.driving.rpc.proto.module.NewsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.NewsRequest,
+      com.drivinggrpc.driving.rpc.proto.module.NewsResponse> getGetNewsMethod() {
+    io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.NewsRequest, com.drivinggrpc.driving.rpc.proto.module.NewsResponse> getGetNewsMethod;
+    if ((getGetNewsMethod = ModuleRpcServerGrpc.getGetNewsMethod) == null) {
+      synchronized (ModuleRpcServerGrpc.class) {
+        if ((getGetNewsMethod = ModuleRpcServerGrpc.getGetNewsMethod) == null) {
+          ModuleRpcServerGrpc.getGetNewsMethod = getGetNewsMethod =
+              io.grpc.MethodDescriptor.<com.drivinggrpc.driving.rpc.proto.module.NewsRequest, com.drivinggrpc.driving.rpc.proto.module.NewsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getNews"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.drivinggrpc.driving.rpc.proto.module.NewsRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.drivinggrpc.driving.rpc.proto.module.NewsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ModuleRpcServerMethodDescriptorSupplier("getNews"))
+              .build();
+        }
+      }
+    }
+    return getGetNewsMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.ReadNewsRequest,
+      com.drivinggrpc.driving.rpc.proto.module.ReadNewsResponse> getReadNewsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "readNews",
+      requestType = com.drivinggrpc.driving.rpc.proto.module.ReadNewsRequest.class,
+      responseType = com.drivinggrpc.driving.rpc.proto.module.ReadNewsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.ReadNewsRequest,
+      com.drivinggrpc.driving.rpc.proto.module.ReadNewsResponse> getReadNewsMethod() {
+    io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.ReadNewsRequest, com.drivinggrpc.driving.rpc.proto.module.ReadNewsResponse> getReadNewsMethod;
+    if ((getReadNewsMethod = ModuleRpcServerGrpc.getReadNewsMethod) == null) {
+      synchronized (ModuleRpcServerGrpc.class) {
+        if ((getReadNewsMethod = ModuleRpcServerGrpc.getReadNewsMethod) == null) {
+          ModuleRpcServerGrpc.getReadNewsMethod = getReadNewsMethod =
+              io.grpc.MethodDescriptor.<com.drivinggrpc.driving.rpc.proto.module.ReadNewsRequest, com.drivinggrpc.driving.rpc.proto.module.ReadNewsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "readNews"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.drivinggrpc.driving.rpc.proto.module.ReadNewsRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.drivinggrpc.driving.rpc.proto.module.ReadNewsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ModuleRpcServerMethodDescriptorSupplier("readNews"))
+              .build();
+        }
+      }
+    }
+    return getReadNewsMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.BillRequest,
+      com.drivinggrpc.driving.rpc.proto.module.BillResponse> getGetBillMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getBill",
+      requestType = com.drivinggrpc.driving.rpc.proto.module.BillRequest.class,
+      responseType = com.drivinggrpc.driving.rpc.proto.module.BillResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.BillRequest,
+      com.drivinggrpc.driving.rpc.proto.module.BillResponse> getGetBillMethod() {
+    io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.BillRequest, com.drivinggrpc.driving.rpc.proto.module.BillResponse> getGetBillMethod;
+    if ((getGetBillMethod = ModuleRpcServerGrpc.getGetBillMethod) == null) {
+      synchronized (ModuleRpcServerGrpc.class) {
+        if ((getGetBillMethod = ModuleRpcServerGrpc.getGetBillMethod) == null) {
+          ModuleRpcServerGrpc.getGetBillMethod = getGetBillMethod =
+              io.grpc.MethodDescriptor.<com.drivinggrpc.driving.rpc.proto.module.BillRequest, com.drivinggrpc.driving.rpc.proto.module.BillResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getBill"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.drivinggrpc.driving.rpc.proto.module.BillRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.drivinggrpc.driving.rpc.proto.module.BillResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ModuleRpcServerMethodDescriptorSupplier("getBill"))
+              .build();
+        }
+      }
+    }
+    return getGetBillMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.PayRequest,
+      com.drivinggrpc.driving.rpc.proto.module.PayResponse> getBillPayMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "billPay",
+      requestType = com.drivinggrpc.driving.rpc.proto.module.PayRequest.class,
+      responseType = com.drivinggrpc.driving.rpc.proto.module.PayResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.PayRequest,
+      com.drivinggrpc.driving.rpc.proto.module.PayResponse> getBillPayMethod() {
+    io.grpc.MethodDescriptor<com.drivinggrpc.driving.rpc.proto.module.PayRequest, com.drivinggrpc.driving.rpc.proto.module.PayResponse> getBillPayMethod;
+    if ((getBillPayMethod = ModuleRpcServerGrpc.getBillPayMethod) == null) {
+      synchronized (ModuleRpcServerGrpc.class) {
+        if ((getBillPayMethod = ModuleRpcServerGrpc.getBillPayMethod) == null) {
+          ModuleRpcServerGrpc.getBillPayMethod = getBillPayMethod =
+              io.grpc.MethodDescriptor.<com.drivinggrpc.driving.rpc.proto.module.PayRequest, com.drivinggrpc.driving.rpc.proto.module.PayResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "billPay"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.drivinggrpc.driving.rpc.proto.module.PayRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.drivinggrpc.driving.rpc.proto.module.PayResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new ModuleRpcServerMethodDescriptorSupplier("billPay"))
+              .build();
+        }
+      }
+    }
+    return getBillPayMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -189,6 +437,62 @@ public final class ModuleRpcServerGrpc {
       asyncUnimplementedUnaryCall(getGetStatisticsDataMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getExam(com.drivinggrpc.driving.rpc.proto.module.ExamRequest request,
+        io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.ExamResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetExamMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getExercise(com.drivinggrpc.driving.rpc.proto.module.ExamRequest request,
+        io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.ExamResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetExerciseMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void applyExam(com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest request,
+        io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getApplyExamMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void applyExercise(com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest request,
+        io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getApplyExerciseMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getNews(com.drivinggrpc.driving.rpc.proto.module.NewsRequest request,
+        io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.NewsResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetNewsMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void readNews(com.drivinggrpc.driving.rpc.proto.module.ReadNewsRequest request,
+        io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.ReadNewsResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getReadNewsMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getBill(com.drivinggrpc.driving.rpc.proto.module.BillRequest request,
+        io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.BillResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetBillMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void billPay(com.drivinggrpc.driving.rpc.proto.module.PayRequest request,
+        io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.PayResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getBillPayMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -212,6 +516,62 @@ public final class ModuleRpcServerGrpc {
                 com.drivinggrpc.driving.rpc.proto.module.StatisticsDataRequest,
                 com.drivinggrpc.driving.rpc.proto.module.StatisticsDataResponse>(
                   this, METHODID_GET_STATISTICS_DATA)))
+          .addMethod(
+            getGetExamMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                com.drivinggrpc.driving.rpc.proto.module.ExamRequest,
+                com.drivinggrpc.driving.rpc.proto.module.ExamResponse>(
+                  this, METHODID_GET_EXAM)))
+          .addMethod(
+            getGetExerciseMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                com.drivinggrpc.driving.rpc.proto.module.ExamRequest,
+                com.drivinggrpc.driving.rpc.proto.module.ExamResponse>(
+                  this, METHODID_GET_EXERCISE)))
+          .addMethod(
+            getApplyExamMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest,
+                com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse>(
+                  this, METHODID_APPLY_EXAM)))
+          .addMethod(
+            getApplyExerciseMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest,
+                com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse>(
+                  this, METHODID_APPLY_EXERCISE)))
+          .addMethod(
+            getGetNewsMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                com.drivinggrpc.driving.rpc.proto.module.NewsRequest,
+                com.drivinggrpc.driving.rpc.proto.module.NewsResponse>(
+                  this, METHODID_GET_NEWS)))
+          .addMethod(
+            getReadNewsMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.drivinggrpc.driving.rpc.proto.module.ReadNewsRequest,
+                com.drivinggrpc.driving.rpc.proto.module.ReadNewsResponse>(
+                  this, METHODID_READ_NEWS)))
+          .addMethod(
+            getGetBillMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                com.drivinggrpc.driving.rpc.proto.module.BillRequest,
+                com.drivinggrpc.driving.rpc.proto.module.BillResponse>(
+                  this, METHODID_GET_BILL)))
+          .addMethod(
+            getBillPayMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.drivinggrpc.driving.rpc.proto.module.PayRequest,
+                com.drivinggrpc.driving.rpc.proto.module.PayResponse>(
+                  this, METHODID_BILL_PAY)))
           .build();
     }
   }
@@ -253,6 +613,70 @@ public final class ModuleRpcServerGrpc {
       asyncUnaryCall(
           getChannel().newCall(getGetStatisticsDataMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getExam(com.drivinggrpc.driving.rpc.proto.module.ExamRequest request,
+        io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.ExamResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getGetExamMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getExercise(com.drivinggrpc.driving.rpc.proto.module.ExamRequest request,
+        io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.ExamResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getGetExerciseMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void applyExam(com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest request,
+        io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getApplyExamMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void applyExercise(com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest request,
+        io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getApplyExerciseMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getNews(com.drivinggrpc.driving.rpc.proto.module.NewsRequest request,
+        io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.NewsResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getGetNewsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void readNews(com.drivinggrpc.driving.rpc.proto.module.ReadNewsRequest request,
+        io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.ReadNewsResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getReadNewsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getBill(com.drivinggrpc.driving.rpc.proto.module.BillRequest request,
+        io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.BillResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getGetBillMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void billPay(com.drivinggrpc.driving.rpc.proto.module.PayRequest request,
+        io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.PayResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getBillPayMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -288,6 +712,66 @@ public final class ModuleRpcServerGrpc {
     public com.drivinggrpc.driving.rpc.proto.module.StatisticsDataResponse getStatisticsData(com.drivinggrpc.driving.rpc.proto.module.StatisticsDataRequest request) {
       return blockingUnaryCall(
           getChannel(), getGetStatisticsDataMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<com.drivinggrpc.driving.rpc.proto.module.ExamResponse> getExam(
+        com.drivinggrpc.driving.rpc.proto.module.ExamRequest request) {
+      return blockingServerStreamingCall(
+          getChannel(), getGetExamMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<com.drivinggrpc.driving.rpc.proto.module.ExamResponse> getExercise(
+        com.drivinggrpc.driving.rpc.proto.module.ExamRequest request) {
+      return blockingServerStreamingCall(
+          getChannel(), getGetExerciseMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse applyExam(com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getApplyExamMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse applyExercise(com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getApplyExerciseMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<com.drivinggrpc.driving.rpc.proto.module.NewsResponse> getNews(
+        com.drivinggrpc.driving.rpc.proto.module.NewsRequest request) {
+      return blockingServerStreamingCall(
+          getChannel(), getGetNewsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.drivinggrpc.driving.rpc.proto.module.ReadNewsResponse readNews(com.drivinggrpc.driving.rpc.proto.module.ReadNewsRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getReadNewsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<com.drivinggrpc.driving.rpc.proto.module.BillResponse> getBill(
+        com.drivinggrpc.driving.rpc.proto.module.BillRequest request) {
+      return blockingServerStreamingCall(
+          getChannel(), getGetBillMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.drivinggrpc.driving.rpc.proto.module.PayResponse billPay(com.drivinggrpc.driving.rpc.proto.module.PayRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getBillPayMethod(), getCallOptions(), request);
     }
   }
 
@@ -328,11 +812,51 @@ public final class ModuleRpcServerGrpc {
       return futureUnaryCall(
           getChannel().newCall(getGetStatisticsDataMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse> applyExam(
+        com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getApplyExamMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse> applyExercise(
+        com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getApplyExerciseMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.drivinggrpc.driving.rpc.proto.module.ReadNewsResponse> readNews(
+        com.drivinggrpc.driving.rpc.proto.module.ReadNewsRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getReadNewsMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.drivinggrpc.driving.rpc.proto.module.PayResponse> billPay(
+        com.drivinggrpc.driving.rpc.proto.module.PayRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getBillPayMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_APPLY = 0;
   private static final int METHODID_GET_APPLY_STATE = 1;
   private static final int METHODID_GET_STATISTICS_DATA = 2;
+  private static final int METHODID_GET_EXAM = 3;
+  private static final int METHODID_GET_EXERCISE = 4;
+  private static final int METHODID_APPLY_EXAM = 5;
+  private static final int METHODID_APPLY_EXERCISE = 6;
+  private static final int METHODID_GET_NEWS = 7;
+  private static final int METHODID_READ_NEWS = 8;
+  private static final int METHODID_GET_BILL = 9;
+  private static final int METHODID_BILL_PAY = 10;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -362,6 +886,38 @@ public final class ModuleRpcServerGrpc {
         case METHODID_GET_STATISTICS_DATA:
           serviceImpl.getStatisticsData((com.drivinggrpc.driving.rpc.proto.module.StatisticsDataRequest) request,
               (io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.StatisticsDataResponse>) responseObserver);
+          break;
+        case METHODID_GET_EXAM:
+          serviceImpl.getExam((com.drivinggrpc.driving.rpc.proto.module.ExamRequest) request,
+              (io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.ExamResponse>) responseObserver);
+          break;
+        case METHODID_GET_EXERCISE:
+          serviceImpl.getExercise((com.drivinggrpc.driving.rpc.proto.module.ExamRequest) request,
+              (io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.ExamResponse>) responseObserver);
+          break;
+        case METHODID_APPLY_EXAM:
+          serviceImpl.applyExam((com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest) request,
+              (io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse>) responseObserver);
+          break;
+        case METHODID_APPLY_EXERCISE:
+          serviceImpl.applyExercise((com.drivinggrpc.driving.rpc.proto.module.ApplyExamRequest) request,
+              (io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.ApplyExamResponse>) responseObserver);
+          break;
+        case METHODID_GET_NEWS:
+          serviceImpl.getNews((com.drivinggrpc.driving.rpc.proto.module.NewsRequest) request,
+              (io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.NewsResponse>) responseObserver);
+          break;
+        case METHODID_READ_NEWS:
+          serviceImpl.readNews((com.drivinggrpc.driving.rpc.proto.module.ReadNewsRequest) request,
+              (io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.ReadNewsResponse>) responseObserver);
+          break;
+        case METHODID_GET_BILL:
+          serviceImpl.getBill((com.drivinggrpc.driving.rpc.proto.module.BillRequest) request,
+              (io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.BillResponse>) responseObserver);
+          break;
+        case METHODID_BILL_PAY:
+          serviceImpl.billPay((com.drivinggrpc.driving.rpc.proto.module.PayRequest) request,
+              (io.grpc.stub.StreamObserver<com.drivinggrpc.driving.rpc.proto.module.PayResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -427,6 +983,14 @@ public final class ModuleRpcServerGrpc {
               .addMethod(getApplyMethod())
               .addMethod(getGetApplyStateMethod())
               .addMethod(getGetStatisticsDataMethod())
+              .addMethod(getGetExamMethod())
+              .addMethod(getGetExerciseMethod())
+              .addMethod(getApplyExamMethod())
+              .addMethod(getApplyExerciseMethod())
+              .addMethod(getGetNewsMethod())
+              .addMethod(getReadNewsMethod())
+              .addMethod(getGetBillMethod())
+              .addMethod(getBillPayMethod())
               .build();
         }
       }

@@ -26,6 +26,11 @@
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
 </head>
+<style id="table_style">
+    td {
+        white-space:nowrap;overflow:hidden;text-overflow: ellipsis;
+    }
+</style>
 <body>
 <!-- Left Panel -->
 
@@ -142,6 +147,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
+                        <div><a>驾证类型: </a><a id="type_code"></a></div>
                         <div><a>考试类型: </a><a id="type"></a></div>
                         <div><a>考试日期: </a><a id="data"></a></div>
                         <div><a>最大人数: </a><a id="max"></a></div>
@@ -172,8 +178,8 @@
                                     <th>类型</th>
                                     <th>日期</th>
                                     <th>时间</th>
-                                    <th>地址</th>
-                                    <th style="width: 250px;">审批</th>
+                                    <th style="max-width: 250px;min-width: 180px;">地址</th>
+                                    <th style="width: 220px;">审批</th>
                                 </tr>
                                 </thead>
                                 <tbody >
@@ -291,6 +297,7 @@
             success:function (data) {
                 console.log(data);
                 if (data!=null){
+                    $("#type_code").html(data['type_code']);
                     $("#type").html(data['type']);
                     $("#data").html(data['data']);
                     $("#max").html(data['max']);
