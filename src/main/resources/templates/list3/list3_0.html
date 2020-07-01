@@ -61,21 +61,6 @@
         }
 
     </style>
-    <style>
-        .ShaShiDi{
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            /*为了效果明显，可以将如下边框打开，看一下效果*/
-            /* border:1px solid black; */
-        }
-
-        .ShaShiDi img{
-            width:100%;
-            height:auto;
-        }
-
-    </style>
 </head>
 
 <body>
@@ -123,7 +108,7 @@
                     </ul>
                 </li>
 
-                <li class="menu-item-has-children dropdown">
+                <li class="menu-item-has-children active dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="menu-icon fa fa-tasks"></i>题库管理</a>
                     <ul class="sub-menu children dropdown-menu">
@@ -167,7 +152,6 @@
 
                     <div class="user-menu dropdown-menu">
                         <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
-
                         <a class="nav-link" href="#" onclick="loginOut()"><i class="fa fa-power -off" ></i>Logout</a>
                     </div>
                 </div>
@@ -178,8 +162,72 @@
     <!-- /#header -->
     <!-- Content -->
     <div class="content">
-        <div class="ShaShiDi">
-            <img src="images/wecome.jpg" >
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Basic Form</strong> Elements
+                </div>
+                <div class="card-body card-block">
+                    <div class="form-horizontal">
+
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">Static</label></div>
+                            <div class="col-12 col-md-9">
+                                <p class="form-control-static">Username</p>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="type" class=" form-control-label">考试类型</label></div>
+                            <div class="col-12 col-md-9">
+                                <select name="selectSm" id="type" class="form-control-sm form-control">
+                                    <option value="0">科目一</option>
+                                    <option value="1">科目四</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="topic" class=" form-control-label">题目</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="topic" name="text-input" placeholder="" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="radio_a" class=" form-control-label">选项A</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="radio_a" name="text-input" placeholder="" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="radio_b" class=" form-control-label">选项B</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="radio_b" name="text-input" placeholder="" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="radio_c" class=" form-control-label">选项C</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="radio_c" name="text-input" placeholder="" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="radio_d" class=" form-control-label">选项D</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="radio_d" name="text-input" placeholder="" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="tips" class=" form-control-label">题目解释</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="tips" name="text-input" placeholder="" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="correct" class=" form-control-label">正确答案</label></div>
+                            <div class="col-12 col-md-9">
+                                <select name="selectSm" id="correct" class="form-control-sm form-control">
+                                    <option value="0">A</option>
+                                    <option value="1">B</option>
+                                    <option value="2">C</option>
+                                    <option value="3">D</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-success" onclick="addTopic()">添加题目</button>
+                </div>
+            </div>
+
         </div>
         <!-- Animated -->
         <!-- .animated -->
@@ -215,6 +263,83 @@
 <script src="assets/js/init/fullcalendar-init.js"></script>
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
 <script>
+    function addTopic() {
+        var type = $("#type option:selected").text();//选中的文本
+        var correct = $("#correct option:selected").text();//选中的文本
+        var topic = document.getElementById("topic").value;
+        var radio_a = document.getElementById("radio_a").value;
+        var radio_b = document.getElementById("radio_b").value;
+        var radio_c = document.getElementById("radio_c").value;
+        var radio_d = document.getElementById("radio_d").value;
+        var tips = document.getElementById("tips").value;
+        if (topic == ""){
+            alert("请输入题目");
+            return;
+        }
+        if (radio_a == ""){
+            alert("请输入选项A");
+            return;
+        }
+        if (radio_b == ""){
+            alert("请输入选项B");
+            return;
+        }
+        if (radio_c == ""){
+            alert("请输入选项C");
+            return;
+        }
+        if (radio_d == ""){
+            alert("请输入选项D");
+            return;
+        }
+        if (tips == ""){
+            alert("请输入题目解释");
+            return;
+        }
+
+        var correct_radio;
+        switch (correct) {
+            case "A":
+                correct_radio = 1;
+                break;
+            case "B":
+                correct_radio = 2;
+                break;
+            case "C":
+                correct_radio = 3;
+                break;
+            case "D":
+                correct_radio = 4;
+                break;
+        }
+        $.ajax({
+            type:"get",
+            url:"/removeExamination/addTopic",
+            dataType:"text",
+            data:{
+                "type":type,
+                "correct_radio":correct_radio,
+                "topic":topic,
+                "radio_a":radio_a,
+                "radio_b":radio_b,
+                "radio_c":radio_c,
+                "radio_d":radio_d,
+                "tips":tips
+            },
+            success:function (data) {
+                if (data == "succeed"){
+                    document.getElementById("topic").value = "";
+                    document.getElementById("radio_a").value = "";
+                    document.getElementById("radio_b").value = "";
+                    document.getElementById("radio_c").value = "";
+                    document.getElementById("radio_d").value = "";
+                    document.getElementById("tips").value = "";
+                    alert("添加成功!");
+                }else
+                    alert(data);
+            }
+        });
+    }
     function loginOut() {
         $.ajax({
             type:"POST",

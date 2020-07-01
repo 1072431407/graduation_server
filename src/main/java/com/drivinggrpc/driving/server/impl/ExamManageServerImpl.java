@@ -28,6 +28,9 @@ public class ExamManageServerImpl implements ExamManageServer {
     private AbsenteeDao absenteeDao;
     @Autowired
     private NewsDao newsDao;
+    @Autowired
+    private UserStatisticsDao userStatisticsDao;
+
     @Override
     public List<Exam> initDeleteExam() {
         List<Exam> listBeans = new ArrayList<>();
@@ -122,7 +125,7 @@ public class ExamManageServerImpl implements ExamManageServer {
             userApplyDao.updateApplyStateByUserId(user_id,"科目四");
         }
         if ("科目四".equals(state)){
-            userApplyDao.updateApplyStateByUserId(user_id,"毕业");
+            userApplyDao.updateApplyStateByUserId(user_id,"未报名");
             News news = new News();
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
             news.setDate(format.format(new Date()));
@@ -130,6 +133,14 @@ public class ExamManageServerImpl implements ExamManageServer {
             news.setContent("恭喜您已完成所有考试!请三个工作日后前往xx街道xx室领取驾驶证件.");
             news.setUser_id(user_id);
             newsDao.insertNews(news);
+            userStatisticsDao.updateAcc1(0,user_id);
+            userStatisticsDao.updateAcc4(0,user_id);
+            userStatisticsDao.updateAve1(0,user_id);
+            userStatisticsDao.updateAve4(0,user_id);
+            userStatisticsDao.updateDeg1(0,user_id);
+            userStatisticsDao.updateDeg4(0,user_id);
+            userStatisticsDao.updateNum1(0,user_id);
+            userStatisticsDao.updateNum4(0,user_id);
         }
         userApplyDao.updateIsFirstByUserId(0,user_id);
         userApplyDao.updateIsPayByUserId(0,user_id);

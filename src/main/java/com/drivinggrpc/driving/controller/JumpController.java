@@ -25,5 +25,8 @@ public class JumpController {
     public String addExercise(){
         return "list2/list2_3";
     }
-
+    @GetMapping("/addExamination")
+    public String addExamination(){
+        return "list3/list3_0";
+    }
 }

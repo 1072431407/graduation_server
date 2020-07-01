@@ -95,4 +95,11 @@ public class StudyServerImpl implements StudyServer {
             userStatisticsDao.updateDeg4(userStatistics.getDegree_4(),userId);
         }
     }
+
+    @Override
+    public void upMinute(long time,String user_id) {
+        long minute = time/(60*1000);
+        minute += userStatisticsDao.selectMinute(user_id);
+        userStatisticsDao.updataMinute(minute,user_id);
+    }
 }

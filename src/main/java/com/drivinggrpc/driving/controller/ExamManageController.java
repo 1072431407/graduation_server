@@ -140,8 +140,9 @@ public class ExamManageController {
         exam.setAddress(address);
         exam.setTime(time);
         exam.setType_code(typeCode);
-        if (remark!=null)
+        if (remark!=null) {
             exam.setRemark(remark);
+        }
         logger.info("/addExam/add");
         if(examManageServer.addExam(exam))
             return "succeed";

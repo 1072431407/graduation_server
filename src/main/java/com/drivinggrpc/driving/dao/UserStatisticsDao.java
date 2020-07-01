@@ -44,4 +44,10 @@ public interface UserStatisticsDao {
 
     @Update("update user_statistics set degree_4=#{degree_4} where user_id=#{userId}")
     void updateDeg4(int degree_4, String userId);
+
+    @Select("select minute from user_statistics where user_id = #{user_id}")
+    int selectMinute(String user_id);
+
+    @Update("update user_statistics set minute=#{minute} where user_id=#{user_id}")
+    void updataMinute(long minute, String user_id);
 }

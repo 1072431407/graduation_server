@@ -54,11 +54,11 @@ public class StudyController {
         return listBeans;
     }
 
-    public void submitStatistics(int num, int sum, String type, int label, String userId) {
+    public void submitStatistics(int num, int sum, String type, int label, String userId,long time) {
         if (label == 1)
-            QueAcc(userId,type,num,sum);
+            QueAcc(userId,type,num,sum,time);
         if (label == 2)
-            AveDeg(userId,type,num);
+            AveDeg(userId,type,num,time);
     }
 
     /**
@@ -68,7 +68,8 @@ public class StudyController {
      * @param num
      * @param sum
      */
-    private void QueAcc(String userId, String type, int num, int sum) {
+    private void QueAcc(String userId, String type, int num, int sum,long time) {
+        studyServer.upMinute(time,userId);
         studyServer.answerOfStatistical(userId,type,num,sum);
     }
 
@@ -78,7 +79,8 @@ public class StudyController {
      * @param type
      * @param num
      */
-    private void AveDeg(String userId, String type, int num) {
+    private void AveDeg(String userId, String type, int num,long time) {
+        studyServer.upMinute(time,userId);
         studyServer.testStatistics(userId,type,num);
     }
 }

@@ -30,7 +30,7 @@ public class StudyRpcServer extends StudyRpcServerGrpc.StudyRpcServerImplBase {
 
     @Override
     public void submitStatistics(SubmitStatisticsRequest request, StreamObserver<SubmitStatisticsResponse> responseObserver) {
-        controller.submitStatistics(request.getNum(),request.getSum(),request.getType(),request.getLabel(),request.getUserId());
+        controller.submitStatistics(request.getNum(),request.getSum(),request.getType(),request.getLabel(),request.getUserId(),request.getTime());
         responseObserver.onNext(SubmitStatisticsResponse.newBuilder().build());
         responseObserver.onCompleted();
     }

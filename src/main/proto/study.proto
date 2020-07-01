@@ -15,6 +15,7 @@ message SubmitStatisticsRequest{
     string type = 3;//科目一、四
     int32 label = 4;//1标识答题数量和总数 2标识平均分
     string user_id = 5;
+    int64 time = 6;
 }
 message SubmitStatisticsResponse{
 }

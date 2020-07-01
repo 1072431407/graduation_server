@@ -12,4 +12,6 @@ public interface StudyServer {
     void answerOfStatistical(String userId, String type, int num, int sum);
 
     void testStatistics(String userId, String type, int num);
+
+    void upMinute(long time,String user_id);
 }

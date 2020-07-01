@@ -1,6 +1,7 @@
 package com.drivinggrpc.driving.po;
 
 public class Topic {
+    private int id;
     private String topic;//题目
     private String radio_a;//选项A
     private String radio_b;
@@ -9,6 +10,23 @@ public class Topic {
     private int switch_radio;//我的选项
     private int correct_radio;//正确选项
     private String tips;//提示
+    private String type;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
 
     public void setRadio_a(String radio_a) {
         this.radio_a = radio_a;
