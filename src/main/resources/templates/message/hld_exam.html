@@ -26,11 +26,6 @@
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
 </head>
-<style id="table_style">
-    td {
-        white-space:nowrap;overflow:hidden;text-overflow: ellipsis;
-    }
-</style>
 <body>
 <!-- Left Panel -->
 
@@ -42,20 +37,8 @@
                     <a href="/design/main"><i class="menu-icon fa fa-laptop"></i>大数据职位管理系统</a>
                 </li>
                 <li class="menu-title">职位管理</li><!-- /.menu-title -->
-<!--                <li class="menu-item-has-children dropdown">-->
-<!--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                        <i class="menu-icon fa fa-bar-chart"></i>数据统计</a>-->
-<!--                    <ul class="sub-menu children dropdown-menu">-->
-<!--                        <li><i class="fa fa-line-chart"></i><a href="ui-tabs.html">报名统计</a></li>-->
-<!--                        <li><i class="fa fa-line-chart"></i><a href="ui-tabs.html">科目一统计</a></li>-->
-<!--                        <li><i class="fa fa-line-chart"></i><a href="ui-tabs.html">科目二统计</a></li>-->
-<!--                        <li><i class="fa fa-line-chart"></i><a href="ui-tabs.html">科目三统计</a></li>-->
-<!--                        <li><i class="fa fa-line-chart"></i><a href="ui-tabs.html">科目四统计</a></li>-->
-<!--                        <li><i class="fa fa-line-chart"></i><a href="ui-tabs.html">毕业统计</a></li>-->
-<!--                        <li><i class="fa fa-line-chart"></i><a href="ui-tabs.html">收入统计</a></li>-->
-<!--                    </ul>-->
-<!--                </li>-->
-                <li class="menu-item-has-children dropdown">
+
+                <li class="menu-item-has-children active dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="menu-icon fa fa-table"></i>信息管理</a>
                     <ul class="sub-menu children dropdown-menu">
@@ -65,7 +48,7 @@
                         <li><i class="fa fa-table"></i><a href="/blacklist">黑名单</a></li>
                     </ul>
                 </li>
-                <li class="menu-item-has-children active dropdown">
+                <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="menu-icon fa fa-th"></i>职位管理</a>
                     <ul class="sub-menu children dropdown-menu">
@@ -135,81 +118,62 @@
     </header>
 
     <div class="content">
-        <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm" role="document">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Basic Form</strong> Elements
+                </div>
+                <div class="card-body card-block">
+                    <div class="form-horizontal" th:fragment="exam">
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">Static</label></div>
+                            <div class="col-12 col-md-9" >
+                                <p class="form-control-static " >exam</p>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col"><label id="nick" for="nick" th:text="${hld.title}" class=" form-control-label">当前不可答题</label></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col"><label id="sex" th:text="${hld.question}" class=" form-control-label">题目</label></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col"><label id="answer1" th:text="${hld.answer1}" class=" form-control-label">A</label></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col"><label id="answer2" th:text="${hld.answer2}" class=" form-control-label">B</label></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col"><label id="answer3" th:text="${hld.answer3}" class=" form-control-label">C</label></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col"><label id="answer4" th:text="${hld.answer4}" class=" form-control-label">D</label></div>
+                        </div>
 
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="smallmodalLabel">考试资料</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div><a>驾证类型: </a><a id="type_code"></a></div>
-                        <div><a>考试类型: </a><a id="type"></a></div>
-                        <div><a>考试日期: </a><a id="data"></a></div>
-                        <div><a>最大人数: </a><a id="max"></a></div>
-                        <div><a>考试时间: </a><a id="time"></a></div>
-                        <div><a>考试地址: </a><a id="address"></a></div>
-                        <div><a>备注: </a><a id="remark"></a></div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">确定</button>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="change" class=" form-control-label">选择</label></div>
+                            <div class="col-12 col-md-9">
+                                <select name="selectSm" id="change" class="form-control-sm form-control">
+                                    <option value="1">A</option>
+                                    <option value="2">B</option>
+                                    <option value="3">C</option>
+                                    <option value="4">D</option>
+                                </select>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
+                <div class="card-footer">
+                    <button id="button" type="button" th:text="${hld.button}" class="btn btn-success" onclick="submit()"></button>
+                </div>
             </div>
+
         </div>
-
-        <div class="animated fadeIn">
-            <div class="row">
-
-                <div class="col-md-12">
-                    <div class="card" >
-                        <div class="card-header">
-                            <strong class="card-title">Data Table</strong>
-                        </div>
-                        <div class="card-body" >
-                            <table style="table-layout: fixed;" id="bootstrap-data-table" class="table table-striped table-bordered" th:fragment="list">
-                                <thead >
-                                <tr>
-                                    <th>姓名</th>
-                                    <th>类型</th>
-                                    <th>日期</th>
-                                    <th>时间</th>
-                                    <th style="max-width: 250px;min-width: 180px;">地址</th>
-                                    <th style="width: 220px;">审批</th>
-                                </tr>
-                                </thead>
-                                <tbody >
-                                <tr th:each="report:${reports}">
-                                    <td th:text="${report.name}"></td>
-                                    <td th:text="${report.type}"></td>
-                                    <td th:text="${report.data}"></td>
-                                    <td th:text="${report.time}"></td>
-                                    <td style="max-width: 250px;min-width: 180px;" th:text="${report.address}"></td>
-                                    <td>
-                                        <button type="button" class="btn btn-success" th:onclick="eligible([[${report.user_id}]]);">
-                                            合格
-                                        </button>
-                                        <button type="button" class="btn btn-danger" th:onclick="uneligible ([[${report.user_id}]]);">
-                                            不合格
-                                        </button>
-                                        <button type="button" class="btn btn-warning btn-primary mb-1" data-toggle="modal" data-target="#smallmodal" th:onclick="check([[${report.exam_id}]]);">
-                                            查看信息
-                                        </button>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div><!-- .animated -->
-    </div><!-- .content -->
+        <!-- Animated -->
+        <!-- .animated -->
+    </div>
 
 
     <div class="clearfix"></div>
@@ -245,63 +209,25 @@
 <script src="assets/js/lib/data-table/buttons.colVis.min.js"></script>
 <script src="assets/js/init/datatables-init.js"></script>
 
+<script src="assets/js/jquery.time.js"></script>
+<script src="assets/js/birthday.js"></script>
 
 <script type="text/javascript">
-    function eligible(user_id) {
-        console.log(user_id);
+    function submit() {
+        var change = $("#change option:selected").text();//ABCD
         $.ajax({
             type:"get",
-            url:"/loggingData/eligible",
+            url:"/design/hld/next",
             dataType:"text",
-            data:{"user_id":user_id},
-            success:function (data) {
+            data:{
+                "change":change
+            },
+            success: function (data) {
                 $('.card-body').html(data);
-                $('#bootstrap-data-table-export').DataTable();
-                $('.table').DataTable();
-                $('.table-striped').DataTable();
-                $('.table-bordered').DataTable();
             }
-        })
+        });
     }
-    function uneligible(user_id) {
-        console.log(user_id);
-        $.ajax({
-            type:"get",
-            url:"/loggingData/uneligible",
-            dataType:"text",
-            data:{"exam_id":exam_id},
-            success:function (data) {
-                $('.card-body').html(data);
-                $('#bootstrap-data-table-export').DataTable();
-                $('.table').DataTable();
-                $('.table-striped').DataTable();
-                $('.table-bordered').DataTable();
-            }
-        })
-    }
-    function check(exam_id) {
-        console.log(exam_id);
-        $.ajax({
-            type:"get",
-            url:"/loggingData/check",
-            dataType:"json",
-            data:{"exam_id":exam_id},
-            cache: false,
-            async: true,
-            success:function (data) {
-                console.log(data);
-                if (data!=null){
-                    $("#type_code").html(data['type_code']);
-                    $("#type").html(data['type']);
-                    $("#data").html(data['data']);
-                    $("#max").html(data['max']);
-                    $("#time").html(data['time']);
-                    $("#address").html(data['address']);
-                    $("#remark").html(data['remark']);
-                }
-            }
-        })
-    }
+
     function loginOut() {
         $.ajax({
             type:"POST",

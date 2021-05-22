@@ -1,94 +1,45 @@
 package com.drivinggrpc.driving.po;
 
-
-
 public class UserMessage {
-    private String user_id;
-    private String head_image;
-    private String nick_name;
-    private String signature;
-    private int minute;
-    private String date;
-    private String name;
-    private String phone;
-    private String sex;
+    private int id;
+    private String phoneCode;
+    private String nick;
+    private String email;
     private String age;
-    private String job;
-    private String qq_code;
-    private String we_chat;
-    private String e_mail;
+    private String sex;
+    private String school;
+    private String city;
 
-
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public int getId() {
+        return id;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getHead_image() {
-        return head_image;
+    public String getPhoneCode() {
+        return phoneCode;
     }
 
-    public void setHead_image(String head_image) {
-        this.head_image = head_image;
+    public void setPhoneCode(String phoneCode) {
+        this.phoneCode = phoneCode;
     }
 
-    public String getNick_name() {
-        return nick_name;
+    public String getNick() {
+        return nick;
     }
 
-    public void setNick_name(String nick_name) {
-        this.nick_name = nick_name;
+    public void setNick(String nick) {
+        this.nick = nick;
     }
 
-    public String getSignature() {
-        return signature;
+    public String getEmail() {
+        return email;
     }
 
-    public void setSignature(String signature) {
-        this.signature = signature;
-    }
-
-    public int getMinute() {
-        return minute;
-    }
-
-    public void setMinute(int minute) {
-        this.minute = minute;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getAge() {
@@ -99,35 +50,27 @@ public class UserMessage {
         this.age = age;
     }
 
-    public String getJob() {
-        return job;
+    public String getSex() {
+        return sex;
     }
 
-    public void setJob(String job) {
-        this.job = job;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
-    public String getQq_code() {
-        return qq_code;
+    public String getSchool() {
+        return school;
     }
 
-    public void setQq_code(String qq_code) {
-        this.qq_code = qq_code;
+    public void setSchool(String school) {
+        this.school = school;
     }
 
-    public String getWe_chat() {
-        return we_chat;
+    public String getCity() {
+        return city;
     }
 
-    public void setWe_chat(String we_chat) {
-        this.we_chat = we_chat;
-    }
-
-    public String getE_mail() {
-        return e_mail;
-    }
-
-    public void setE_mail(String e_mail) {
-        this.e_mail = e_mail;
+    public void setCity(String city) {
+        this.city = city;
     }
 }

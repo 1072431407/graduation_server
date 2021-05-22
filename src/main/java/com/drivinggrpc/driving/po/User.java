@@ -1,16 +1,16 @@
 package com.drivinggrpc.driving.po;
 
 public class User {
-    private String id;
+    private int id;
     private String username;
     private String password;
     private int power;
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 

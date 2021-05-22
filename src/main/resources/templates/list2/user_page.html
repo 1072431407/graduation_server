@@ -26,11 +26,6 @@
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
 </head>
-<style id="table_style">
-    td {
-        white-space:nowrap;overflow:hidden;text-overflow: ellipsis;
-    }
-</style>
 <body>
 <!-- Left Panel -->
 
@@ -135,81 +130,63 @@
     </header>
 
     <div class="content">
-        <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm" role="document">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Basic Form</strong> Elements
+                </div>
+                <div class="card-body card-block">
+                    <div class="form-horizontal" th:fragment="message">
 
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="smallmodalLabel">考试资料</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div><a>驾证类型: </a><a id="type_code"></a></div>
-                        <div><a>考试类型: </a><a id="type"></a></div>
-                        <div><a>考试日期: </a><a id="data"></a></div>
-                        <div><a>最大人数: </a><a id="max"></a></div>
-                        <div><a>考试时间: </a><a id="time"></a></div>
-                        <div><a>考试地址: </a><a id="address"></a></div>
-                        <div><a>备注: </a><a id="remark"></a></div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">确定</button>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">Static</label></div>
+                            <div class="col-12 col-md-9">
+                                <p class="form-control-static">message</p>
+                            </div>
+                        </div>
+
+
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="nick" class=" form-control-label">昵称</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nick" name="text-input" th:placeholder="${message.nick}" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="sex" class=" form-control-label">性别</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="sex" name="text-input" th:placeholder="${message.sex}" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="phoneCode" class=" form-control-label">电话</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="phoneCode" name="text-input" th:placeholder="${message.phoneCode}" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="email" class=" form-control-label">邮箱</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="email" name="text-input" th:placeholder="${message.email}" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="age" class=" form-control-label">年龄</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="age" name="text-input" th:placeholder="${message.age}" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="school" class=" form-control-label">学校</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="school" name="text-input" th:placeholder="${message.school}" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="city" class=" form-control-label">城市</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="city" name="text-input" th:placeholder="${message.city}" class="form-control"></div>
+                        </div>
+
+
                     </div>
                 </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-success" onclick="updata()">提交</button>
+                </div>
             </div>
+
         </div>
-
-        <div class="animated fadeIn">
-            <div class="row">
-
-                <div class="col-md-12">
-                    <div class="card" >
-                        <div class="card-header">
-                            <strong class="card-title">Data Table</strong>
-                        </div>
-                        <div class="card-body" >
-                            <table style="table-layout: fixed;" id="bootstrap-data-table" class="table table-striped table-bordered" th:fragment="list">
-                                <thead >
-                                <tr>
-                                    <th>姓名</th>
-                                    <th>类型</th>
-                                    <th>日期</th>
-                                    <th>时间</th>
-                                    <th style="max-width: 250px;min-width: 180px;">地址</th>
-                                    <th style="width: 220px;">审批</th>
-                                </tr>
-                                </thead>
-                                <tbody >
-                                <tr th:each="report:${reports}">
-                                    <td th:text="${report.name}"></td>
-                                    <td th:text="${report.type}"></td>
-                                    <td th:text="${report.data}"></td>
-                                    <td th:text="${report.time}"></td>
-                                    <td style="max-width: 250px;min-width: 180px;" th:text="${report.address}"></td>
-                                    <td>
-                                        <button type="button" class="btn btn-success" th:onclick="eligible([[${report.user_id}]]);">
-                                            合格
-                                        </button>
-                                        <button type="button" class="btn btn-danger" th:onclick="uneligible ([[${report.user_id}]]);">
-                                            不合格
-                                        </button>
-                                        <button type="button" class="btn btn-warning btn-primary mb-1" data-toggle="modal" data-target="#smallmodal" th:onclick="check([[${report.exam_id}]]);">
-                                            查看信息
-                                        </button>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div><!-- .animated -->
-    </div><!-- .content -->
+        <!-- Animated -->
+        <!-- .animated -->
+    </div>
 
 
     <div class="clearfix"></div>
@@ -245,63 +222,46 @@
 <script src="assets/js/lib/data-table/buttons.colVis.min.js"></script>
 <script src="assets/js/init/datatables-init.js"></script>
 
+<script src="assets/js/jquery.time.js"></script>
+<script src="assets/js/birthday.js"></script>
 
 <script type="text/javascript">
-    function eligible(user_id) {
-        console.log(user_id);
+    function updata() {
+        var phoneCode = document.getElementById("phoneCode").value;
+        var nick = document.getElementById("nick").value;
+        var email = document.getElementById("email").value;
+        var age = document.getElementById("age").value;
+        var sex = document.getElementById("sex").value;
+        var school = document.getElementById("school").value;
+        var city = document.getElementById("city").value;
+
+        if (phoneCode == null) phoneCode = "";
+        if (nick == null) nick = "";
+        if (email == null) email = "";
+        if (age == null) age = "";
+        if (sex == null) sex = "";
+        if (school == null) school = "";
+        if (city == null) city = "";
+
         $.ajax({
             type:"get",
-            url:"/loggingData/eligible",
+            url:"/design/user/updateMessage",
             dataType:"text",
-            data:{"user_id":user_id},
-            success:function (data) {
+            data:{
+                "phoneCode":phoneCode,
+                "nick":nick,
+                "email":email,
+                "age":age,
+                "sex":sex,
+                "school":school,
+                "city":city
+            },
+            success: function (data) {
                 $('.card-body').html(data);
-                $('#bootstrap-data-table-export').DataTable();
-                $('.table').DataTable();
-                $('.table-striped').DataTable();
-                $('.table-bordered').DataTable();
             }
-        })
+        });
     }
-    function uneligible(user_id) {
-        console.log(user_id);
-        $.ajax({
-            type:"get",
-            url:"/loggingData/uneligible",
-            dataType:"text",
-            data:{"exam_id":exam_id},
-            success:function (data) {
-                $('.card-body').html(data);
-                $('#bootstrap-data-table-export').DataTable();
-                $('.table').DataTable();
-                $('.table-striped').DataTable();
-                $('.table-bordered').DataTable();
-            }
-        })
-    }
-    function check(exam_id) {
-        console.log(exam_id);
-        $.ajax({
-            type:"get",
-            url:"/loggingData/check",
-            dataType:"json",
-            data:{"exam_id":exam_id},
-            cache: false,
-            async: true,
-            success:function (data) {
-                console.log(data);
-                if (data!=null){
-                    $("#type_code").html(data['type_code']);
-                    $("#type").html(data['type']);
-                    $("#data").html(data['data']);
-                    $("#max").html(data['max']);
-                    $("#time").html(data['time']);
-                    $("#address").html(data['address']);
-                    $("#remark").html(data['remark']);
-                }
-            }
-        })
-    }
+
     function loginOut() {
         $.ajax({
             type:"POST",

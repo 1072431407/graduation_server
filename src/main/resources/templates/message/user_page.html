@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>驾驶技术培训管理学校</title>
+    <title>大数据分析职位管理系统</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -34,35 +34,23 @@
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href="/main"><i class="menu-icon fa fa-laptop"></i>XX驾校管理员端</a>
+                    <a href="/design/main"><i class="menu-icon fa fa-laptop"></i>大数据职位管理系统</a>
                 </li>
-                <li class="menu-title">驾校管理</li><!-- /.menu-title -->
-<!--                <li class="menu-item-has-children dropdown">-->
-<!--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                        <i class="menu-icon fa fa-bar-chart"></i>数据统计</a>-->
-<!--                    <ul class="sub-menu children dropdown-menu">-->
-<!--                        <li><i class="fa fa-line-chart"></i><a href="ui-tabs.html">报名统计</a></li>-->
-<!--                        <li><i class="fa fa-line-chart"></i><a href="ui-tabs.html">科目一统计</a></li>-->
-<!--                        <li><i class="fa fa-line-chart"></i><a href="ui-tabs.html">科目二统计</a></li>-->
-<!--                        <li><i class="fa fa-line-chart"></i><a href="ui-tabs.html">科目三统计</a></li>-->
-<!--                        <li><i class="fa fa-line-chart"></i><a href="ui-tabs.html">科目四统计</a></li>-->
-<!--                        <li><i class="fa fa-line-chart"></i><a href="ui-tabs.html">毕业统计</a></li>-->
-<!--                        <li><i class="fa fa-line-chart"></i><a href="ui-tabs.html">收入统计</a></li>-->
-<!--                    </ul>-->
-<!--                </li>-->
-                <li class="menu-item-has-children dropdown">
+                <li class="menu-title">职位管理</li><!-- /.menu-title -->
+
+                <li class="menu-item-has-children active dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="menu-icon fa fa-table"></i>学员管理</a>
+                        <i class="menu-icon fa fa-table"></i>信息管理</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-table"></i><a href="/applyExamine">报名审批</a></li>
-                        <li><i class="fa fa-table"></i><a href="/absentee">在籍学员</a></li>
+                        <li><i class="fa fa-table"></i><a href="/design/userMessage">个人主页</a></li>
+                        <li><i class="fa fa-table"></i><a href="/design/hld">霍兰德职业测试</a></li>
                         <li><i class="fa fa-table"></i><a href="/graduate">毕业学员</a></li>
                         <li><i class="fa fa-table"></i><a href="/blacklist">黑名单</a></li>
                     </ul>
                 </li>
-                <li class="menu-item-has-children active dropdown">
+                <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="menu-icon fa fa-th"></i>考试管理</a>
+                        <i class="menu-icon fa fa-th"></i>职位管理</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-th"></i><a href="/addExam">添加考试</a></li>
                         <li><i class="menu-icon fa fa-th"></i><a href="/deleteExam">删除考试</a></li>
@@ -74,7 +62,7 @@
 
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="menu-icon fa fa-tasks"></i>题库管理</a>
+                        <i class="menu-icon fa fa-tasks"></i>系统管理</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon ti-themify-logo"></i><a href="/addExamination">添加试题</a></li>
                         <li><i class="menu-icon fa fa-fort-awesome"></i><a href="/removeExamination">删除试题</a></li>
@@ -136,83 +124,50 @@
                     <strong>Basic Form</strong> Elements
                 </div>
                 <div class="card-body card-block">
-                    <div class="form-horizontal">
+                    <div class="form-horizontal" th:fragment="message">
 
                         <div class="row form-group">
                             <div class="col col-md-3"><label class=" form-control-label">Static</label></div>
                             <div class="col-12 col-md-9">
-                                <p class="form-control-static">Username</p>
-                            </div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="typeCode" class=" form-control-label">练车类型</label></div>
-                            <div class="col-12 col-md-9">
-                                <select name="selectSm" id="typeCode" class="form-control-sm form-control">
-                                    <option value="0">A1</option>
-                                    <option value="1">A2</option>
-                                    <option value="1">A3</option>
-                                    <option value="1">B1</option>
-                                    <option value="1">B2</option>
-                                    <option value="1">C1</option>
-                                    <option value="1">C2</option>
-                                    <option value="1">C3</option>
-                                    <option value="1">D</option>
-                                    <option value="1">E</option>
-                                    <option value="1">F</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="type" class=" form-control-label">考试类型</label></div>
-                            <div class="col-12 col-md-9">
-                                <select name="selectSm" id="type" class="form-control-sm form-control">
-                                    <option value="0">科目一</option>
-                                    <option value="1">科目二</option>
-                                    <option value="2">科目三</option>
-                                    <option value="3">科目四</option>
-                                </select>
+                                <p class="form-control-static">message</p>
                             </div>
                         </div>
 
 
                         <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">考试日期</label></div>
-                            <div class="col-12 col-md-9">
-                                <select id="year" class="sel_year" name="YYYY">
-                                    <option value="">请选择</option>
-                                </select>
-                                <font>年</font>
-                                <select id="month" class="sel_month" name="MM">
-                                    <option value="">请选择</option>
-                                </select>
-                                <font>月</font>
-                                <select id="day" class="sel_day" name="DD">
-                                    <option value="">请选择</option>
-                                </select>
-                                <font>日</font>
-                            </div>
+                            <div class="col col-md-3"><label for="nick" class=" form-control-label">昵称</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nick" name="text-input" th:placeholder="${message.nick}" class="form-control"></div>
                         </div>
                         <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">考试时间</label></div>
-                            <div class="col-12 col-md-9"> <input id ="time" type="time" value="00:00"/></div>
+                            <div class="col col-md-3"><label for="sex" class=" form-control-label">性别</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="sex" name="text-input" th:placeholder="${message.sex}" class="form-control"></div>
                         </div>
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="max" class=" form-control-label">最大人数</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="max" name="text-input" placeholder="40" class="form-control"><small class="form-text text-muted">The largest number of people</small></div>
+                            <div class="col col-md-3"><label for="phoneCode" class=" form-control-label">电话</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="phoneCode" name="text-input" th:placeholder="${message.phoneCode}" class="form-control"></div>
                         </div>
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="address" class=" form-control-label">考试地址</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="address" name="text-input" placeholder="吉林省吉林市龙潭区xx驾校xx楼xx室" class="form-control"></div>
+                            <div class="col col-md-3"><label for="email" class=" form-control-label">邮箱</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="email" name="text-input" th:placeholder="${message.email}" class="form-control"></div>
                         </div>
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="remark" class=" form-control-label">备注</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="remark" name="text-input" placeholder="" class="form-control"></div>
+                            <div class="col col-md-3"><label for="age" class=" form-control-label">年龄</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="age" name="text-input" th:placeholder="${message.age}" class="form-control"></div>
                         </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="school" class=" form-control-label">学校</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="school" name="text-input" th:placeholder="${message.school}" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="city" class=" form-control-label">城市</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="city" name="text-input" th:placeholder="${message.city}" class="form-control"></div>
+                        </div>
+
 
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="button" class="btn btn-success" onclick="addExam()">提交安排</button>
+                    <button type="button" class="btn btn-success" onclick="updata()">提交</button>
                 </div>
             </div>
 
@@ -259,68 +214,38 @@
 <script src="assets/js/birthday.js"></script>
 
 <script type="text/javascript">
-    function addExam() {
-        var exam_type = $("#type option:selected").text();//选中的文本
-        var year = $("#year option:selected").text();//选中的文本
-        var month = $("#month option:selected").text();//选中的文本
-        var day = $("#day option:selected").text();//选中的文本 typeCode
-        var typeCode = $("#typeCode option:selected").text();//选中的文本
-        var max = document.getElementById("max").value;
-        var address = document.getElementById("address").value;
-        var remark = document.getElementById("remark").value;
-        var time = document.getElementById("time").value;
-        if (year == "--"){
-            alert("请选择日期年份");
-            return;
-        }
-        if (month == "--"){
-            alert("请选择日期月份");
-            return;
-        }
-        if (day == "--"){
-            alert("请选择日期");
-            return;
-        }
-        if (max == ""){
-            alert("请输入最大人员数量");
-            return;
-        }else {
-            if(isNaN(max)) {
-                alert("最大人员数量为数字");
-                return;
-            }
-        }
-        if (address == ""){
-            alert("请输入地址");
-            return;
-        }
-        if (remark == null)
-            remark = "";
+    function updata() {
+        var phoneCode = document.getElementById("phoneCode").value;
+        var nick = document.getElementById("nick").value;
+        var email = document.getElementById("email").value;
+        var age = document.getElementById("age").value;
+        var sex = document.getElementById("sex").value;
+        var school = document.getElementById("school").value;
+        var city = document.getElementById("city").value;
 
-        if (time == null || time == ''){
-            alert("请选择时间");
-            return;
-        }
+        if (phoneCode == null) phoneCode = "";
+        if (nick == null) nick = "";
+        if (email == null) email = "";
+        if (age == null) age = "";
+        if (sex == null) sex = "";
+        if (school == null) school = "";
+        if (city == null) city = "";
+
         $.ajax({
             type:"get",
-            url:"/addExam/add",
+            url:"/design/user/updateMessage",
             dataType:"text",
             data:{
-                "exam_type":exam_type,
-                "year":year,
-                "month":month,
-                "day":day,
-                "max":max,
-                "address":address,
-                "remark":remark,
-                "time":time,
-                "typeCode":typeCode
+                "phoneCode":phoneCode,
+                "nick":nick,
+                "email":email,
+                "age":age,
+                "sex":sex,
+                "school":school,
+                "city":city
             },
-            success:function (data) {
-                if (data == "succeed")
-                    alert("添加成功!");
-                else
-                    alert(data);
+            success: function (data) {
+                $('.card-body').html(data);
             }
         });
     }
@@ -328,10 +253,10 @@
     function loginOut() {
         $.ajax({
             type:"POST",
-            url:"/loginOut",
+            url:"/design/loginOut",
             dataType:"text",
             success:function () {
-                window.location.href = "/login";
+                window.location.href = "/design/login";
             }
         })
     }

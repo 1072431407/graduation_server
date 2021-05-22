@@ -3,13 +3,11 @@ package com.drivinggrpc.driving.server.impl;
 
 
 import com.drivinggrpc.driving.dao.UserDao;
-import com.drivinggrpc.driving.dao.UserMessageDao;
-import com.drivinggrpc.driving.dao.UserStatisticsDao;
 import com.drivinggrpc.driving.po.User;
 import com.drivinggrpc.driving.po.UserMessage;
-import com.drivinggrpc.driving.po.UserStatistics;
 import com.drivinggrpc.driving.server.UserServer;
 import com.drivinggrpc.driving.tools.ApplicationTools;
+import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,23 +15,16 @@ import org.springframework.stereotype.Service;
 public class UserServerImpl implements UserServer {
     @Autowired
     private UserDao userDao;
-    @Autowired
-    private UserMessageDao userMessageDao;
 
-    @Autowired
-    private UserStatisticsDao statisticsDao;
     @Override
-    public String login(String username, String password, int power) {
+    public Pair<String,Integer> login(String username, String password) {
         User user = userDao.selectUserByUserName(username);
         if (user == null)
-            return "用户不存在";
-        if (power != user.getPower())http://www.siping.gov.cn/fw/jyxx/
-            return "你没有权限登录该账号";
-
+            return new Pair<>("用户不存在", -1);
         if (password.equals(user.getPassword()))
-            return "登录成功";
+            return new Pair<>("登录成功", user.getId());
         else
-            return "密码错误";
+            return new Pair<>("密码错误", -1);
     }
 
     @Override
@@ -61,7 +52,6 @@ public class UserServerImpl implements UserServer {
             return "该账号已存在";
         else{
             User newUser = new User();
-            newUser.setId(ApplicationTools.getUUID());
             newUser.setUsername(username);
             newUser.setPassword(password);
             newUser.setPower(power);
@@ -74,24 +64,30 @@ public class UserServerImpl implements UserServer {
     }
 
     @Override
-    public UserMessage getUserMessageByUserName(String userName) {
-        User user = userDao.selectUserByUserName(userName);
-        UserMessage userMessage = userMessageDao.selectMessageByUserId(user.getId());
-        UserStatistics userStatistics = statisticsDao.selectUserStatisticsByUserId(user.getId());
-        userMessage.setDate(userStatistics.getDate());
-        userMessage.setMinute(userStatistics.getMinute());
-        return userMessage;
+    public UserMessage getUserMessage(int userId) {
+        UserMessage message = userDao.selectUserMessage(userId);
+        if (message == null) message = new UserMessage();
+        return message;
     }
-    /*
-        保存成功
-        保存失败
-    */
+
     @Override
-    public String setUserMessageByUserId(UserMessage userMessage) {
-        int key = userMessageDao.modifyUserMessageByUserId(userMessage);
-        if (key>0)
-            return "保存成功";
-        else
-            return "保存失败";
+    public UserMessage updateUserMessage(int userId, String phoneCode, String nick, String email, String age, String school, String sex, String city) {
+        UserMessage message = userDao.selectUserMessage(userId);
+        UserMessage newMessage = new UserMessage();
+        newMessage.setAge(age);
+        newMessage.setCity(city);
+        newMessage.setEmail(email);
+        newMessage.setId(userId);
+        newMessage.setNick(nick);
+        newMessage.setPhoneCode(phoneCode);
+        newMessage.setSchool(school);
+        newMessage.setSex(sex);
+        if (message == null){
+            userDao.insertUserMessage(newMessage);
+        } else {
+            userDao.updateUserMessage(newMessage);
+        }
+        return newMessage;
     }
+
 }

@@ -14,7 +14,7 @@ public class Interceptor implements HandlerInterceptor {
         Object user = request.getSession().getAttribute("userInfo");
         if (user == null) {
             //未登录,返回登录页面
-            response.sendRedirect("/login");
+            response.sendRedirect("/design/login");
             return false;
         }else {
             //放行

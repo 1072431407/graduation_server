@@ -35,23 +35,10 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 // /**  表示拦截所有路径下的所有请求
                 registry.addInterceptor(new Interceptor())
                         .addPathPatterns("/**")
-                .excludePathPatterns("/login","/static/**","/loginRequest",
+                .excludePathPatterns("/login","/sss","/static/**","/loginRequest",
                         "/forPasswordRequest","/getVerCode","/forget-password",
                         "/androidImage/**","/images/**","/PhyTheFees");
             }
         };
     }
-
-
-//    @Override
-//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry.addResourceHandler("/**")
-//                .addResourceLocations("classpath:/templates/")
-//                .addResourceLocations("classpath:/static/");
-//    }
-//    //还可以通过extends WebMvcConfigurationSupport
-//    @Override
-//    public void configurePathMatch(PathMatchConfigurer configurer) {
-//        configurer.setUseSuffixPatternMatch(false);
-//    }
 }
