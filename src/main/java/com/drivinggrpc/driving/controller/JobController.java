@@ -1,11 +1,9 @@
 package com.drivinggrpc.driving.controller;
 
-import com.drivinggrpc.driving.po.HLD;
 import com.drivinggrpc.driving.po.Job;
-import com.drivinggrpc.driving.server.HldServer;
 import com.drivinggrpc.driving.server.JobServer;
 import com.drivinggrpc.driving.tools.ApplicationTools;
-import com.drivinggrpc.driving.tools.HldCache;
+import com.drivinggrpc.driving.tools.ContrastJobCache;
 import com.drivinggrpc.driving.tools.UserHelper;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-import java.util.Map;
 
 
 @Controller
@@ -84,5 +81,28 @@ public class JobController {
         job.setContent(content);
         job.setDirection(direction);
         return jobServer.addJob(job);
+    }
+
+
+    @GetMapping("/jobContrast")
+    public String jobContrast(Model model, HttpServletRequest request) {
+        List<Job> list = jobServer.selectJobAll();
+        model.addAttribute("jobs", list);
+        int power = UserHelper.getUserPower(request);
+        if (power == 1)
+            return "job/admin_job_contrast";
+        else
+            return "job/user_job_contrast";
+    }
+
+    @ResponseBody
+    @GetMapping("/job/contrast")
+    public Job contrastJob(@RequestParam(value = "job_id") String job_id, Model model, HttpServletRequest request) {
+        int userId = UserHelper.getUserId(request);
+        Job exam = jobServer.selectJobById(Integer.parseInt(job_id));
+        logger.info("/job/check" + job_id);
+        Job result = ContrastJobCache.contrast(userId, exam);
+        model.addAttribute("showDialog", result != null);
+        return result;
     }
 }

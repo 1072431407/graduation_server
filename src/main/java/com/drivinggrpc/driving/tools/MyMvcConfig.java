@@ -36,7 +36,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 registry.addInterceptor(new Interceptor())
                         .addPathPatterns("/**")
                 .excludePathPatterns("/login","/sss","/static/**","/loginRequest",
-                        "/forPasswordRequest","/getVerCode","/forget-password",
+                        "/user/register","/getVerCode","/forget-password",
                         "/androidImage/**","/images/**","/PhyTheFees");
             }
         };

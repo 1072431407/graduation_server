@@ -38,7 +38,7 @@
                 </li>
                 <li class="menu-title">职位管理</li><!-- /.menu-title -->
 
-                <li class="menu-item-has-children dropdown">
+                <li class="menu-item-has-children active dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="menu-icon fa fa-table"></i>信息管理</a>
                     <ul class="sub-menu children dropdown-menu">
@@ -52,16 +52,6 @@
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-th"></i><a href="/design/jobAll">职位汇总</a></li>
                         <li><i class="menu-icon fa fa-th"></i><a href="/design/jobContrast">职位对比</a></li>
-                    </ul>
-                </li>
-
-                <li class="menu-item-has-children active dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="menu-icon fa fa-tasks"></i>系统管理</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon ti-themify-logo"></i><a href="/design/jobAdd">添加职位</a></li>
-                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="/design/jobAdmin">职位管理</a></li>
-                        <li><i class="menu-icon fa fa-table"></i><a href="/design/userAdmin">用户管理</a></li>
                     </ul>
                 </li>
 
@@ -111,45 +101,49 @@
                     <strong>Basic Form</strong> Elements
                 </div>
                 <div class="card-body card-block">
-                    <div class="form-horizontal" th:fragment="message">
-
+                    <div class="form-horizontal" th:fragment="exam">
                         <div class="row form-group">
                             <div class="col col-md-3"><label class=" form-control-label">Static</label></div>
-                            <div class="col-12 col-md-9">
-                                <p class="form-control-static">message</p>
+                            <div class="col-12 col-md-9" >
+                                <p class="form-control-static " >exam</p>
                             </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col"><label id="nick" for="nick" th:text="${hld.title}" class=" form-control-label">当前不可答题</label></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col"><label id="sex" th:text="${hld.question}" class=" form-control-label">题目</label></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col"><label id="answer1" th:text="${hld.answer1}" class=" form-control-label">A</label></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col"><label id="answer2" th:text="${hld.answer2}" class=" form-control-label">B</label></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col"><label id="answer3" th:text="${hld.answer3}" class=" form-control-label">C</label></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col"><label id="answer4" th:text="${hld.answer4}" class=" form-control-label">D</label></div>
                         </div>
 
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="name" class=" form-control-label">职位名称</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="name" name="text-input" placeholder="Java工程师" class="form-control"></div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="industry" class=" form-control-label">行业</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="industry" name="text-input" placeholder="互联网" class="form-control"></div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="money" class=" form-control-label">薪资范围</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="money" name="text-input" placeholder="9K-12K" class="form-control"></div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="hotCity" class=" form-control-label">热门城市</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="hotCity" name="text-input" placeholder="上海" class="form-control"></div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="content" class=" form-control-label">内容</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="content" name="text-input" placeholder="负责系统开发与维护" class="form-control"></div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="direction" class=" form-control-label">技能</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="direction" name="text-input" placeholder="Java、CPP Springboot等" class="form-control"></div>
+                            <div class="col col-md-3"><label for="change" class=" form-control-label">选择</label></div>
+                            <div class="col-12 col-md-9">
+                                <select name="selectSm" id="change" class="form-control-sm form-control">
+                                    <option value="1">A</option>
+                                    <option value="2">B</option>
+                                    <option value="3">C</option>
+                                    <option value="4">D</option>
+                                </select>
+                            </div>
                         </div>
 
 
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="button" class="btn btn-success" onclick="submit()">提交</button>
+                    <button id="button" type="button" th:text="${hld.button}" class="btn btn-success" onclick="submit()"></button>
                 </div>
             </div>
 
@@ -197,54 +191,16 @@
 
 <script type="text/javascript">
     function submit() {
-        var name = document.getElementById("name").value;
-        var industry = document.getElementById("industry").value;
-        var money = document.getElementById("money").value;
-        var hotCity = document.getElementById("hotCity").value;
-        var content = document.getElementById("content").value;
-        var direction = document.getElementById("direction").value;
-        if (name == null || name === ""){
-            alert("请输入职位名称");
-            return;
-        }
-        if (industry == null || industry === ""){
-            alert("请输入职位行业");
-            return;
-        }
-        if (money == null || money === ""){
-            alert("请输入薪资范围");
-            return;
-        }
-        if (hotCity == null || hotCity === ""){
-            alert("请输入热门城市");
-            return;
-        }
-        if (content == null || content === ""){
-            alert("请输入职位内容");
-            return;
-        }
-        if (direction == null || direction === ""){
-            alert("请输入职位技能");
-            return;
-        }
-
+        var change = $("#change option:selected").text();//ABCD
         $.ajax({
             type:"get",
-            url:"/design/job/add",
+            url:"/design/hld/next",
             dataType:"text",
             data:{
-                "name":name,
-                "industry":industry,
-                "money":money,
-                "hotCity":hotCity,
-                "content":content,
-                "direction":direction
+                "change":change
             },
             success: function (data) {
-                if (data == "succeed")
-                    alert("添加成功!");
-                else
-                    alert(data);
+                $('.card-body').html(data);
             }
         });
     }

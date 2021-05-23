@@ -86,16 +86,17 @@
 
         $.ajax({
             type: "get",
-            url:"/design/register",
+            url:"/design/user/register",
             dataType: "text",
             data:{
                 "username":username,
                 "password":password_1
             },
             success: function (data) {
-                if (data == "succeed")
+                if (data == "succeed"){
                     alert("注册成功!");
-                else
+                    window.location.href = "/design/login";
+                } else
                     alert(data);
             },
             error:function () {

@@ -16,10 +16,7 @@ public interface UserDao {
     @Select("select id,username,password,power from user_t where username = #{username}")
     User selectUserByUserName(String username);
 
-    @Update("update user set password = #{password} where username = #{username}")
-    int modifyPasswordByUserName(User user);
-
-    @Insert("insert into user(id,username,password,power) values (#{id},#{username},#{password},#{power})")
+    @Insert("insert into user_t(username,password,power) values (#{username},#{password},#{power})")
     int insertUser(User user);
 
     @Select("select * from user_message_t where user_id = #{user_id}")

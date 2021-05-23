@@ -64,4 +64,17 @@ public class Job {
     public void setDirection(String direction) {
         this.direction = direction;
     }
+
+    @Override
+    public Job clone() {
+        Job job = new Job();
+        job.setDirection(direction);
+        job.setContent(content);
+        job.setHotCity(hotCity);
+        job.setMoney(money);
+        job.setIndustry(industry);
+        job.setName(name);
+        job.setJob_id(job_id);
+        return job;
+    }
 }

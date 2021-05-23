@@ -50,18 +50,6 @@ public class HldCache {
         }
     }
 
-    public static void recode(int userId) {
-        HldCacheBean cacheBean;
-        if (cache.containsKey(userId)) {
-            cacheBean = cache.get(userId);
-            cacheBean.setTime(0);
-            cacheBean.setRecode(System.currentTimeMillis());
-        } else {
-            cacheBean = new HldCacheBean(0, System.currentTimeMillis());
-        }
-        cache.put(userId, cacheBean);
-    }
-
     public static Map<Integer, String> getAnswer(int userId) {
         return cache.get(userId).getAnswer();
     }

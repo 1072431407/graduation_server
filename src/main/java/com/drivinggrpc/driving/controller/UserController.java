@@ -28,7 +28,7 @@ public class UserController {
     }
 
     @ResponseBody
-    @GetMapping("/register")
+    @GetMapping("/user/register")
     public String register(@RequestParam(value = "username", required = false) String username,
                               @RequestParam(value = "password", required = false) String password) {
         logger.info("/register:[username:" + username + ",password:" + password + "]");

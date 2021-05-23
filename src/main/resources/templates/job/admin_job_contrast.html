@@ -58,7 +58,7 @@
                         <li><i class="fa fa-table"></i><a href="/design/hld">霍兰德职业测试</a></li>
                     </ul>
                 </li>
-                <li class="menu-item-has-children dropdown">
+                <li class="menu-item-has-children active dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false">
                         <i class="menu-icon fa fa-th"></i>职位管理</a>
@@ -68,7 +68,7 @@
                     </ul>
                 </li>
 
-                <li class="menu-item-has-children active dropdown">
+                <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false">
                         <i class="menu-icon fa fa-tasks"></i>系统管理</a>
@@ -78,16 +78,6 @@
                         <li><i class="menu-icon fa fa-table"></i><a href="/design/userAdmin">用户管理</a></li>
                     </ul>
                 </li>
-
-                <!--                <li class="menu-title">其他管理</li>&lt;!&ndash; /.menu-title &ndash;&gt;-->
-                <!--                <li class="menu-item-has-children dropdown">-->
-                <!--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-                <!--                        <i class="menu-icon fa fa-glass"></i>管理员信息</a>-->
-                <!--                    <ul class="sub-menu children dropdown-menu">-->
-                <!--                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">添加管理员</a></li>-->
-                <!--                        <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">删除管理员</a></li>-->
-                <!--                    </ul>-->
-                <!--                </li>-->
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
@@ -132,7 +122,6 @@
         <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel"
              aria-hidden="true">
             <div class="modal-dialog modal-sm" role="document">
-
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="smallmodalLabel">职位详情</h5>
@@ -149,7 +138,7 @@
                         <div><a>所需技能: </a><a id="direction"></a></div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">确定</button>
+                        <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">确定</button>
                     </div>
                 </div>
             </div>
@@ -163,9 +152,9 @@
                         <div class="card-header">
                             <strong class="card-title">Data Table</strong>
                         </div>
-                        <div class="card-body" th:fragment="table">
+                        <div class="card-body">
                             <table style="table-layout: fixed;" id="bootstrap-data-table"
-                                   class="table table-striped table-bordered" >
+                                   class="table table-striped table-bordered" th:fragment="list">
                                 <thead>
                                 <tr>
                                     <th>职位</th>
@@ -181,11 +170,14 @@
                                     <td th:text="${job.industry}"></td>
                                     <td th:text="${job.money}"></td>
                                     <td th:text="${job.hotCity}"></td>
+
                                     <td>
                                         <button type="button" class="btn btn-warning btn-primary mb-1"
-                                                th:onclick="deleteJob([[${job.job_id}]]);">
-                                            删除
+                                                data-toggle="modal" data-target="#smallmodal"
+                                                th:onclick="contrast([[${job.job_id}]]);">
+                                            对比
                                         </button>
+
                                     </td>
                                 </tr>
                                 </tbody>
@@ -238,20 +230,37 @@
         $('#bootstrap-data-table-export').DataTable();
     });
 
-    function deleteJob(job_id) {
+    function contrast(job_id) {
+        var divD = document.getElementById("smallmodal");
+        var close = document.getElementById("close");
+
         console.log(job_id);
         $.ajax({
             type: "get",
-            url: "/design/job/delete",
-            dataType: "text",
+            url: "/design/job/contrast",
+            dataType: "json",
             data: {"job_id": job_id},
+            cache: false,
             success: function (data) {
                 console.log(data);
-                $('.card-body').html(data);
-                $('#bootstrap-data-table-export').DataTable();
-                $('.table').DataTable();
-                $('.table-striped').DataTable();
-                $('.table-bordered').DataTable();
+                if (data != null) {
+                    divD.style.visibility = "visible";
+                    divD.style.display = "block";
+                    /*****可见****/
+                    $("#name").html(data['name']);
+                    $("#industry").html(data['industry']);
+                    $("#money").html(data['money']);
+                    $("#hotCity").html(data['hotCity']);
+                    $("#content").html(data['content']);
+                    $("#direction").html(data['direction']);
+                }
+            },
+            error: function () {
+                console.log("data");
+                // divD.style.display = "none";
+                // /*****不可见****/
+                // divD.style.visibility = "hidden";
+                close.click()
             }
         })
     }
