@@ -44,19 +44,13 @@
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-table"></i><a href="/design/userMessage">个人主页</a></li>
                         <li><i class="fa fa-table"></i><a href="/design/hld">霍兰德职业测试</a></li>
-                        <li><i class="fa fa-table"></i><a href="/graduate">毕业学员</a></li>
-                        <li><i class="fa fa-table"></i><a href="/blacklist">黑名单</a></li>
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="menu-icon fa fa-th"></i>职位管理</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-th"></i><a href="/addExam">添加考试</a></li>
-                        <li><i class="menu-icon fa fa-th"></i><a href="/deleteExam">删除考试</a></li>
-                        <li><i class="menu-icon fa fa-th"></i><a href="/loggingData">成绩录入</a></li>
-                        <li><i class="menu-icon fa fa-th"></i><a href="/addExercise">添加练车</a></li>
-                        <li><i class="menu-icon fa fa-th"></i><a href="/deleteExercise">删除练车</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="/design/jobAll">职位汇总</a></li>
                     </ul>
                 </li>
 
@@ -64,8 +58,9 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="menu-icon fa fa-tasks"></i>系统管理</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon ti-themify-logo"></i><a href="/addExamination">添加试题</a></li>
-                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="/removeExamination">删除试题</a></li>
+                        <li><i class="menu-icon ti-themify-logo"></i><a href="/design/jobAdd">添加职位</a></li>
+                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="/design/jobAdmin">职位管理</a></li>
+                        <li><i class="menu-icon fa fa-table"></i><a href="/design/userAdmin">用户管理</a></li>
                     </ul>
                 </li>
 
@@ -124,49 +119,50 @@
                     <strong>Basic Form</strong> Elements
                 </div>
                 <div class="card-body card-block">
-                    <div class="form-horizontal" th:fragment="exam">
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">Static</label></div>
-                            <div class="col-12 col-md-9" >
-                                <p class="form-control-static " >exam</p>
-                            </div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col"><label id="nick" for="nick" th:text="${hld.title}" class=" form-control-label">当前不可答题</label></div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col"><label id="sex" th:text="${hld.question}" class=" form-control-label">题目</label></div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col"><label id="answer1" th:text="${hld.answer1}" class=" form-control-label">A</label></div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col"><label id="answer2" th:text="${hld.answer2}" class=" form-control-label">B</label></div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col"><label id="answer3" th:text="${hld.answer3}" class=" form-control-label">C</label></div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col"><label id="answer4" th:text="${hld.answer4}" class=" form-control-label">D</label></div>
-                        </div>
+                    <div class="form-horizontal" th:fragment="message">
 
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="change" class=" form-control-label">选择</label></div>
+                            <div class="col col-md-3"><label class=" form-control-label">Static</label></div>
                             <div class="col-12 col-md-9">
-                                <select name="selectSm" id="change" class="form-control-sm form-control">
-                                    <option value="1">A</option>
-                                    <option value="2">B</option>
-                                    <option value="3">C</option>
-                                    <option value="4">D</option>
-                                </select>
+                                <p class="form-control-static">message</p>
                             </div>
+                        </div>
+
+
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="nick" class=" form-control-label">昵称</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="nick" name="text-input" th:placeholder="${message.nick}" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="sex" class=" form-control-label">性别</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="sex" name="text-input" th:placeholder="${message.sex}" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="phoneCode" class=" form-control-label">电话</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="phoneCode" name="text-input" th:placeholder="${message.phoneCode}" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="email" class=" form-control-label">邮箱</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="email" name="text-input" th:placeholder="${message.email}" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="age" class=" form-control-label">年龄</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="age" name="text-input" th:placeholder="${message.age}" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="school" class=" form-control-label">学校</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="school" name="text-input" th:placeholder="${message.school}" class="form-control"></div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="city" class=" form-control-label">城市</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="city" name="text-input" th:placeholder="${message.city}" class="form-control"></div>
                         </div>
 
 
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button id="button" type="button" th:text="${hld.button}" class="btn btn-success" onclick="submit()"></button>
+                    <button type="button" class="btn btn-success" onclick="updata()">提交</button>
                 </div>
             </div>
 
@@ -213,14 +209,35 @@
 <script src="assets/js/birthday.js"></script>
 
 <script type="text/javascript">
-    function submit() {
-        var change = $("#change option:selected").text();//ABCD
+    function updata() {
+        var phoneCode = document.getElementById("phoneCode").value;
+        var nick = document.getElementById("nick").value;
+        var email = document.getElementById("email").value;
+        var age = document.getElementById("age").value;
+        var sex = document.getElementById("sex").value;
+        var school = document.getElementById("school").value;
+        var city = document.getElementById("city").value;
+
+        if (phoneCode == null) phoneCode = "";
+        if (nick == null) nick = "";
+        if (email == null) email = "";
+        if (age == null) age = "";
+        if (sex == null) sex = "";
+        if (school == null) school = "";
+        if (city == null) city = "";
+
         $.ajax({
             type:"get",
-            url:"/design/hld/next",
+            url:"/design/user/updateMessage",
             dataType:"text",
             data:{
-                "change":change
+                "phoneCode":phoneCode,
+                "nick":nick,
+                "email":email,
+                "age":age,
+                "sex":sex,
+                "school":school,
+                "city":city
             },
             success: function (data) {
                 $('.card-body').html(data);

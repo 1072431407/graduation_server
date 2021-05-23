@@ -1,15 +1,15 @@
 package com.drivinggrpc.driving.server.impl;
 
 
-
 import com.drivinggrpc.driving.dao.UserDao;
 import com.drivinggrpc.driving.po.User;
 import com.drivinggrpc.driving.po.UserMessage;
 import com.drivinggrpc.driving.server.UserServer;
-import com.drivinggrpc.driving.tools.ApplicationTools;
 import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserServerImpl implements UserServer {
@@ -17,47 +17,33 @@ public class UserServerImpl implements UserServer {
     private UserDao userDao;
 
     @Override
-    public Pair<String,Integer> login(String username, String password) {
+    public Pair<String, String> login(String username, String password) {
         User user = userDao.selectUserByUserName(username);
         if (user == null)
-            return new Pair<>("用户不存在", -1);
+            return new Pair<>("用户不存在", "null");
         if (password.equals(user.getPassword()))
-            return new Pair<>("登录成功", user.getId());
+            return new Pair<>("登录成功", user.getId() + "," + user.getPower());
         else
-            return new Pair<>("密码错误", -1);
+            return new Pair<>("密码错误", "null");
     }
 
-    @Override
-    public String modifyPassword(String username, String password, int power) {
-        User user = userDao.selectUserByUserName(username);
-        if (user == null)
-            return "用户不存在";
-        if (user.getPower()!=power)
-            return "您没有权限操作该账号";
-        user.setPassword(password);
-        int key = userDao.modifyPasswordByUserName(user);
-        if (key>0)
-            return "succeed";
-        else
-            return "找回密码失败";
-    }
-    /*
-        注册成功
-        该账号已存在
-    */
+    /**
+     * 注册成功
+     * 该账号已存在
+     */
     @Override
     public String userRegister(String username, String password, int power) {
         User user = userDao.selectUserByUserName(username);
-        if (user!=null)
+        if (user != null)
             return "该账号已存在";
-        else{
+        else {
             User newUser = new User();
             newUser.setUsername(username);
             newUser.setPassword(password);
             newUser.setPower(power);
             int key = userDao.insertUser(newUser);
-            if (key>0)
-                return "注册成功";
+            if (key > 0)
+                return "succeed";
             else
                 return "注册失败";
         }
@@ -77,17 +63,22 @@ public class UserServerImpl implements UserServer {
         newMessage.setAge(age);
         newMessage.setCity(city);
         newMessage.setEmail(email);
-        newMessage.setId(userId);
+        newMessage.setUser_id(userId);
         newMessage.setNick(nick);
         newMessage.setPhoneCode(phoneCode);
         newMessage.setSchool(school);
         newMessage.setSex(sex);
-        if (message == null){
+        if (message == null) {
             userDao.insertUserMessage(newMessage);
         } else {
             userDao.updateUserMessage(newMessage);
         }
         return newMessage;
+    }
+
+    @Override
+    public List<UserMessage> selectUserMessageAll() {
+        return userDao.selectUserMessageAll();
     }
 
 }

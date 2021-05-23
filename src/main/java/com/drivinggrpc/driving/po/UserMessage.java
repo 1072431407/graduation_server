@@ -1,7 +1,7 @@
 package com.drivinggrpc.driving.po;
 
 public class UserMessage {
-    private int id;
+    private int user_id;
     private String phoneCode;
     private String nick;
     private String email;
@@ -10,12 +10,12 @@ public class UserMessage {
     private String school;
     private String city;
 
-    public int getId() {
-        return id;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     public String getPhoneCode() {

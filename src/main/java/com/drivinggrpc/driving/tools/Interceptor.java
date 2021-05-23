@@ -12,7 +12,7 @@ public class Interceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Object user = request.getSession().getAttribute("userInfo");
-        if (user == null) {
+        if (user == null || "null".equals(user.toString())) {
             //未登录,返回登录页面
             response.sendRedirect("/design/login");
             return false;

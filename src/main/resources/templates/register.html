@@ -43,23 +43,14 @@
                         <input id="username" type="text" class="form-control" placeholder="Phone">
                     </div>
                     <div class="form-group">
-                        <label>New Password</label>
+                        <label>Password</label>
                         <input id="password_1" type="password" class="form-control" placeholder="Password">
                     </div>
                     <div class="form-group">
                         <label>Again Password</label>
                         <input id="password_2" type="password" class="form-control" placeholder="Password">
                     </div>
-                    <div class="form-group">
-                        <label>Verification Code</label>
-                        <p class="form-group">
-                            <a class="form-group">
-                                <input id="ver_code" type="text"  placeholder="Code" >
-                            </a>
-                            <button type="button" class="btn-success" onclick="getVerCode()">getCode</button>
-                        </p>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30" onclick="forPassword()">Forget Password</button>
+                    <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30" onclick="register()">REGISTER</button>
                 </div>
             </div>
         </div>
@@ -73,26 +64,10 @@
 <script src="assets/js/main.js"></script>
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
 <script>
-    var verCode;
-    function getVerCode() {
-        $.ajax({
-            type:"POST",
-            url:"/getVerCode",
-            dataType:"text",
-            success:function (data) {
-                alert("验证码："+data)
-                verCode = data;
-            },
-            error:function () {
-                alert("验证码获取失败！")
-            }
-        })
-    }
-    function forPassword() {
+    function register() {
         var username = document.getElementById("username").value;
         var password_1 = document.getElementById("password_1").value;
         var password_2 = document.getElementById("password_2").value;
-        var ver_code = document.getElementById("ver_code").value;
 
         if (username == null || username === ''){
             alert("用户名不能为空");
@@ -108,32 +83,20 @@
             $("#password_2").val("");
             return;
         }
-        if (ver_code == null || ver_code === ''){
-            alert("验证码不能为空");
-            return;
-        }
-        if (verCode !== ver_code){
-            alert("验证码错误");
-            $("#ver_code").val("");
-            return;
-        }
 
-        var request = {
-            "username":username,
-            "password":password_1
-        };
         $.ajax({
-            type: "POST",
-            url:"/forPasswordRequest",
-            data:request,
+            type: "get",
+            url:"/design/register",
             dataType: "text",
-            success:function (response) {
-                if("succeed" === response){
-                    alert("找回密码成功");
-                    window.location.href ="/login";
-                }else{
-                    alert(response);
-                }
+            data:{
+                "username":username,
+                "password":password_1
+            },
+            success: function (data) {
+                if (data == "succeed")
+                    alert("注册成功!");
+                else
+                    alert(data);
             },
             error:function () {
                 alert("网络异常")

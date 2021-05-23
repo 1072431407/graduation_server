@@ -1,12 +1,10 @@
 package com.drivinggrpc.driving.controller;
 
 import com.drivinggrpc.driving.po.HLD;
-import com.drivinggrpc.driving.po.UserMessage;
 import com.drivinggrpc.driving.server.HldServer;
-import com.drivinggrpc.driving.server.UserServer;
 import com.drivinggrpc.driving.tools.ApplicationTools;
 import com.drivinggrpc.driving.tools.HldCache;
-import javafx.util.Pair;
+import com.drivinggrpc.driving.tools.UserHelper;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +23,7 @@ public class HldController {
 
     @GetMapping("/hld")
     public String hld(Model model, HttpServletRequest request) {
-        int userId = getUserId(request);
+        int userId = UserHelper.getUserId(request);
         int index = HldCache.flush(userId);
         HLD hld;
         if (index > 0 && index <= HldCache.HLD_TIME) {
@@ -40,14 +38,18 @@ public class HldController {
             hld.setTitle("当前已完成测试，过些日子再来吧");
         }
         model.addAttribute("hld", hld);
-        return "message/hld_exam";
+        int power = UserHelper.getUserPower(request);
+        if (power == 1)
+            return "message/admin_hld_exam";
+        else
+            return "message/user_hld_exam";
     }
 
     @GetMapping("/hld/next")
     public String updateMessage(@RequestParam(value = "change") String change,
                                 Model model,
                                 HttpServletRequest request) {
-        int userId = getUserId(request);
+        int userId = UserHelper.getUserId(request);
         HldCache.put(userId, change);
         int index = HldCache.flush(userId);
         if (index > 0 && index <= HldCache.HLD_TIME) {
@@ -73,11 +75,10 @@ public class HldController {
 
             model.addAttribute("hld", hld);
         }
-        return "message/hld_exam::exam";
-    }
-
-    private int getUserId(HttpServletRequest request) {
-        Object object = request.getSession().getAttribute("userInfo");
-        return Integer.parseInt(object.toString());
+        int power = UserHelper.getUserPower(request);
+        if (power == 1)
+            return "message/admin_hld_exam::exam";
+        else
+            return "message/user_hld_exam::exam";
     }
 }

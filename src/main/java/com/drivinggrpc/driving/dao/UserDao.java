@@ -8,6 +8,8 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @Mapper
 public interface UserDao {
@@ -28,4 +30,7 @@ public interface UserDao {
 
     @Insert("insert into user_message_t(user_id,phoneCode,nick,email,age,sex,school,city) values (#{id},#{phoneCode},#{nick},#{email},#{age},#{sex},#{school},#{city})")
     int insertUserMessage(UserMessage newMessage);
+
+    @Select("select * from user_message_t")
+    List<UserMessage> selectUserMessageAll();
 }
