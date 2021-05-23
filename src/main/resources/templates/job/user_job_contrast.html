@@ -67,17 +67,6 @@
                         <li><i class="menu-icon fa fa-th"></i><a href="/design/jobContrast">职位对比</a></li>
                     </ul>
                 </li>
-
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false">
-                        <i class="menu-icon fa fa-tasks"></i>系统管理</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon ti-themify-logo"></i><a href="/design/jobAdd">添加职位</a></li>
-                        <li><i class="menu-icon fa fa-fort-awesome"></i><a href="/design/jobAdmin">职位管理</a></li>
-                        <li><i class="menu-icon fa fa-table"></i><a href="/design/userAdmin">用户管理</a></li>
-                    </ul>
-                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
@@ -173,6 +162,10 @@
 
                                     <td>
                                         <button type="button" class="btn btn-warning btn-primary mb-1"
+                                                th:onclick="recode([[${job.job_id}]]);">
+                                            记录
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-primary mb-1"
                                                 data-toggle="modal" data-target="#smallmodal"
                                                 th:onclick="contrast([[${job.job_id}]]);">
                                             对比
@@ -229,11 +222,23 @@
     $(document).ready(function () {
         $('#bootstrap-data-table-export').DataTable();
     });
+    function recode(job_id) {
+        $.ajax({
+            type: "get",
+            url: "/design/job/recode",
+            dataType: "json",
+            data: {"job_id": job_id},
+            cache: false,
+            success: function (data) {
+                if (data == 'succeed'){
+
+                }else
+                    alert(data)
+            }
+        })
+    }
 
     function contrast(job_id) {
-        var divD = document.getElementById("smallmodal");
-        var close = document.getElementById("close");
-
         console.log(job_id);
         $.ajax({
             type: "get",
@@ -244,9 +249,6 @@
             success: function (data) {
                 console.log(data);
                 if (data != null) {
-                    divD.style.visibility = "visible";
-                    divD.style.display = "block";
-                    /*****可见****/
                     $("#name").html(data['name']);
                     $("#industry").html(data['industry']);
                     $("#money").html(data['money']);
@@ -255,12 +257,8 @@
                     $("#direction").html(data['direction']);
                 }
             },
-            error: function () {
-                console.log("data");
-                // divD.style.display = "none";
-                // /*****不可见****/
-                // divD.style.visibility = "hidden";
-                close.click()
+            error:function () {
+                alert("请先记录！")
             }
         })
     }

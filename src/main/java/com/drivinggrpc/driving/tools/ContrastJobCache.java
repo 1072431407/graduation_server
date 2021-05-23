@@ -7,17 +7,16 @@ import java.util.concurrent.ConcurrentMap;
 
 public class ContrastJobCache {
     private final static ConcurrentMap<Integer, Job> cache = new ConcurrentHashMap<>();
-
+    public static void recode(int userId, Job job) {
+        Job jobCache = job.clone();
+        cache.put(userId, jobCache);
+    }
     public static Job contrast(int userId, Job job) {
         Job jobCache;
         if (cache.containsKey(userId)) {
             jobCache = cache.get(userId);
-            Job result = getContrast(jobCache, job);
-            cache.remove(userId);
-            return result;
+            return getContrast(jobCache, job);
         } else {
-            jobCache = job.clone();
-            cache.put(userId, jobCache);
             return null;
         }
 

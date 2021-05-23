@@ -101,8 +101,20 @@ public class JobController {
         int userId = UserHelper.getUserId(request);
         Job exam = jobServer.selectJobById(Integer.parseInt(job_id));
         logger.info("/job/check" + job_id);
-        Job result = ContrastJobCache.contrast(userId, exam);
-        model.addAttribute("showDialog", result != null);
-        return result;
+        return ContrastJobCache.contrast(userId, exam);
+    }
+
+    @ResponseBody
+    @GetMapping("/job/recode")
+    public String recodeJob(@RequestParam(value = "job_id") String job_id, Model model, HttpServletRequest request) {
+        try {
+            int userId = UserHelper.getUserId(request);
+            Job exam = jobServer.selectJobById(Integer.parseInt(job_id));
+            logger.info("/job/recode" + job_id);
+            ContrastJobCache.recode(userId, exam);
+            return "succeed";
+        }catch (Exception e){
+            return "记录失败";
+        }
     }
 }

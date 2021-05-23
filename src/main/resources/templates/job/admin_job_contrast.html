@@ -173,6 +173,10 @@
 
                                     <td>
                                         <button type="button" class="btn btn-warning btn-primary mb-1"
+                                                th:onclick="recode([[${job.job_id}]]);">
+                                            记录
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-primary mb-1"
                                                 data-toggle="modal" data-target="#smallmodal"
                                                 th:onclick="contrast([[${job.job_id}]]);">
                                             对比
@@ -229,11 +233,23 @@
     $(document).ready(function () {
         $('#bootstrap-data-table-export').DataTable();
     });
+    function recode(job_id) {
+        $.ajax({
+            type: "get",
+            url: "/design/job/recode",
+            dataType: "json",
+            data: {"job_id": job_id},
+            cache: false,
+            success: function (data) {
+                if (data == 'succeed'){
+
+                }else
+                    alert(data)
+            }
+        })
+    }
 
     function contrast(job_id) {
-        var divD = document.getElementById("smallmodal");
-        var close = document.getElementById("close");
-
         console.log(job_id);
         $.ajax({
             type: "get",
@@ -244,9 +260,6 @@
             success: function (data) {
                 console.log(data);
                 if (data != null) {
-                    divD.style.visibility = "visible";
-                    divD.style.display = "block";
-                    /*****可见****/
                     $("#name").html(data['name']);
                     $("#industry").html(data['industry']);
                     $("#money").html(data['money']);
@@ -255,12 +268,8 @@
                     $("#direction").html(data['direction']);
                 }
             },
-            error: function () {
-                console.log("data");
-                // divD.style.display = "none";
-                // /*****不可见****/
-                // divD.style.visibility = "hidden";
-                close.click()
+            error:function () {
+                alert("请先记录！")
             }
         })
     }
