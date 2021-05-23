@@ -1,7 +1,7 @@
 package com.drivinggrpc.driving.server;
 
 import com.drivinggrpc.driving.po.UserMessage;
-import javafx.util.Pair;
+import com.drivinggrpc.driving.tools.Pair;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;

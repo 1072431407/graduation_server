@@ -4,7 +4,8 @@ import com.drivinggrpc.driving.po.UserMessage;
 import com.drivinggrpc.driving.server.UserServer;
 import com.drivinggrpc.driving.tools.ApplicationTools;
 import com.drivinggrpc.driving.tools.UserHelper;
-import javafx.util.Pair;
+import com.drivinggrpc.driving.tools.Pair;
+
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

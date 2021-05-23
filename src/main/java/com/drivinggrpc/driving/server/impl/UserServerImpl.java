@@ -5,7 +5,7 @@ import com.drivinggrpc.driving.dao.UserDao;
 import com.drivinggrpc.driving.po.User;
 import com.drivinggrpc.driving.po.UserMessage;
 import com.drivinggrpc.driving.server.UserServer;
-import javafx.util.Pair;
+import com.drivinggrpc.driving.tools.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
